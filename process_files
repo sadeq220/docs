@@ -1,0 +1,4 @@
+
+function process(){
+find -maxdepth 1 -iname "*${1}*" -print0 | xargs -0 -I {} xdg-open "{}" 
+}
