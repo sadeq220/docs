@@ -1,0 +1,2 @@
+when invoking *.x do in infinte loop use this:
+setarch $(uname -m) -R ./test.x

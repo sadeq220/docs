@@ -3,7 +3,19 @@ CYAN='\033[0;36m'
 GREEN='\033[1;32m'
 RED='\033[0;31m'
 NC='\033[0m'
-
+while getopts ':v' optname; do
+    case $optname in
+    v)
+      echo -e  "${GREEN}@author sadeq${NC}"
+      echo -e  "${GREEN}@version 1.0.1${NC}"
+      exit 0
+      ;;
+    *)
+      echo -e  "${RED}unknown option${NC}"
+      exit 5
+      ;;
+    esac
+done
 declare -a jars
 echo -e  "${CYAN}time : $(date "+%F %R")${NC}"
 export EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://172.20.239.11:9091/service-registry/eureka
