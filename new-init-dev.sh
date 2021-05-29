@@ -16,6 +16,7 @@ while getopts ':v' optname; do
       ;;
     esac
 done
+
 declare -a jars
 echo -e  "${CYAN}time : $(date "+%F %R")${NC}"
 export EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://172.20.239.11:9091/service-registry/eureka
@@ -40,18 +41,21 @@ export SPRING_PROFILES_ACTIVE=dev
 	#export SPRING_DATASOURCE_PASSWORD=$DB_PASS
 
 	jars=( $(find "$PWD" -maxdepth 1 -iname "*.jar" ) )
-	
-	echo "press corresponding digit to start the jar"
+if [[ ${#jars[@]} -ne 0 ]]
+then
+	  echo "press corresponding digit to start the jar"
 	declare -i i=0
 	for jar in "${jars[@]}";do
 		#jars[i]=$(echo $jar | rev | cut -d'/' -f 1 | rev)
 		printf '%s    ' "$i";echo "$jar" | rev | cut -d'/' -f 1 | rev
 		((i=i+1))
 	done
-if [[ ${#jars[@]} -ne 0 ]]
-then
+
 	read -p "which one do you want to execute(type integer) :" jar_index
 	jar_file_name=$(echo ${jars[jar_index]})
+{
+  printf '%s---%s---%s\n' "$(date "+%F %R")" "$(who -m)" "$jar_file_name" &>> /var/log/jinit
+} 2>/dev/null
 	jar_file_name_kill=$(echo "$jar_file_name" | rev |cut -d'/' -f 1 | rev |cut -d'-' -f 1)
 	echo -e "$CYAN you chose : ${jar_file_name} $NC"
 JAR_LOC="${jar_file_name}"
