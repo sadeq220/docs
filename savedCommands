@@ -1,0 +1,13 @@
+-----battery---
+upower -e |sed -n '2p'
+upower -i <device-from-upower--e>
+tlp start
+battery status : tlp-stat -b
+----networking----
+ip link set <interface-name> name <new-interface-name>
+nmcli dev status
+nmcli radio wifi [on|off]
+nmcli device wifi connect <bssid,ssid> password <password> ifname <network-interface>
+nmcli connection [down|up] ssid
+nmcli connection modify help
+nmcli connection modify <ssid> autoconnect no
