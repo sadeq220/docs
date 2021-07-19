@@ -1,0 +1,13 @@
+#!/bin/bash
+
+pids=($(pgrep -f .jar$))
+declare -i i=0
+if [[ ${#pids[@]} -ne 0 ]]; then
+for pid in "${pids[@]}";do
+printf '%d---%s' "$i" "$(ps -o cmd|rev|cut -d' ' -f 1|cut -d'/' -f 1|rev)"
+((i = i + 1))
+done
+read -p "inter your choice(type integer):" choice
+PID=${pids["$choice"]}
+less /porc/"${PID}"/fd/1
+fi

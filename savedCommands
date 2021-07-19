@@ -11,3 +11,7 @@ nmcli device wifi connect <bssid,ssid> password <password> ifname <network-inter
 nmcli connection [down|up] ssid
 nmcli connection modify help
 nmcli connection modify <ssid> autoconnect no
+----apt----
+apt list <package>
+apt search --names-only <package>
+apt show <package>
