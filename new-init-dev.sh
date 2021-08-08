@@ -16,7 +16,7 @@ while getopts ':v' optname; do
   case $optname in
   v)
     echo -e "${GREEN}@author sadeq${NC}"
-    echo -e "${GREEN}@version 1.0.1${NC}"
+    echo -e "${GREEN}@version 1.0.2${NC}"
     exit 0
     ;;
   *)
@@ -39,6 +39,9 @@ for key in "${!map[@]}"; do
   fi
   if [ "$key" == "profile" ]; then
     export SPRING_PROFILES_ACTIVE="${map["$key"]}"
+  fi
+  if [ "$key" == "logpath" ]; then
+    export LogPath="${map["$key"]}"
   fi
 done
 
@@ -87,10 +90,10 @@ if [[ ${#jars[@]} -ne 0 ]]; then
     PID_JAR=$(pgrep -f "${jar_file_name_kill}")
     kill -9 "$PID_JAR"
     #test -f ${HUP_LOC}.out && rm -f ${HUP_LOC}.out
-    nohup java -jar -Djava.net.preferIPv4Stack=true -Djava.net.preferIPv4Addresses "$JAR_LOC" >/log/"${jar_file_name_kill}".out 2>&1 &
+    nohup java -jar -Djava.net.preferIPv4Stack=true -Djava.net.preferIPv4Addresses "$JAR_LOC" >"${LogPath:-/log/}${jar_file_name_kill}".out 2>&1 &
     echo -e "${GREEN} ${jar_file_name} previous process killed and new process executed${NC}"
   else
-    nohup java -jar -Djava.net.preferIPv4Stack=true -Djava.net.preferIPv4Addresses "$JAR_LOC" >/log/"${jar_file_name_kill}".out 2>&1 &
+    nohup java -jar -Djava.net.preferIPv4Stack=true -Djava.net.preferIPv4Addresses "$JAR_LOC" >"${LogPath:-/log/}${jar_file_name_kill}".out 2>&1 &
     echo -e "${GREEN} ${jar_file_name} just new process executed${NC}"
   fi
 else
