@@ -15,3 +15,13 @@ nmcli connection modify <ssid> autoconnect no
 apt list <package>
 apt search --names-only <package>
 apt show <package>
+------systemd----------
+#to create transient service unit file under current user service manager
+systemd-run --user --unit <transient-unit-name> -- <command>
+systemctl --user stop <transient-unit-name>
+systemctl --user reset-failed <transient-unit-name>
+
+#Unload the transient unit after it completed, even if it failed.
+#Normally, without this option, 
+#all units that ran and failed are kept in memory until the user explicitly resets their failure state with systemctl reset-failed or an equivalent command
+systemd-run --collect --user --unit <transient-unit-name> -- <command>
