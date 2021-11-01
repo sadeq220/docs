@@ -1,3 +1,5 @@
 shc*
 *.txt
 *.c
+*.x
+stdErr/

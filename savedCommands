@@ -11,13 +11,16 @@ nmcli device wifi connect <bssid,ssid> password <password> ifname <network-inter
 nmcli connection [down|up] ssid
 nmcli connection modify help
 nmcli connection modify <ssid> autoconnect no
+----DNS-----
+host -a <domain-name> <DNS-server-IP>
+kill -SIGUSR1 <pid-of-systemd-resolved> ; journalctl -u systemd-resolved
 ----apt----
 apt list <package>
 apt search --names-only <package>
 apt show <package>
 ------systemd----------
 #to create transient service unit file under current user service manager
-systemd-run --user --unit <transient-unit-name> -- <command>
+systemd-run --user -E <environment key>=<value> --unit <transient-unit-name> -- <command>
 systemctl --user stop <transient-unit-name>
 systemctl --user reset-failed <transient-unit-name>
 
