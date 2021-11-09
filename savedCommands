@@ -28,3 +28,5 @@ systemctl --user reset-failed <transient-unit-name>
 #Normally, without this option, 
 #all units that ran and failed are kept in memory until the user explicitly resets their failure state with systemctl reset-failed or an equivalent command
 systemd-run --collect --user --unit <transient-unit-name> -- <command>
+------ shell builtin commands-----
+compgen -c #to print all possible commands see also $(help compgen)
