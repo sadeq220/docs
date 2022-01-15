@@ -3,3 +3,4 @@ shc*
 *.c
 *.x
 stdErr/
+guid*

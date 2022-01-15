@@ -1,0 +1,3 @@
+script to deploy jarfile
+### mostly used within a non-cloud world (Static&Persistent servers)
+it currently dosn't support space and blanks in a jarfile name which will be revised by process subtitution soon
