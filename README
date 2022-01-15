@@ -13,15 +13,18 @@ nmcli connection modify help
 nmcli connection modify <ssid> autoconnect no
 ----DNS-----
 host -a <domain-name> <DNS-server-IP>
+
+#clear stub resolver cache
 kill -SIGUSR1 <pid-of-systemd-resolved> ; journalctl -u systemd-resolved
 ----apt----
 apt list <package>
-apt search --names-only <package>
+#see wich variant of package is installed and wich one is upgradable
+apt search --names-only <package-regex> | grep -P "(installed)|(upgradable)"
 apt show <package>
 ------systemd----------
 #to create transient service unit file under current user service manager
 systemd-run --user -E <environment key>=<value> --unit <transient-unit-name> -- <command>
-systemctl --user stop <transient-unit-name>
+systemctl --user stop <transient-unit-name> # default send SIGTERM
 systemctl --user reset-failed <transient-unit-name>
 
 #Unload the transient unit after it completed, even if it failed.
@@ -30,3 +33,7 @@ systemctl --user reset-failed <transient-unit-name>
 systemd-run --collect --user --unit <transient-unit-name> -- <command>
 ------ shell builtin commands-----
 compgen -c #to print all possible commands see also $(help compgen)
+-------command substitution---------
+#use null char for delimiter,-p for interactive command execution like -ok,-n for 3 arg per execution
+find -maxdepth 1 -iname "*.mp3" -print0 |xargs -0 -p -n3 -- bash -c 'echo $0 --- $1 ________ $2'
+
