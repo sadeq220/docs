@@ -1,5 +1,0 @@
-
-function process(){
-sleep 20
-find -maxdepth 1 -iname "*${1}*" -print0 | xargs -0 -I {} sh -c 'printf "%s G" "$@" &>/dev/null ' --  {}
-}

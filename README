@@ -34,6 +34,7 @@ systemd-run --collect --user --unit <transient-unit-name> -- <command>
 ------ shell builtin commands-----
 compgen -c #to print all possible commands see also $(help compgen)
 -------command substitution---------
-#use null char for delimiter,-p for interactive command execution like -ok,-n for 3 arg per execution
+#null char for delimiter,-p for interactive command execution like -ok,-n for 3 arg per execution
 find -maxdepth 1 -iname "*.mp3" -print0 |xargs -0 -p -n3 -- bash -c 'echo $0 --- $1 ________ $2'
-
+#pass all arguments at once like + 
+find -iname "*.trash" -print0 | xargs -0 -- sh -c 'printf "%s-" "$@" ' {}
