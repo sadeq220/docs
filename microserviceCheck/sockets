@@ -1,0 +1,36 @@
+# portal user pass #
+# dev user pass #
+dev-username-portal=sepidehqc
+dev-pass-portal=s@123456
+# test user pass #
+test-username-portal=hellokitty
+test-pass-portal=hh@123456
+# prod user pass #
+prod-username-portal=Vihan981012
+prod-pass-portal=Aa@123456
+#########################
+# microservice sockets #
+## dev sockets ##
+contract-dev=172.20.239.16:10000
+delivery-dev=172.20.239.16:10001
+facility-dev=172.20.239.16:10002
+purchase-dev=172.20.239.16:10003
+profile-dev=172.20.239.16:9998
+common-dev=172.20.239.16:9999
+PKCS-dev=172.20.239.12:9997
+## test sockets ##
+contract-test=172.20.241.36:10000
+delivery-test=172.20.241.37:10001
+facility-test=172.20.241.37:10002
+purchase-test=172.20.241.37:10003
+profile-test=172.20.241.39:9998
+common-test=172.20.241.39:9999
+PKCS-test=172.20.241.4:9997
+## prod sockets ###
+contract-prod=172.20.239.68:10000
+delivery-prod=172.20.239.69:10001
+facility-prod=172.20.239.69:10002
+purchase-prod=172.20.239.69:10003
+profile-prod=172.20.239.71:9998
+common-prod=172.20.239.71:9999
+PKCS-prod=172.20.239.66:9997
