@@ -3,6 +3,13 @@ upower -e |sed -n '2p'
 upower -i <device-from-upower--e>
 tlp start
 battery status : tlp-stat -b
+----image processing----
+apt install imagemagick
+identify <image-name>
+#to reduce qulity and file size of the image
+convert <original-image> -quality n% <produced-image-name>
+#to reduce image size and file size of the image
+covert <original-image> -resize mxn <produced-image-name>
 ----networking----
 ip link set <interface-name> name <new-interface-name>
 nmcli dev status
