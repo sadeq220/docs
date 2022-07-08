@@ -24,9 +24,13 @@ host -a <domain-name> <DNS-server-IP>
 #clear stub resolver cache
 kill -SIGUSR1 <pid-of-systemd-resolved> ; journalctl -u systemd-resolved
 ----apt----
+# apt uses dpkg under the hood to [ install | remove | purge ] packeges
+
 apt list <package>
 #see wich variant of package is installed and wich one is upgradable
 apt search --names-only <package-regex> | grep -P "(installed)|(upgradable)"
+#see package version
+apt policy <package> ; apt-cache madison <package>
 apt show <package>
 ------systemd----------
 #to create transient service unit file under current user service manager
