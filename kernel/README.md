@@ -11,7 +11,22 @@
 ```shell
 lsmod
 ```
-
+- To show information about a module: 
+```shell
+modinfo <module_name>
+```
+- Kernel modules are handled by tools provided by `kmod` package
+```shell
+dpkg --listfiles kmod
+```
+- To load a module
+```shell
+modprobe <module_name>
+```
+- To unload a module
+```shell
+modprobe -r <module_name>
+```
 
 ## Refrences
 - [Arch wiki:kernel modules](https://wiki.archlinux.org/title/Kernel_module)
