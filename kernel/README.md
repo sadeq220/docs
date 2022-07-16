@@ -4,6 +4,11 @@
 - A module can be configured as built-in or loadable.
 - To dynamically load or remove a module, it has to be configured as a loadable module in the kernel configuration (the line related to the module will therefore display the letter `M`).
 - Most of the device drivers are used in the form of kernel modules.
+- kernel modules usage :
+	- device deriver
+	- file system support
+	- network protocol
+	- system call
 - Kernel modules have a `.ko` extension as of kernel 3.0. 
 - A character device is one of the simplest ways to communicate with a module in the Linux kernel.
 - the character device drivers receive unaltered system calls made by users over device-type files(not altered by VFS)
