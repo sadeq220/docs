@@ -27,6 +27,12 @@ modprobe <module_name>
 ```shell
 modprobe -r <module_name>
 ```
+- LKMs(Loadable Kernel Modules) are located in
+```shell
+/lib is symlink to /usr/lib 
+ls /usr/lib/modules/$(uname -r)/kernel
+```
+
 
 ## Refrences
 - [Arch wiki:kernel modules](https://wiki.archlinux.org/title/Kernel_module)
