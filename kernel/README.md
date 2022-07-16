@@ -6,7 +6,7 @@
 - Most of the device drivers are used in the form of kernel modules.
 - kernel modules usage :
 	- device deriver
-	- file system support
+	- file system driver
 	- network protocol
 	- system call
 - Kernel modules have a `.ko` extension as of kernel 3.0. 
@@ -42,3 +42,4 @@ ls /usr/lib/modules/$(uname -r)/kernel
 ## Refrences
 - [Arch wiki:kernel modules](https://wiki.archlinux.org/title/Kernel_module)
 - [wiki books:the linux kernel modules](https://en.wikibooks.org/wiki/The_Linux_Kernel/Modules)
+- [tldp.org:introduction to LKM](https://tldp.org/HOWTO/Module-HOWTO/x73.html)
