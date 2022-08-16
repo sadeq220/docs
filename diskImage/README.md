@@ -12,16 +12,17 @@
 - fs-aware image
 	- e2image -a 
 	- xfs_copy
+>*NOTE*: .bin, .raw, or .img files are images extracted in pure RAW format .
 
-##### .bin, .raw, or .img files are images extracted in pure RAW format.
-##### I found `qcow2` format most versatile disk image format support encryption , compression , snapshots
-##### `qcow2` format also has a smaller size as it wont include unused bytes ( holes )
-##### KVM and QEMU already using this format for their virtualization disk image
-##### QEMU is a generic and open source machine emulator and virtualizer.
-##### QEMU also provides a number of standalone commandline utilities, such as the `qemu-img` disk image utility that allows you to create, convert and modify disk images.
+>**qcow2**
+>##### I found `qcow2` format most versatile disk image format that supports encryption , compression ,and snapshots.
+>##### `qcow2` format also has a smaller size cause it wont include unused bytes ( holes )
+>##### KVM and QEMU already using this format for their virtualization disk image
+>##### QEMU is a generic and open source machine emulator and virtualizer.
+>##### QEMU also provides a number of standalone commandline utilities, such as the `qemu-img` disk image utility that allows you to create, convert and modify disk images.
 
-### create disk Image with luks file format , file name is "encrypted_backup2" and file virtual size is "27109851136 bytes"
-### created disk Image is sparse file
+### create disk Image with `luks file format` , file name is "encrypted_backup2" and file virtual size is "27109851136 bytes"
+> created disk Image is a sparse file
 ```sh
 openssl rand -hex 16 > luksPw
 qemu-img create --object secret,id=sec0,file=luksPw -f luks -o key-secret=sec0 encrypted_backup2 27109851136
