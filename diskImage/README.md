@@ -1,5 +1,6 @@
 ## Disk Image
 ### A disk image is a computer file containing the complete contents and structure of a data storage device.
+### A disk image is usually made by creating a sector-by-sector copy of the source medium 
 ### usage : 
  - backup and recovery
  - remote distribution of software such as Linux distributions ( .iso files )
@@ -12,7 +13,12 @@
 	- e2image -a 
 	- xfs_copy
 
-### .bin, .raw, or .img files are images extracted in pure RAW format.
+##### .bin, .raw, or .img files are images extracted in pure RAW format.
+##### I found `qcow2` format most versatile disk image format support encryption , compression , snapshots
+##### `qcow2` format also has a smaller size as it wont include unused bytes ( holes )
+##### KVM and QEMU already using this format for their virtualization disk image
+##### QEMU is a generic and open source machine emulator and virtualizer.
+##### QEMU also provides a number of standalone commandline utilities, such as the `qemu-img` disk image utility that allows you to create, convert and modify disk images.
 
 ### create disk Image with luks file format , file name is "encrypted_backup2" and file virtual size is "27109851136 bytes"
 ### created disk Image is sparse file
