@@ -17,5 +17,12 @@
 - each goal belong to one plugin which illustrated as bellow
 ```
 plugin:goal
+e.g.
+mvn help:effective-pom
 ``` 
-	
+### POM
+##### POM stands for "Project Object Model" .It is an XML representation of a `Maven project` held in a file named *pom.xml* .It is an XML file that contains information about the project and configuration details used by Maven to build the project. like OOP , pom files support inheritance . the parent of all pom files is `super-pom` which has a default configurations .
+- super-pom
+- effective-pom
+- parent-pom
+- aggregate-pom
