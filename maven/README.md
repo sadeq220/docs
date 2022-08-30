@@ -31,9 +31,16 @@ mvn clean dependency:copy-dependencies
 > For example A project that is purely metadata (packaging value is pom) only binds goals to the `install` and `deploy` phases 
 
 - super-pom
+	- The Super POM is Maven's default POM. All POMs extend the Super POM unless explicitly set, meaning the 	   configuration specified in the Super POM is inherited by the POMs you created for your projects.
 - effective-pom
+	- The pom used for build (POM that results from the application of interpolation, inheritance and active 	   profiles)
 - parent-pom
+	- A pom which other poms can inherit its ( dependencies , properties , goal bindings )
 - aggregate-pom
+	- cascade your maven commands to its modules
 
+### Plugin
+- add goals to phases
+##### plugins can contain information that indicates which lifecycle phase to bind a goal to. Note that adding the plugin on its own is not enough information - you must also specify the goals you want to run as part of your build.
 ## Refrences
 - [apache maven docs](https://maven.apache.org/guides/)
