@@ -27,10 +27,13 @@ mvn clean dependency:copy-dependencies
 > e.g parent-pom that has a packaging type *pom*
 
 
-> Each packaging ( "jar","war","ear","pom" )  contains a list of goals to bind to a particular phase
+> Each packaging ( "jar","war","ear","pom" )  contains a list of goals to bind to a particular phase.
 > For example A project that is purely metadata (packaging value is pom) only binds goals to the `install` and `deploy` phases 
 
 - super-pom
 - effective-pom
 - parent-pom
 - aggregate-pom
+
+## Refrences
+- [apache maven docs](https://maven.apache.org/guides/)
