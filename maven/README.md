@@ -42,5 +42,30 @@ mvn clean dependency:copy-dependencies
 ### Plugin
 - add goals to phases
 ##### plugins can contain information that indicates which lifecycle phase to bind a goal to. Note that adding the plugin on its own is not enough information - you must also specify the goals you want to run as part of your build.
+
+## Maven dependency management
+- maven project classpath libs(dependencies) management
+- in maven project we have  **`transitive dependency`** and **`direct dependency`** .
+- both kind of dependencies will be in a maven project classpath libs .
+- **transitive dependency** is a dependency of your maven project dependency.
+
+Maven dependencies are also Maven projects, so they also have their own “pom.xml” file. This is how dependencies declare their own dependencies, which we call the “transitive dependencies”
+
+- there should be **only one dependency version** in classpath lib, here are approachs to choose the right version taken by maven :
+	- nearest definition
+	- dependency management
+	
+
+
+<pre>  A
+  ├── B
+  │   └── C
+  │       └── D 2.0
+  └── E
+      └── D 1.0</pre>
+      
+in the preceding example {C,D} were transitive dependencies and due to maven nearest definition D version 1.0 will be chosen for project classpath.
+
 ## Refrences
 - [apache maven docs](https://maven.apache.org/guides/)
+- [maven dependency mechanism](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html)
