@@ -30,3 +30,6 @@ class SpELParser {
 }
 ```
 
+By default, SpEL uses the conversion service available in Spring core (org.springframework.core.convert.ConversionService) .
+ConversionService is a spring replacement of legacy PropertyEditors from Java EE specification.
+
