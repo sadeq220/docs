@@ -1,5 +1,5 @@
 # spring expression parsers
-every expression used in spring annotations like `@Scheduled(cron='~')` or `@Value("#{~})`
+every expression used in spring annotations like `@Scheduled(cron="~")` or `@Value("#{~}")`
 has a corresponding Bean in Ioc container which is responsible for parsing and compiling an expression .
 
 The following code introduces the **SpEL API to evaluate the arithmetic expression.**
