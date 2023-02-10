@@ -13,5 +13,5 @@ to set mark 'a' : ma
 to goto mark 'a' : 'a
 ## bypass alias
 - use built-in command  *command*  ` e.g. command ls `
-- use leading '\' ` e.g. \ls `
+- use leading \\ ` e.g. \ls `
 ![screenShot_bypass_alias](screenShot-bypassAlias.png)
