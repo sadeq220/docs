@@ -1,3 +1,11 @@
+### Here I gathered some useful bash tricks , i have encountered.   
+ - [bash expansions](#s1)  
+ - [less tricks](#s2) 
+ - [bypass alias](#bypass-alias)
+ - [ directory stack](#bash-directory-stack)
+ 
+<div id="s1" />   
+
 ## bash EXPANSION(7s)
 - parameter expansion ` ${variable} $var `
 - command substitution `` $(command) `command` ``
@@ -8,9 +16,13 @@
 - word splitting(IFS) **arg increasing*
 
 > use " " to prevent *arg increasing*    
+
+<div id="s2" />   
+
 ## less tricks
 to set mark 'a' : ma   
 to goto mark 'a' : 'a
+
 ## bypass alias
 - use built-in command  *command*  ` e.g. command ls `
 - use leading \\ ` e.g. \ls `   
