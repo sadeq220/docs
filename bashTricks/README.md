@@ -16,13 +16,13 @@ to goto mark 'a' : 'a
 - use leading \\ ` e.g. \ls `   
 <p>
 <img src="screenShot-bypassAlias.png" width="50%" height="300" />
-</p>
+</p>   
+
 ## bash directory stack   
 The directory stack is a list of recently-visited directories. The ` pushd ` builtin adds directories to the stack as it changes the current directory, and the ` popd ` builtin removes specified directories from the stack and changes the current directory to the directory removed. The ` dirs ` builtin displays the contents of the directory stack. The current directory is always the "top" of the directory stack.    
-```
+~~~sh
 dirs -v #to show directory stack with indices
 pushd <dir> #to push cwd to directory stack and also change cwd to 'dir'
-cd ~<N> # where <N> is directory stack index , to use directory stack index and tilde expansion to change cwd
+cd ~<N> # where <N> is directory stack index , to use directory stack index and tilde expansion to change cwd   
 pushd # push cwd to directory stack and change cwd to ~1
-```
-
+~~~
