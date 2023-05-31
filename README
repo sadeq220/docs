@@ -48,7 +48,7 @@ systemctl --user reset-failed <transient-unit-name>
 #all units that ran and failed are kept in memory until the user explicitly resets their failure state with systemctl reset-failed or an equivalent command
 systemd-run --collect --user --unit <transient-unit-name> -- <command>
 # transient timer unit 
-# for every timer unit there is a service unit with the exact name ( e.g. foo.service , foo.timer )
+# For each timer unit there is a matching service unit ( e.g. foo.service , foo.timer )
 systemd-run --unit=<transient-unit-name> --on-active="12h 30m" -- <command>
 ------ shell builtin commands-----
 compgen -c #to print all possible commands see also $(help compgen)
