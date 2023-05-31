@@ -28,6 +28,7 @@ kill -SIGUSR1 <pid-of-systemd-resolved> ; journalctl -u systemd-resolved
 # dpkg  maintains state of available packages
 dpkg --status <package>
 dpkg --listfiles <package>
+dpkg --list <package-name-pattern> # see which packages are availabe for the given pattern
 #List files installed to your system from package-name.
 
 apt list <package>
