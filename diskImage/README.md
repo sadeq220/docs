@@ -53,12 +53,13 @@ qemu-img convert --object secret,id=sec0,file=luksPw --image-opts driver=qcow2,f
 shred -vzu backupTest.qcow2 
 ```
 ### How to mount a qcow2 formatted image ?   
-use Network Block Device (NBD) and command utility called `qemu-nbd`   
+use Network Block Device (NBD) and command utility called `qemu-nbd`  
+
 **Step 1 - Load NBD kernel module with max_part module parameter**
 ```shell
-modprobe mbd max_part=8
+modprobe nbd max_part=8
 ```
-**Step 2 - Connect the encrypted QCOW2 as network block device**
+**Step 2 - Connect the encrypted QCOW2 as a network block device**
 ```shell
 qemu-nbd --object secret,id=sec0,file=luksPassphrase --image-opts driver=qcow2,encrypt.key-secret=sec0,file.filename=testingDiskImg_encrypted.qcow2 --connect=/dev/nbd0
 ```
