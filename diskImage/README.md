@@ -19,7 +19,7 @@
 >##### `qcow2` format also has a smaller size cause it wont include unused bytes ( holes )
 >##### KVM and QEMU already using this format for their virtualization disk image
 >##### QEMU is a generic and open source machine emulator and virtualizer.
->##### QEMU also provides a number of standalone commandline utilities, such as the `qemu-img` disk image utility that allows you to create, convert and modify disk images.
+>##### QEMU also provides a number of standalone commandline utilities, such as the `qemu-img` disk image utility that allows you to create, convert and modify disk images.   
 
 ### create disk Image with `luks file format` , file name is "encrypted_backup2" and file virtual size is "27109851136 bytes"
 > created disk Image is a sparse file
@@ -27,6 +27,8 @@
 openssl rand -hex 16 > luksPw
 qemu-img create --object secret,id=sec0,file=luksPw -f luks -o key-secret=sec0 encrypted_backup2 27109851136
 ```
+<div id="create-encrypted-qcow2" />
+
 ### create disk Image with qcow2 file format , encrypted with luks
 ```sh
 qemu-img create --object secret,id=sec0,file=luksPw -f qcow2 -o encrypt.format=luks,encrypt.key-secret=sec0 backupTest_encrypted.qcow2 2710985113
@@ -43,7 +45,8 @@ qemu-img convert -O raw backupTest.qcow2 backupTest.raw && mount backupTest.raw 
 ```sh
 qemu-img info backupTest.qcow2
 ```
-### encrypt qcow2 disk Image file using luks aes-256-xts
+### encrypt qcow2 disk Image file using luks aes-256-xts   
+you should create an empty encrypted qcow2 disk image first (e.g. "backupTest_encrypted.qcow2" in this example) [how_to](#create-encrypted-qcow2)
 ```sh
 qemu-img convert --object secret,id=sec0,file=luksPw --image-opts driver=qcow2,file.filename=backupTest.qcow2 --target-image-opts driver=qcow2,encrypt.key-secret=sec0,file.filename=backupTest_encrypted.qcow2 -n -p
 ```
