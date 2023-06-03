@@ -52,3 +52,27 @@ You should Erase the unencrypted image securely using `shred` after converting i
 qemu-img convert --object secret,id=sec0,file=luksPw --image-opts driver=qcow2,file.filename=backupTest.qcow2 --target-image-opts driver=qcow2,encrypt.key-secret=sec0,file.filename=backupTest_encrypted.qcow2 -n -p
 shred -vzu backupTest.qcow2 
 ```
+### How to mount a qcow2 formatted image ?   
+use Network Block Device (NBD) and command utility called `qemu-nbd`
+**Step 1 - Load NBD kernel module with max_part module parameter**
+```shell
+modprobe mbd max_part=8
+```
+**Step 2 - Connect the encrypted QCOW2 as network block device**
+```shell
+qemu-nbd --object secret,id=sec0,file=luksPassphrase --image-opts driver=qcow2,encrypt.key-secret=sec0,file.filename=testingDiskImg_encrypted.qcow2 --connect=/dev/nbd0
+```
+**Step3 - List disk image block devices ( partitions are also block devices )**
+```shell
+lsblk /dev/nbd0
+```
+**Step4 - Mount the desired block device (e.g. nbd0p1 , nbd0 )**
+```shell
+mount /dev/nbd0 /mnt/mountPoint
+```
+**Step5 - Unmount and disconnect the device**
+```shell
+umount /mnt/mountPoint
+qemu-nbd --diconnect /dev/nbd0
+modprobe -r nbd 
+```
