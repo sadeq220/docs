@@ -46,7 +46,9 @@ qemu-img convert -O raw backupTest.qcow2 backupTest.raw && mount backupTest.raw 
 qemu-img info backupTest.qcow2
 ```
 ### encrypt qcow2 disk Image file using luks aes-256-xts   
-you should create an empty encrypted qcow2 disk image first (e.g. "backupTest_encrypted.qcow2" in this example) [how_to](#create-encrypted-qcow2)
+You should create an empty encrypted qcow2 disk image with exact size of unencrypted one first [how_to](#create-encrypted-qcow2) (e.g. "backupTest_encrypted.qcow2" in this example)   
+You should Erase the unencrypted image securely using `shred` after converting it to encrypted image.
 ```sh
 qemu-img convert --object secret,id=sec0,file=luksPw --image-opts driver=qcow2,file.filename=backupTest.qcow2 --target-image-opts driver=qcow2,encrypt.key-secret=sec0,file.filename=backupTest_encrypted.qcow2 -n -p
+shred -vzu backupTest.qcow2 
 ```
