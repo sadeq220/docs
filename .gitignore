@@ -4,3 +4,4 @@ shc*
 *.x
 stdErr/
 guid*
+.idea/
