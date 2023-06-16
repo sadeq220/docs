@@ -6,5 +6,5 @@ Firmware is responsible for controlling various hardware components, such as pro
 Firmware is usually written in low-level programming languages like *assembly* or *C* or even *Java ME*.   
 You can deploy your firmware onto **microcontrollers** like *raspberry PI PICO*.   
 Microcontroller is a programmable device for controlling other electronic components, and it communicates with other electronic devices using its **GPIO**.   
-microcontrollers are designed specifically for **Embedded Systems** and are resource-constrained devices.   
+Microcontrollers are designed specifically for **Embedded Systems** and are resource-constrained devices.   
 ### BIOS is motherboard firmware.
