@@ -3,6 +3,7 @@ Firmware is a permanent software programmed into a read-only memory(**ROM**) hen
 Firmware may be written into **ROM**, electrically erasable programmable read-only memory(**EEPROM**), or **flash memory**.   
 You can think of firmware as "software for hardware", it serves as an intermediary layer between the hardware and the higher-level software.   
 Firmware is responsible for controlling various hardware components, such as processors, memory, input/output devices, sensors, and network interfaces.  
-Firmware is usually written in low-level programming languages like *assembly* or *C*.
-
+Firmware is usually written in low-level programming languages like *assembly* or *C* or even *Java ME*.   
+You can deploy your firmware onto **microcontrollers** like *raspberry PI PICO*.   
+microcontrollers are designed specifically for **Embedded Systems** and are resource-constrained devices.   
 ### BIOS is motherboard firmware.
