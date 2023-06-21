@@ -10,7 +10,7 @@ Microcontrollers are designed specifically for **Embedded Systems** and are reso
 ### BIOS is motherboard firmware.
 Introduction The Basic Input/Output System (BIOS) is a firmware interface present in legacy computer systems.   
 This documentation provides an overview of BIOS functionality, highlighting its key features and limitations.   
-Features of BIOS:
+**Features of BIOS:**
 - Hardware Initialization
    - BIOS is responsible for initializing the computer's hardware components during the boot process.
    - It performs tasks such as identifying and configuring system devices, including the CPU, memory, and peripherals.
@@ -25,7 +25,7 @@ Features of BIOS:
    - BIOS initiates the boot process by loading and executing the code located in the first sector (MBR) of the bootable device.   
    - The primary bootloader, such as GRUB stage 1, is responsible for loading the secondary bootloader.   
 
-Limitations of BIOS:   
+**Limitations of BIOS:**
 - Lack of partition table and file system understanding
   - BIOS firmware does not directly understand the structure or layout of the partition table (such as MBR).
     The BIOS loads and executes the code in the first sector without interpreting the partition table information.
