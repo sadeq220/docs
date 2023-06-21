@@ -25,4 +25,16 @@ Features of BIOS:
    - BIOS initiates the boot process by loading and executing the code located in the first sector (MBR) of the bootable device.   
    - The primary bootloader, such as GRUB stage 1, is responsible for loading the secondary bootloader.   
 
-Limitations of BIOS:
+Limitations of BIOS:   
+- Lack of partition table and file system understanding
+  - BIOS firmware does not directly understand the structure or layout of the partition table (such as MBR).
+    The BIOS loads and executes the code in the first sector without interpreting the partition table information.
+  - The concept of boot flags and marking an active partition is relevant to the partition table scheme used by the operating system and boot loaders.
+    The BIOS itself does not evaluate or recognize boot flags or actively identify partitions.
+  - It relies on the secondary bootloader, such as GRUB stage 2, to interact with the file system and load the operating system .
+
+- Inability to Update
+  - BIOS firmware is typically stored on a read-only memory chip (ROM) on the motherboard.
+    Once flashed, it cannot be easily updated or modified.
+
+![BIOS scheme](https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/GNU_GRUB_on_MBR_partitioned_hard_disk_drives.svg/1536px-GNU_GRUB_on_MBR_partitioned_hard_disk_drives.svg.png "BIOS scheme")
