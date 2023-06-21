@@ -36,5 +36,6 @@ This documentation provides an overview of BIOS functionality, highlighting its 
 - Inability to Update
   - BIOS firmware is typically stored on a read-only memory chip (ROM) on the motherboard.
     Once flashed, it cannot be easily updated or modified.
-
-<img alt="BIOS scheme" height="200" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/GNU_GRUB_on_MBR_partitioned_hard_disk_drives.svg/1536px-GNU_GRUB_on_MBR_partitioned_hard_disk_drives.svg.png" title="BIOS scheme" width="60%"/>
+<p align="center" >
+<img alt="BIOS scheme" height="600" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/GNU_GRUB_on_MBR_partitioned_hard_disk_drives.svg/1536px-GNU_GRUB_on_MBR_partitioned_hard_disk_drives.svg.png" title="BIOS scheme" width="70%"/>
+</p>
