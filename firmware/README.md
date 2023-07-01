@@ -40,7 +40,7 @@ This documentation provides an overview of BIOS functionality, highlighting its 
 <img alt="BIOS scheme" height="600" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/GNU_GRUB_on_MBR_partitioned_hard_disk_drives.svg/1536px-GNU_GRUB_on_MBR_partitioned_hard_disk_drives.svg.png" title="BIOS scheme" width="70%"/>
 </p>
 
-### UEFI is a specification governing the behaviours of compatible firmware interfaces.   
+### UEFI is a pure interface specification.
 UEFI is an evolution of its predecessor ‘EFI’   
 - includes built-in shell 
 - can interpret a partition table(GPT) and mount the ESP (EFI System Partition) file system   
@@ -48,4 +48,5 @@ UEFI is an evolution of its predecessor ‘EFI’
 
 ### References
 [redhat BIOS boot process ](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/installation_guide/s1-boot-init-shutdown-process#s2-boot-init-shutdown-bios )   
-[redhat UEFI boot process ](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/installation_guide/s2-grub-whatis-booting-uefi)
+[redhat UEFI boot process ](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/installation_guide/s2-grub-whatis-booting-uefi)   
+[wikipedia BIOS](https://en.wikipedia.org/wiki/BIOS)
