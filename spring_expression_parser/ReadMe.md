@@ -29,7 +29,8 @@ class SpELParser {
     }
 }
 ```
-In the following code we retrieve the root object field value called "id"
+In the following code we retrieve the root object field value called "id"   
+Using the `EvaluationContext` is the mechanism to use if the root object is unlikely to change, it can simply be set once in the evaluation context.
 >The more common usage of SpEL is to provide an expression string that is evaluated against a specific object instance (called the root object).
 ```java
 public class SpELTest {
