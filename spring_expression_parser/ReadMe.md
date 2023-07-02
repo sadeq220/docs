@@ -5,20 +5,20 @@ has a corresponding Bean in Ioc container which is responsible for parsing and c
 The following code introduces the **SpEL API to evaluate the arithmetic expression.**
 
 ```java
-class ExpressionParser {
-    
-    public static void main(String[] args) {
+public class SpELTest {
+    @Test
+    public void Test_SpEL_parser_Bean(){
         SpelExpressionParser spelExpressionParser = new SpelExpressionParser();
-        SpelExpression spelExpression = spelExpressionParser.parseRaw("5*17");
-        spelExpression.compileExpression();
-        System.out.println(spelExpression.getValue());
-        CronSequenceGenerator cronSequenceGenerator = new CronSequenceGenerator("0 */30 * * * ?");
-        Date next = cronSequenceGenerator.next(new Date());
-        System.out.println(next);
+        SpelExpression spelExpression = spelExpressionParser.parseRaw("5*12");
+        spelExpression.compileExpression();  // SpEL: unable to compile (5 * 12)
+        Object resultOfExpression = spelExpression.getValue();
+        Assertions.assertEquals(resultOfExpression,Integer.valueOf(60));
     }
 }
 ```
 SpEL supports a wide range of features, such as calling methods, accessing properties, and calling constructors.
+> The language syntax is similar to Unified EL but offers additional features,   
+> most notably method invocation and basic string templating functionality.
 ```Java
 class SpELParser {
 
