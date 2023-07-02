@@ -29,7 +29,40 @@ class SpELParser {
     }
 }
 ```
+In the following code we retrieve the root object field value called "id"
+>The more common usage of SpEL is to provide an expression string that is evaluated against a specific object instance (called the root object).
+```java
+public class SpELTest {
+    @Test
+    public void Test_SpEL_Against_Context() {
+        Integer testingId = 99;
+        SpELContextModel spELContextModel = new SpELContextModel(testingId, "Sadeq Safdari", null); // context model field may be public or has a getter to work
+        StandardEvaluationContext standardEvaluationContext = new StandardEvaluationContext(spELContextModel);
 
+        SpelExpressionParser spelExpressionParser = new SpelExpressionParser();
+        Expression expression = spelExpressionParser.parseExpression("id");
+        Object expressionResult = expression.getValue(standardEvaluationContext);
+
+        Assertions.assertEquals(expressionResult, testingId);
+    }
+
+    private static class SpELContextModel {
+        private Integer id;
+        public String name;
+        public Long code;
+
+        public SpELContextModel(Integer id, String name, Long code) {
+            this.id = id;
+            this.name = name;
+            this.code = code;
+        }
+
+        public Integer getId() {
+            return id;
+        }
+    }
+}
+```
 By default, SpEL uses the conversion service available in Spring core (org.springframework.core.convert.ConversionService) .
 ConversionService is a spring replacement of legacy PropertyEditors from Java EE specification.
 
