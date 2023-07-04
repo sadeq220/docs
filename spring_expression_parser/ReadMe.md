@@ -20,12 +20,14 @@ SpEL supports a wide range of features, such as calling methods, accessing prope
 > The language syntax is similar to Unified EL but offers additional features,   
 > most notably method invocation and basic string templating functionality.
 ```Java
-class SpELParser {
+class SpELTest {
 
-    public static void main(String[] args) {
+    @Test
+    public void Test_SpEL_parser_Method_Invocation(){
         ExpressionParser parser = new SpelExpressionParser();
         Expression exp = parser.parseExpression("'Hello World'.concat('!')");
-        String message = (String) exp.getValue();
+        String expressionResult = exp.getValue(String.class);
+        Assertions.assertEquals("Hello World!",expressionResult);
     }
 }
 ```
