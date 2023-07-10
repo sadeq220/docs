@@ -1,6 +1,7 @@
 ### The Device Mapper   
 The Device Mapper is a **kernel driver** that provides a framework for volume management.  
-It provides a generic way of creating mapped devices, which may be used as logical volumes.   
+It provides a generic way of creating **mapped devices**, which may be used as logical volumes.      
+**mapped devices** in Linux are typically **virtual block devices**. They are created to represent or abstract physical block devices, partitions, or other storage components.   
 The Device Mapper provides the foundation for a number of higher-level technologies such as LVM , cryptsetup luks , raid.   
 The user interface is the `dmsetup` command.    
 The Device Mapper supports a variety of **mapping targets** ,   
