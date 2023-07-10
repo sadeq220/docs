@@ -12,6 +12,18 @@ A mapped device is defined by a table that specifies how to map each range of lo
 ```shell
 dmsetup table <device>
 ```
+The table for a mapped device is constructed from a list of lines of the form:
+```
+start length mapping [mapping_parameters...]
+```
+- *start* is a starting block(sector) in virtual device which must be 0 at the first line.
+- *length* is a segment length , it indicates number of sectors for this segment      
+mapping parameters are specified in a line of the mapping table depends on which **mapping type** is specified on the line.   
+for example "0 4161536 crypt aes-xts-plain64 :64:logon:cryptsetup:3ff6b0f6-7d7e-4fe7-b24a-94d2294f43e3-d0 0 8:33 32768"      
+preceding table contains only one line , and contained information are :
+- mapped device contains 416536 * 512 bytes size. ( length * sector )
+- **mapping type/target** is *crypt* 
+- this line also specified a device in its mapping parameters as *8:33* which is in format of **major:minor**.    
 
 ### References
 [redhat doc](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/logical_volume_manager_administration/device_mapper)
