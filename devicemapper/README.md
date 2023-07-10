@@ -11,6 +11,7 @@ So, for example, two disks may be concatenated into one logical volume with a pa
 ### Device Table Mappings   
 A mapped device is defined by a table that specifies how to map each range of logical sectors of the device using a supported Device Table mapping.   
 ```shell
+dmsetup ls # list mapped devices
 dmsetup table <device>
 ```
 The table for a mapped device is constructed from a list of lines of the form:
