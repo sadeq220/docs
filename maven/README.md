@@ -1,5 +1,5 @@
 ## Apache Maven
-- Has a three built-in biuld lifecycles
+- Has a three built-in build lifecycles
 	- default
 	- clean
 	- site
