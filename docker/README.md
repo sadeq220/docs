@@ -13,8 +13,8 @@ Docker is written in the **Go programming language** and leverages the **Linux k
 - **Container** :  sandboxed process on an isolated filesystem
 - **Volume**
 - **Network**   
-### Footnotes
-[^1]: The docker documents state "client-server architecture".
 ### References
 - [docker overview doc](https://docs.docker.com/get-started/overview/)
 - [docker get-started doc ](https://docs.docker.com/get-started/)
+
+[^1]: The docker documents state "client-server architecture".
