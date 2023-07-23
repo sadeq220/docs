@@ -13,6 +13,23 @@ Docker is written in the **Go programming language** and leverages the **Linux k
 - **Container** :  sandboxed process on an isolated filesystem
 - **Volume**
 - **Network**   
+### Build with Docker   
+To build images automatically use the `Dockerfile` text file.
+You write the `Dockerfile` in a domain-specific language, called the Dockerfile syntax.   
+Here is the format of the Dockerfile:
+```text
+# Comment
+INSTRUCTION arguments
+```
+A Dockerfile must begin with a **FROM instruction**.   
+The **FROM instruction** specifies the *Parent Image* ( or base image by "FROM scratch" ) from which you are building.   
+The order of Dockerfile instructions matter. A Docker build consists of a series of ordered build instructions.   
+Each instruction in a Dockerfile roughly translates to an **image layer**.
+> When you run a build, the builder attempts to reuse layers from earlier builds. If a layer of an image is unchanged, then the builder picks it up from the build cache.   
+> If a layer has changed since the last build, that layer, and all layers that follow, must be rebuilt.   
+
+so it is better to place any dependency download instruction at the beginning of the Dockerfile .   
+
 ### References
 - [docker overview doc](https://docs.docker.com/get-started/overview/)
 - [docker get-started doc ](https://docs.docker.com/get-started/)
