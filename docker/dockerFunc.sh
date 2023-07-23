@@ -3,6 +3,7 @@
 searchInRegistry(){
 local dockerImageName=${1:-ubuntu}
 # "is-official" to return only official image builds
+# The Docker Official Images are a curated (well organized)set of Docker repositories hosted on Docker Hub.
 docker search --filter is-official=true "$dockerImageName"
 }
 

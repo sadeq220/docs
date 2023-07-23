@@ -29,7 +29,12 @@ Each instruction in a Dockerfile roughly translates to an **image layer**.
 > If a layer has changed since the last build, that layer, and all layers that follow, must be rebuilt.   
 
 so it is better to place any dependency download instruction at the beginning of the Dockerfile .   
-
+```shell
+# Build an image from a Dockerfile in current working directory e.g.
+# docker build --tag=ImageName:tag <A build’s context>
+# this command will send the build context to the docker daemon.
+docker build --tag=acme/my-final-image:23.1 .
+```
 ### References
 - [docker overview doc](https://docs.docker.com/get-started/overview/)
 - [docker get-started doc ](https://docs.docker.com/get-started/)
