@@ -34,7 +34,16 @@ so it is better to place any dependency download instruction at the beginning of
 # docker build --tag=ImageName:tag <A build’s context>
 # this command will send the build context to the docker daemon.
 docker build --tag=acme/my-final-image:23.1 .
+```   
+By default, the docker build command will look for a Dockerfile at the root of the build context. use `-f` to specify Dockerfile path.   
+Before the docker CLI sends the context to the docker daemon, it looks for a file named `.dockerignore` in the root directory of the context. If this file exists, the CLI modifies the context to exclude files and directories that match patterns in it.   
+```text
+# comment
+# .dockerignore file accepts ant pattern
+.git
+**/*.java
 ```
+
 ### References
 - [docker overview doc](https://docs.docker.com/get-started/overview/)
 - [docker get-started doc ](https://docs.docker.com/get-started/)
