@@ -1,5 +1,6 @@
 ### Lock-Free Algorithms   
 In Java the package `java.util.concurrent.atomic` provides **lock-free thread-safe programming on single variables**.   
+Atomic actions cannot be interleaved, so they can be used without fear of **thread interference**.
 Until Java 8 classes in this package used **volatile variable** and a method with signature:
 ```
 boolean compareAndSet(expectedValue, updateValue);
@@ -33,6 +34,16 @@ The `synchronized and volatile constructs`, as well as the Thread.start() and Th
 - **Thread.start()**: A call to start on a thread happens-before any action in the started thread.
 - **Thread#join()**: All actions in a thread happen-before any other thread successfully returns from a join on that thread.    
 
+### Thread interference(Race Condition)[oracle docs]
+>Interference happens when two operations, running in different threads, but acting on the same data, interleave.   
+>This means that the two operations consist of multiple steps, and the sequences of steps overlap.   
+
+Race condition: when The outcome is depends on interleaving of multiple threads.   
+multiple threads access shared data concurrently, and the final outcome of the program depends on the specific order in which these threads are scheduled to execute.   
+This can lead to unpredictable and undesirable behaviour.
+its cases include:
+- Check-Then-Ach
+- Read-Modify-Write
 ### Liveness(oracle docs)   
 >A concurrent application's ability to execute in a timely manner is known as its liveness.     
 
