@@ -25,8 +25,13 @@ This interruption allows the kernel to perform the necessary steps for context s
 ### Memory Consistency Errors(oracle docs)
 >Memory consistency errors occur when different threads have inconsistent views of what should be the same data.   
 
-**happens-before** relationship(`Memory Visibility`):This relationship is simply a guarantee that memory writes by one specific statement are **visible** to another specific statement.       
-The `synchronized and volatile constructs`, as well as the Thread.start() and Thread.join() methods, can form happens-before relationships. In particular:
+**happens-before relationship**(`Memory Visibility`):This relationship is simply a guarantee that memory writes by one specific statement are **visible** to another specific statement.       
+The `synchronized and volatile constructs`, as well as the Thread.start() and Thread.join() methods, can form happens-before relationships. In particular:   
+- **One Thread scenario**: Each action in a thread happens-before every action in that thread that comes later in the program's order.   
+- **Synchronized block**: An unlock of a monitor happens-before every subsequent lock of that same monitor.   
+- **Volatile field**: Writes and reads of volatile fields have similar memory consistency effects as entering and exiting monitors, but do not entail mutual exclusion locking.
+- **Thread.start()**: A call to start on a thread happens-before any action in the started thread.
+- **Thread#join()**: All actions in a thread happen-before any other thread successfully returns from a join on that thread.
 ### References
 [linux kernel interrupts lecture](https://linux-kernel-labs.github.io/refs/heads/master/lectures/interrupts.html)   
 [oracle memory consistency errors](https://docs.oracle.com/javase/tutorial/essential/concurrency/memconsist.html)
