@@ -22,3 +22,6 @@ kernel uses **interrupts**, particularly timer interrupts, to interrupt threads 
 This interruption triggers a context switch, allowing the kernel to save the state of the current thread and switch execution to a different thread.   
 When a context switch is required, the operating system relies on interrupts, particularly **timer interrupts**, to interrupt the currently running thread or process and transfer control to the kernel.    
 This interruption allows the kernel to perform the necessary steps for context switching, including saving the state of the current thread/process and selecting the next thread/process to run.
+
+### References
+[linux kernel interrupts lecture](https://linux-kernel-labs.github.io/refs/heads/master/lectures/interrupts.html)
