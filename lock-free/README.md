@@ -31,7 +31,15 @@ The `synchronized and volatile constructs`, as well as the Thread.start() and Th
 - **Synchronized block**: An unlock of a monitor happens-before every subsequent lock of that same monitor.   
 - **Volatile field**: Writes and reads of volatile fields have similar memory consistency effects as entering and exiting monitors, but do not entail mutual exclusion locking.
 - **Thread.start()**: A call to start on a thread happens-before any action in the started thread.
-- **Thread#join()**: All actions in a thread happen-before any other thread successfully returns from a join on that thread.
+- **Thread#join()**: All actions in a thread happen-before any other thread successfully returns from a join on that thread.    
+
+### Liveness(oracle docs)   
+>A concurrent application's ability to execute in a timely manner is known as its liveness.     
+
+liveness problems:   
+- deadlock
+- starvation
+- livelock
 ### References
 [linux kernel interrupts lecture](https://linux-kernel-labs.github.io/refs/heads/master/lectures/interrupts.html)   
 [oracle memory consistency errors](https://docs.oracle.com/javase/tutorial/essential/concurrency/memconsist.html)
