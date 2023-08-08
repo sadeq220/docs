@@ -42,5 +42,5 @@ liveness problems:
 - livelock
 ### References
 [linux kernel interrupts lecture](https://linux-kernel-labs.github.io/refs/heads/master/lectures/interrupts.html)   
-[oracle memory consistency errors](https://docs.oracle.com/javase/tutorial/essential/concurrency/memconsist.html)
+[oracle memory consistency errors](https://docs.oracle.com/javase/tutorial/essential/concurrency/memconsist.html)    
 [oracle happens-before relationship docs](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/package-summary.html#MemoryVisibility)
