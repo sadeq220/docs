@@ -22,8 +22,9 @@ A **context switch** is the process of storing a thread's current state and late
 kernel uses **interrupts**, particularly timer interrupts, to interrupt threads at regular intervals or when specific conditions are met.    
 This interruption triggers a context switch, allowing the kernel to save the state of the current thread and switch execution to a different thread.   
 When a context switch is required, the operating system relies on interrupts, particularly **timer interrupts**, to interrupt the currently running thread or process and transfer control to the kernel.    
-This interruption allows the kernel to perform the necessary steps for context switching, including saving the state of the current thread/process and selecting the next thread/process to run.
-### Memory Consistency Errors(oracle docs)
+This interruption allows the kernel to perform the necessary steps for context switching, including saving the state of the current thread/process and selecting the next thread/process to run.   
+
+### Memory Consistency Errors[oracle docs](https://docs.oracle.com/javase/tutorial/essential/concurrency/memconsist.html)
 >Memory consistency errors occur when different threads have inconsistent views of what should be the same data.   
 
 **happens-before relationship**(`Memory Visibility`):This relationship is simply a guarantee that memory writes by one specific statement are **visible** to another specific statement.       
@@ -34,7 +35,7 @@ The `synchronized and volatile constructs`, as well as the Thread.start() and Th
 - **Thread.start()**: A call to start on a thread happens-before any action in the started thread.
 - **Thread#join()**: All actions in a thread happen-before any other thread successfully returns from a join on that thread.    
 
-### Thread interference(Race Condition)[oracle docs]
+### Thread interference(Race Condition)[oracle docs](https://docs.oracle.com/javase/tutorial/essential/concurrency/interfere.html)
 >Interference happens when two operations, running in different threads, but acting on the same data, interleave.   
 >This means that the two operations consist of multiple steps, and the sequences of steps overlap.   
 
@@ -44,7 +45,7 @@ This can lead to unpredictable and undesirable behaviour.
 its cases include:
 - Check-Then-Ach
 - Read-Modify-Write
-### Liveness(oracle docs)   
+### Liveness[oracle docs](https://docs.oracle.com/javase/tutorial/essential/concurrency/liveness.html)
 >A concurrent application's ability to execute in a timely manner is known as its liveness.     
 
 liveness problems:   
@@ -52,6 +53,8 @@ liveness problems:
 - starvation
 - livelock
 ### References
-[linux kernel interrupts lecture](https://linux-kernel-labs.github.io/refs/heads/master/lectures/interrupts.html)   
-[oracle memory consistency errors](https://docs.oracle.com/javase/tutorial/essential/concurrency/memconsist.html)    
-[oracle happens-before relationship docs](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/package-summary.html#MemoryVisibility)
+- [linux kernel interrupts lecture](https://linux-kernel-labs.github.io/refs/heads/master/lectures/interrupts.html)   
+- [oracle memory consistency errors](https://docs.oracle.com/javase/tutorial/essential/concurrency/memconsist.html)    
+- [oracle happens-before relationship docs](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/package-summary.html#MemoryVisibility)   
+- [oracle Thread interference](https://docs.oracle.com/javase/tutorial/essential/concurrency/interfere.html)
+- [oracle Liveness](https://docs.oracle.com/javase/tutorial/essential/concurrency/liveness.html)
