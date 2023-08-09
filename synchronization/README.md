@@ -1,3 +1,9 @@
+## Synchronization and concurrency   
+This document aims to provide comprehensive information about synchronization and concurrency.   
+To outline the terminology used in this context:
+- Synchronization: sharing a same resource between multiple threads safely
+- concurrency: when multiple threads work simultaneously (without blocking each other) 
+
 ### Lock-Free Algorithms   
 In Java the package `java.util.concurrent.atomic` provides **lock-free thread-safe programming on single variables**.   
 Atomic actions cannot be interleaved, so they can be used without fear of **thread interference**.
