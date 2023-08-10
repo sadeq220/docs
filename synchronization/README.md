@@ -2,7 +2,12 @@
 This document aims to provide comprehensive information about synchronization and concurrency.   
 To outline the terminology used in this context:
 - Synchronization: sharing a same resource between multiple threads safely
-- concurrency: when multiple threads work simultaneously (without blocking each other) 
+- concurrency: when multiple threads work simultaneously during overlapping time periods—instead of sequentially (**entails non-blocking data structure**)
+- parallelism: same as concurrency but threads execution occurs at the same physical instant (impossible on one-core processor as opposed to concurrency)
+
+>The word "sequential" is used as an antonym for both "concurrent" and "parallel"   
+
+### synchronization   
 
 ### Lock-Free Algorithms   
 In Java the package `java.util.concurrent.atomic` provides **lock-free thread-safe programming on single variables**.   
@@ -59,8 +64,9 @@ liveness problems:
 - starvation
 - livelock
 ### References
-- [linux kernel interrupts lecture](https://linux-kernel-labs.github.io/refs/heads/master/lectures/interrupts.html)   
 - [oracle memory consistency errors](https://docs.oracle.com/javase/tutorial/essential/concurrency/memconsist.html)    
 - [oracle happens-before relationship docs](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/package-summary.html#MemoryVisibility)   
 - [oracle Thread interference](https://docs.oracle.com/javase/tutorial/essential/concurrency/interfere.html)
 - [oracle Liveness](https://docs.oracle.com/javase/tutorial/essential/concurrency/liveness.html)
+- [linux kernel interrupts lecture](https://linux-kernel-labs.github.io/refs/heads/master/lectures/interrupts.html)   
+- [wikipedia concurrency](https://en.wikipedia.org/wiki/Concurrent_computing)
