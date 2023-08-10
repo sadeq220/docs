@@ -15,17 +15,19 @@ it is actually addresses two concurrent program problems:
 
 synchronization primitives:
 - Locks (mutex,semaphore)
-- Atomic Actions (CAS,LL/SC)     
+- Atomic operations (CAS,LL/SC)     
 
 By applying these primitives we ensure that `critical section` won't be executed concurrently.   
 >in the general case, critical sections will be blocking, even when implemented with non-blocking primitives.   
 
+although critical section gets blocking even on non-blocking primitives but some literatures refer to is as fine-grained lock.
 >With few exceptions, non-blocking algorithms use atomic read-modify-write primitives that the hardware must provide,      
 > the most notable of which is `compare and swap (CAS)`.    
 > However, the emerging field of `software transactional memory` promises standard abstractions for writing efficient non-blocking code.   
 
 ### Lock-Free Algorithms
 Lock-Free means if one thread suspended, others can make progress.   
+> "Non-blocking" was used as a synonym for "lock-free" in the literature until the introduction of obstruction-freedom in 2003.
 
 In Java the package `java.util.concurrent.atomic` provides **lock-free thread-safe programming on single variables**.   
 Atomic actions cannot be interleaved, so they can be used without fear of **thread interference**.
