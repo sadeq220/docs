@@ -2,14 +2,25 @@
 This document aims to provide comprehensive information about synchronization and concurrency.   
 To outline the terminology used in this context:
 - Synchronization: sharing a same resource between multiple threads safely
-- concurrency: when multiple threads work simultaneously with execution lifetimes overlapping — instead of sequentially (**entails non-blocking data structure**)
+- concurrency: when multiple threads work simultaneously with execution lifetimes overlapping — instead of sequentially
 - parallelism: same as concurrency but execution occurs at the same physical instant (impossible on one-core processor as opposed to concurrency)
 
 >The word "sequential" is used as an antonym for both "concurrent" and "parallel"   
 
 ### synchronization   
+synchronization provides safety(thread safety) for concurrent programs.      
+it is actually addresses two concurrent program problems:
+- Race condition(Thread interference)
+- Memory visibility(Memory consistency Errors)
 
+synchronization primitives:
+- Locks (mutex,semaphore)
+- Atomic Actions (CAS) 
 ### Lock-Free Algorithms   
+>With few exceptions, non-blocking algorithms use atomic read-modify-write primitives that the hardware must provide,      
+> the most notable of which is `compare and swap (CAS)`.    
+> However, the emerging field of `software transactional memory` promises standard abstractions for writing efficient non-blocking code.
+
 In Java the package `java.util.concurrent.atomic` provides **lock-free thread-safe programming on single variables**.   
 Atomic actions cannot be interleaved, so they can be used without fear of **thread interference**.
 Until Java 8 classes in this package used **volatile variable** and a method with signature:
@@ -68,5 +79,6 @@ liveness problems:
 - [oracle happens-before relationship docs](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/package-summary.html#MemoryVisibility)   
 - [oracle Thread interference](https://docs.oracle.com/javase/tutorial/essential/concurrency/interfere.html)
 - [oracle Liveness](https://docs.oracle.com/javase/tutorial/essential/concurrency/liveness.html)
-- [linux kernel interrupts lecture](https://linux-kernel-labs.github.io/refs/heads/master/lectures/interrupts.html)   
 - [wikipedia concurrency](https://en.wikipedia.org/wiki/Concurrent_computing)
+- [wikipedia non-blocking algorithms](https://en.wikipedia.org/wiki/Non-blocking_algorithm)
+- [linux kernel interrupts lecture](https://linux-kernel-labs.github.io/refs/heads/master/lectures/interrupts.html)   
