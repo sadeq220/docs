@@ -2,8 +2,8 @@
 This document aims to provide comprehensive information about synchronization and concurrency.   
 To outline the terminology used in this context:
 - Synchronization: sharing a same resource between multiple threads safely
-- concurrency: when multiple threads work simultaneously during overlapping time periods—instead of sequentially (**entails non-blocking data structure**)
-- parallelism: same as concurrency but threads execution occurs at the same physical instant (impossible on one-core processor as opposed to concurrency)
+- concurrency: when multiple threads work simultaneously with execution lifetimes overlapping — instead of sequentially (**entails non-blocking data structure**)
+- parallelism: same as concurrency but execution occurs at the same physical instant (impossible on one-core processor as opposed to concurrency)
 
 >The word "sequential" is used as an antonym for both "concurrent" and "parallel"   
 
