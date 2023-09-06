@@ -1,4 +1,4 @@
 ### Two signals can't be handled by process : 
 - SIGKILL 
-- SIGSTOP
+- SIGSTOP    
 for test usage of nohup command
