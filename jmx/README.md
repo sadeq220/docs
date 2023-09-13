@@ -12,9 +12,11 @@ An MBean is a managed Java object, similar to a JavaBeans component, that follow
 An MBean can represent a device, an application, or any resource that needs to be managed.       
 #### To remind `JavaBean`
 JavaBean first introduced in JDK 1.1 specification as: 
->A Java Bean is a reusable software component that can be manipulated visually in a builder tool.   
+>A Java Bean is a reusable software component that can be manipulated visually in a builder tool.    
 
-There is also a `JavaBeans pattern`[^1], in which you call a parameterless constructor to create the object 
+> all beans must be serializable, have a zero-argument constructor, and allow access to properties using getter and setter methods.[^1]
+
+There is also a `JavaBeans pattern`[^2], in which you call a parameterless constructor to create the object 
 and then call setter methods to set each required parameter and each
 optional parameter of interest.     
 For example spring **ThreadPoolTaskExecutor** class is a JavaBean and allows for configuring a java ThreadPoolExecutor in bean style.    
@@ -24,4 +26,5 @@ For example spring **ThreadPoolTaskExecutor** class is a JavaBean and allows for
 - [oracle MBean doc](https://docs.oracle.com/javase/tutorial/jmx/mbeans/index.html)
 - [JavaBean specification](https://download.oracle.com/otndocs/jcp/7224-javabeans-1.01-fr-spec-oth-JSpec/)
 
-[^1]: joshua bloch, Effective java
+[^1]: wikipedia JavaBeans
+[^2]: joshua bloch, Effective java
