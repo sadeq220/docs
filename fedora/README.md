@@ -18,7 +18,14 @@ Third-party software repositories contains packages that are not officially affi
  sudo dnf install \
   https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 ```
-
+To disable *RPM Fusion* repository:
+```shell
+dnf config-manager --set-disabled rpmfusion-free
+#to confirm 
+dnf repolist --all
+#to enable it
+dnf config-manager --set-enabled rpmfusion-free
+```
 ### References
 - [fedora dnf docs](https://docs.fedoraproject.org/en-US/quick-docs/dnf/)
 - [RPM Fusion](https://docs.fedoraproject.org/en-US/quick-docs/rpmfusion-setup/)
