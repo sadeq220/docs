@@ -12,6 +12,13 @@ DNF package repositories reside in "/etc/yum.repos.d/" directory.
 dnf config-manager --add-repo <URL> 
 dnf repolist 
 ```
+Third-party software repositories contains packages that are not officially affiliated by the fedora project(e.g. vlc).    
+**RPM Fusion** is the most commonly used third-party repository, to enable it:
+```shell
+ sudo dnf install \
+  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+```
 
 ### References
 - [fedora dnf docs](https://docs.fedoraproject.org/en-US/quick-docs/dnf/)
+- [RPM Fusion](https://docs.fedoraproject.org/en-US/quick-docs/rpmfusion-setup/)
