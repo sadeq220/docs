@@ -48,7 +48,7 @@ Upgrade Command
        Aliases: up
        Deprecated aliases: update, upgrade-to, update-to, localupdate
 ```
-Note that update is an alias for upgrade command.
+Note that update is an alias for upgrade command.    
 :white_check_mark: dnf upgrade = dnf update :white_check_mark:
 ### References
 - [fedora dnf docs](https://docs.fedoraproject.org/en-US/quick-docs/dnf/)
