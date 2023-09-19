@@ -40,6 +40,16 @@ dnf config-manager --set-enabled rpmfusion-free
 ```shell
 dnf list [--installed|--available|--all] [<package-file-spec>...]
 ```
+**dnf upgrade command**
+Updates each specified package to the latest available version.
+```
+Upgrade Command
+       Command: upgrade
+       Aliases: up
+       Deprecated aliases: update, upgrade-to, update-to, localupdate
+```
+Note that update is an alias for upgrade command.
+:white_check_mark: dnf upgrade = dnf update :white_check_mark:
 ### References
 - [fedora dnf docs](https://docs.fedoraproject.org/en-US/quick-docs/dnf/)
 - [RPM Fusion](https://docs.fedoraproject.org/en-US/quick-docs/rpmfusion-setup/)
