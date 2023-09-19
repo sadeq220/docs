@@ -9,7 +9,10 @@ Fedora's major differences with Debian include:
 Fedora is a distribution that uses a package management system.   
 This system is based on rpm , the RPM Package Manager, with several higher level tools built on top of it, most notably **PackageKit** (default gui) and **DNF**.    
 GNOME Software is another GUI package manager.
-DNF is a software package manager that installs, updates, and removes packages on Fedora and is the successor to YUM (Yellow-Dog Updater Modified).
+DNF is a software package manager that installs, updates, and removes packages on Fedora and is the successor to YUM (Yellow-Dog Updater Modified).    
+> SYNOPSIS    
+> dnf [options] <command> [<args>...]
+
 DNF package repositories reside in "/etc/yum.repos.d/" directory.
 ```shell
 dnf config-manager --add-repo <URL> 
@@ -28,6 +31,13 @@ dnf config-manager --set-disabled rpmfusion-free
 dnf repolist --all
 #to enable it
 dnf config-manager --set-enabled rpmfusion-free
+```
+**dnf list command**
+> A package is installed if it is present in the RPMDB,       
+> and it is available if it is not installed but is present in a repository that DNF knows about.   
+
+```shell
+dnf list [--installed|--available|--all] [<package-file-spec>...]
 ```
 ### References
 - [fedora dnf docs](https://docs.fedoraproject.org/en-US/quick-docs/dnf/)
