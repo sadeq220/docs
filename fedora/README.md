@@ -1,11 +1,14 @@
-## fedora specific attributes  
-Fedora is a distribution that uses a package management system.   
-This system is based on rpm , the RPM Package Manager, with several higher level tools built on top of it, most notably **PackageKit** (default gui) and **DNF**.    
-GNOME Software is another GUI package manager.
+## Fedora specific attributes    
+Fedora's major differences with Debian include:   
 - dnf package manager
+- wheel group(instead of sudo group)
+- alternatives system(reimplementation of the Debian alternatives system)
 - SELinux security architecture
 
 ### dnf package manager   
+Fedora is a distribution that uses a package management system.   
+This system is based on rpm , the RPM Package Manager, with several higher level tools built on top of it, most notably **PackageKit** (default gui) and **DNF**.    
+GNOME Software is another GUI package manager.
 DNF is a software package manager that installs, updates, and removes packages on Fedora and is the successor to YUM (Yellow-Dog Updater Modified).
 DNF package repositories reside in "/etc/yum.repos.d/" directory.
 ```shell
