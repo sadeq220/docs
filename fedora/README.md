@@ -52,6 +52,20 @@ Upgrade Command
 Note that update is an alias for upgrade command.    
 :white_check_mark: dnf upgrade = dnf update :white_check_mark:    
 
+You can query **RPMDB**(where installed packages reside) directly with rpm tool:
+*rpm* is equivalence of *dpkg* in debian-based systems.
+```
+#put rpm into query mode
+rpm {-q|--query}
+#to query with wildcard pattern
+rpm -qa <pattern>
+#to print detailed package information(including installed time)
+rpm -qi <package-name> 
+```
+For example, if you want to list all installed java packages ordered by installation time:
+```shell
+rpm -qa --last *java*
+```
 ### Flatpak framework
 >Flatpak is a framework for distributing desktop applications across various Linux distributions.    
 
