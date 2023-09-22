@@ -4,6 +4,7 @@ Fedora's major differences with Debian include:
 - wheel group(instead of sudo group)
 - alternatives system(reimplementation of the Debian alternatives system)
 - SELinux security architecture
+- Flatpak framework
 
 ### dnf package manager   
 Fedora is a distribution that uses a package management system.   
@@ -53,3 +54,4 @@ Note that update is an alias for upgrade command.
 ### References
 - [fedora dnf docs](https://docs.fedoraproject.org/en-US/quick-docs/dnf/)
 - [RPM Fusion](https://docs.fedoraproject.org/en-US/quick-docs/rpmfusion-setup/)
+- [flatpak docs](https://docs.flatpak.org/en/latest/introduction.html)
