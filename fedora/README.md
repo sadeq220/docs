@@ -50,7 +50,21 @@ Upgrade Command
        Deprecated aliases: update, upgrade-to, update-to, localupdate
 ```
 Note that update is an alias for upgrade command.    
-:white_check_mark: dnf upgrade = dnf update :white_check_mark:
+:white_check_mark: dnf upgrade = dnf update :white_check_mark:    
+
+### Flatpak framework
+>Flatpak is a framework for distributing desktop applications across various Linux distributions.    
+
+Flatpak's applications run in sandboxed environments.
+>Flatpak is a tool for managing applications and the runtimes they use. In the Flatpak model,   
+> applications can be built and distributed independently from the host system they are used on,    
+> and they are isolated from the host system ('sandboxed') to some degree, at runtime.
+
+To get list of installed applications:
+```shell
+flatpak list
+```
+
 ### References
 - [fedora dnf docs](https://docs.fedoraproject.org/en-US/quick-docs/dnf/)
 - [RPM Fusion](https://docs.fedoraproject.org/en-US/quick-docs/rpmfusion-setup/)
