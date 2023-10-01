@@ -17,6 +17,11 @@ An object consists of some private memory and a set of operations.
 A message is a request for an object to carry out one of its operations.    
 The set of messages to which an object can respond is called its `interface` with the rest of the system.   
 The only way to interact with an object is through its interface.
+- A crucial property of an object is t h a t its private memory can be manipulated only by its own operations.   
+- A crucial property of messages is that they are the only way to invoke an object's operations.   
+> Other programming environments also use objects and messages to facilitate modular design.[^1]
 
 ### References
 - [Smalltalk-80: The Language and its Implementation](https://dl.acm.org/doi/book/10.5555/273)
+
+[^1]: mark fisher also says "Object-oriented software is all about modularity"
