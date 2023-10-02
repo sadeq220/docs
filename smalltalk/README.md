@@ -21,6 +21,17 @@ The only way to interact with an object is through its interface.
 - A crucial property of messages is that they are the only way to invoke an object's operations.   
 > Other programming environments also use objects and messages to facilitate modular design.[^1]
 
+A class describes the implementation of a set of objects that all represent the same kind of system component.        
+The individual objects described by a class are called its `instances`.    
+Every object in the Smalltalk-80 system is an instance of a class.        
+An object's private properties are a set of `instance variables` that make up its private memory and a set of `methods` that describe how to carry out its operations.   
+Each method in a class tells how to perform the operation requested by a particular type of message.    
+The `primitive methods` are built into the virtual machine and cannot be changed by the Smalltalk-80 programmer.    
+Primitive methods allow the underlying hardware and virtual machine structures to be accessed.    
+```smalltalk
+" instances of Integer use a primitive method to respond to the message + "
+sum := 2 + 3.
+```
 ### References
 - [Smalltalk-80: The Language and its Implementation](https://dl.acm.org/doi/book/10.5555/273)
 
