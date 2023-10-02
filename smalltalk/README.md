@@ -37,6 +37,16 @@ Objects interact by sending messages.Messages cause methods to be executed.
 - Literals describe certain constant objects, such as numbers and character strings.
 - Message expressions describe messages to receivers. The value of a
   message expression is determined by the method the message invokes.
+
+The selector of a message determines which of the receiver's operations will be invoked.    
+The arguments are other objects that are involved in the selected operation.
+```smalltalk
+object messageSelector: messageArgs
+```
+The assignment operator `:=` used to change the object that variable refers to.
+```smalltalk
+variable := object
+```
 ### References
 - [Smalltalk-80: The Language and its Implementation](https://dl.acm.org/doi/book/10.5555/273)
 
