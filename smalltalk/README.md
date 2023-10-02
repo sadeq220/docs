@@ -32,6 +32,11 @@ Primitive methods allow the underlying hardware and virtual machine structures t
 " instances of Integer use a primitive method to respond to the message + "
 sum := 2 + 3.
 ```
+### Smalltalk Expression Syntax
+Objects interact by sending messages.Messages cause methods to be executed.      
+- Literals describe certain constant objects, such as numbers and character strings.
+- Message expressions describe messages to receivers. The value of a
+  message expression is determined by the method the message invokes.
 ### References
 - [Smalltalk-80: The Language and its Implementation](https://dl.acm.org/doi/book/10.5555/273)
 
