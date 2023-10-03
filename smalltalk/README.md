@@ -4,12 +4,16 @@
 > all serious programmers should learn the language, even if they don't ever expect to actually use it professionally.     
 > Learning C++, Java or C# is not any sort of substitute for learning the real thing. None of those languages satisfy Dr. Kay's definition of OOP.
 
-In many code designing and architecture books they refer to object communication by messages.   
+In many code designing(Object-Oriented design) and architecture books they refer to object communication by messages.   
 For example in "Growing Object-Oriented Software, Guided by Tests", there is a sentence as follows:
 > Objects communicate by sending and receiving messages
 
 and book values *communication patterns* more than well-designed class structure.   
-All of their idea's about message passing comes from foundational pure Object-Oriented programming language called **Smalltalk**.
+All of their idea's about message passing comes from foundational pure Object-Oriented programming language called **Smalltalk**.  
+
+Dr. Alan kay(inventor of Smalltalk) definition of OOP:
+> OOP to me means only messaging, local retention and protection and hiding of state-process, and extreme late-binding of all things.    
+> It can be done in Smalltalk and in LISP.
 
 ### Smalltalk objects and messages
 In Smalltalk everything is an object.   
@@ -49,5 +53,6 @@ variable := object
 ```
 ### References
 - [Smalltalk-80: The Language and its Implementation](https://dl.acm.org/doi/book/10.5555/273)
+- [Smalltalk.org article](http://www.smalltalk.org/articles/article_20100320_a3_Getting_The_Message.html)
 
 [^1]: mark fisher also says "Object-oriented software is all about modularity"
