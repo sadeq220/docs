@@ -45,7 +45,14 @@ Objects interact by sending messages.Messages cause methods to be executed.
 The selector of a message determines which of the receiver's operations will be invoked.    
 The arguments are other objects that are involved in the selected operation.
 ```smalltalk
-object messageSelector: messageArgs
+receiverObject messageSelector: messageArg
+```
+`Keyword Messages` The general type of message with one or more arguments is the keyword message.    
+The selector of a keyword message is composed of one or more keywords, one preceding each argument.    
+A keyword is a simple identifier with a trailing colon.
+```smalltalk
+" message selector of following message is keyword1:keyword2: "
+receiverObject keyword1: arg keyword2: arg
 ```
 The assignment operator `:=` used to change the object that variable refers to.
 ```smalltalk
