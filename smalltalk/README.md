@@ -54,6 +54,11 @@ A keyword is a simple identifier with a trailing colon.
 " message selector of following message is keyword1:keyword2: "
 receiverObject keyword1: arg keyword2: arg
 ```
+`value of the message expression:`    
+**receiver always returns a value for the message expression.**   
+Returning a value indicates that the response to the message is complete.    
+The default value returned is usually the receiver itself.
+
 The assignment operator `:=` used to change the object that variable refers to.
 ```smalltalk
 variable := object
