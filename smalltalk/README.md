@@ -57,8 +57,18 @@ receiverObject keyword1: arg keyword2: arg
 `value of the message expression:`    
 **receiver always returns a value for the message expression.**   
 Returning a value indicates that the response to the message is complete.    
-The default value returned is usually the receiver itself.
+The default value returned is usually the receiver itself.    
 
+**messages are parsed from left to right**    
+When unary, binary, and keyword messages appear in the same expression without parentheses,    
+the unaries are sent first, the binaries next, and the keyword last.
+```smalltalk
+"fist + message evalutes and then *"
+offset + index * 2 
+
+"the following message is evaluted as 'bigFrame width: ((smallFrame width) • 2)'"
+bigFrame width: smallFrame width • 2
+```
 The assignment operator `:=` used to change the object that variable refers to.
 ```smalltalk
 variable := object
