@@ -69,6 +69,14 @@ offset + index * 2
 "the following message is evaluted as 'bigFrame width: ((smallFrame width) • 2)'"
 bigFrame width: smallFrame width • 2
 ```
+**Cascading** send multiple messages to the same object.
+A `cascaded message` expression consists of one description of the receiver followed by several messages separated by semicolons.
+```smalltalk
+"the following cascaded message sends two messages to Transcript object"
+"first message is keyword message with show: selector"
+"second message is unary message cr "
+Transcript show: 'arg' ; cr.
+```
 The assignment operator `:=` used to change the object that variable refers to.
 ```smalltalk
 variable := object
