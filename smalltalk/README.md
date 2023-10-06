@@ -79,8 +79,23 @@ Transcript show: 'arg' ; cr.
 ```
 The assignment operator `:=` used to change the object that variable refers to.
 ```smalltalk
+| variable |
 variable := object
 ```
+**Blocks [] are also objects**    
+A block represents a deferred sequence of actions.    
+The sequence of actions a block describes will take place when the block receives the unary message *value*.        
+The object returned after a value message is sent to a block is the value of the last expression in the sequence.     
+```smalltalk
+| variable |
+variable := [ object1 message.
+              object1 keyword: arg.
+              object2 message.
+              ]
+"sending the value message to block object will execute its statements"
+variable value.
+```
+
 ### References
 - [Smalltalk-80: The Language and its Implementation](https://dl.acm.org/doi/book/10.5555/273)
 - [Smalltalk.org article](http://www.smalltalk.org/articles/article_20100320_a3_Getting_The_Message.html)
