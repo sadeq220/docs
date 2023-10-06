@@ -46,6 +46,10 @@ Object subclass: Order [
 "Usage Example"
 | customer order |
 customer := Customer new: 'Alan'.
-order := Order new: 123 customer: customer.
+
+"The convention is that each keyword-argument pair be placed on a new line"
+order := Order
+            new: 123
+            customer: customer.
 
 Transcript show: order printString; cr.
