@@ -95,6 +95,12 @@ variable := [ object1 message.
 "sending the value message to block object will execute its statements"
 variable value.
 ```
+**pseudo-variable name** is an identifier that refers to an object.     
+Three important pseudo-variable names are `nil`, true, and false.   
+`self` and `super` are also pseudo-variable names.    
+> nil: refers to an object used as the value of a variable when     
+> no other object is appropriate . Variables that have not been otherwise initialized refer to nil.   
+
 
 ### References
 - [Smalltalk-80: The Language and its Implementation](https://dl.acm.org/doi/book/10.5555/273)
