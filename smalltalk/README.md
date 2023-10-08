@@ -99,5 +99,6 @@ variable value.
 ### References
 - [Smalltalk-80: The Language and its Implementation](https://dl.acm.org/doi/book/10.5555/273)
 - [Smalltalk.org article](http://www.smalltalk.org/articles/article_20100320_a3_Getting_The_Message.html)
+- [gnu smalltalk](https://www.gnu.org/software/smalltalk/manual/html_node/Syntax.html)
 
 [^1]: mark fisher also says "Object-oriented software is all about modularity"
