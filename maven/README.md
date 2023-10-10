@@ -65,8 +65,9 @@ The Maven Failsafe Plugin will scan for test classes whose fully qualified names
 Maven dependencies are also Maven projects, so they also have their own “pom.xml” file. This is how dependencies declare their own dependencies, which we call the “transitive dependencies”
 
 - there should be **only one dependency version** in classpath lib, here are approachs to choose the right version taken by maven :
-	- nearest definition
-	- dependency management
+    - nearest definition (Dependency mediation)
+    - dependency management
+> dependency management takes precedence over dependency mediation for transitive dependencies.
 	
 
 
