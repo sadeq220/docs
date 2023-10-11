@@ -105,6 +105,12 @@ Three important pseudo-variable names are `nil`, true, and false.
 > nil: refers to an object used as the value of a variable when     
 > no other object is appropriate . Variables that have not been otherwise initialized refer to nil.   
 
+A class's name automatically becomes the name of a globally shared variable.     
+The value of that variable is the object representing the class.    
+Since class names are the names of shared variables, they must be capitalized.    
+
+A `protocol description` lists the messages in the instances' message interface.    
+describes *what* functionality, not *how* it is implemented.
 
 ### References
 - [Smalltalk-80: The Language and its Implementation](https://dl.acm.org/doi/book/10.5555/273)
