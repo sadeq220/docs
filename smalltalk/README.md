@@ -17,8 +17,12 @@ Dr. Alan kay(inventor of Smalltalk) definition of OOP:
 
 ### Smalltalk objects and messages
 In Smalltalk everything is an object.   
-An object consists of some private memory and a set of operations.    
+An object consists of some private memory and a set of operations.  
+> design view: Objects represent the components of the Smalltalk-80 system.
+
 A message is a request for an object to carry out one of its operations.    
+> design view: Messages represent interactions between the components of the Smalltalk-80 system.
+
 The set of messages to which an object can respond is called its `interface` with the rest of the system.   
 The only way to interact with an object is through its interface.    
 - A crucial property of an object is that its private memory can be manipulated only by its own operations.   
