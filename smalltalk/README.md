@@ -34,6 +34,8 @@ The individual objects described by a class are called its `instances`.
 Every object in the Smalltalk-80 system is an instance of a class.        
 An object's private properties are a set of `instance variables` that make up its private memory and a set of `methods` that describe how to carry out its operations.   
 Each method in a class tells how to perform the operation requested by a particular type of message.    
+> design view: Instance variables represent the current state of an object.
+
 The `primitive methods` are built into the virtual machine and cannot be changed by the Smalltalk-80 programmer.    
 Primitive methods allow the underlying hardware and virtual machine structures to be accessed.    
 ```smalltalk
@@ -108,6 +110,8 @@ Three important pseudo-variable names are `nil`, true, and false.
 A class's name automatically becomes the name of a globally shared variable.     
 The value of that variable is the object representing the class.    
 Since class names are the names of shared variables, they must be capitalized.    
+
+Variables that are shared by more than one object come in groups called `pools`.    
 
 A `protocol description` lists the messages in the instances' message interface.    
 describes *what* functionality, not *how* it is implemented.
