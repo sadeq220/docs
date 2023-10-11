@@ -9,4 +9,4 @@ RabbitMQ is an implementation of multiple standards:
 This document contains `AMQP 0-9-1` messaging protocol specifications.   
 
 ### References
--[rabbitmq amqp doc](https://www.rabbitmq.com/tutorials/amqp-concepts.html)
+- [rabbitmq amqp doc](https://www.rabbitmq.com/tutorials/amqp-concepts.html)
