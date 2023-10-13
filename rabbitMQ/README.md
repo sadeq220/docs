@@ -24,7 +24,12 @@ The method carries a delivery tag, which uniquely identifies the delivery on a c
 Delivery tags are therefore scoped per channel.    
 
 **basic.ack(delivery-tag delivery-tag, bit multiple)**: if client sends it, it means consumer acknowledgements    
-but if broker sends it, it is a protocol extension called *publisher confirms*
+but if broker sends it, it is a protocol extension called *publisher confirms*    
+second argument is for batched acknowledgement used to reduce network traffic.    
+>Note: To enable confirms, a client sends the confirm.select method.
+
+**basic.reject Vs basic.nack**: both have a same functionality: delivery negative acknowledgement    
+but basic.nack is a protocol extension introduced by RabbitMQ to support batch negative acknowledgement.    
 
 ### References
 - [rabbitmq amqp doc](https://www.rabbitmq.com/tutorials/amqp-concepts.html)
