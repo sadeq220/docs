@@ -17,8 +17,9 @@ Terminologies used in this document:
 AMQP is an application layer protocol used for over-the-wire communication.     
 AMQP is considered a binary protocol.    
 AMQP instruction format is: `Class.Method`    
-for example `Basic.Ack` , `Basic.Nack` , `Basic.Reject` , `Connection.Start` , `Channel.Open`
+for example `basic.ack` , `basic.nack` , `basic.reject` , `connection.start` , `channel.open`
 
 ### References
 - [rabbitmq amqp doc](https://www.rabbitmq.com/tutorials/amqp-concepts.html)
+- [rabbitmq classes and methods](https://www.rabbitmq.com/amqp-0-9-1-quickref.html)
 - [cloudamqp application layer protocol](https://www.cloudamqp.com/blog/what-is-amqp-and-why-is-it-used-in-rabbitmq.html)
