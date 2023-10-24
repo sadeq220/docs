@@ -51,6 +51,10 @@ AMQP 0-9-1 brokers provide four exchange types:
 
 The default exchange makes it seem like it is possible to deliver messages directly to queues, even though that is not technically what is happening.
 
+### Message Attributes and Payload   
+Messages in the AMQP 0-9-1 model have attributes. Some attributes are so common that the AMQP 0-9-1 specification defines    
+for example: `Routing key`, `Content type`, `Content encoding`, `Delivery mode`
+
 ### References
 - [rabbitmq amqp model doc](https://www.rabbitmq.com/tutorials/amqp-concepts.html)
 - [rabbitmq classes and methods](https://www.rabbitmq.com/amqp-0-9-1-quickref.html)
