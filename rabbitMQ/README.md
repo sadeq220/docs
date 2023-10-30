@@ -51,6 +51,21 @@ AMQP 0-9-1 brokers provide four exchange types:
 
 The default exchange makes it seem like it is possible to deliver messages directly to queues, even though that is not technically what is happening.
 
+### AMQP Consumer    
+On the contrary to Kafka in which consumers should poll periodically, or they considered dead.     
+Consumers in AMQP can also subscribe to queue and wait for the broker to push messages to them.     
+In the AMQP 0-9-1 Model, there are two ways for applications to consume:    
+- Subscribe to have messages delivered to them ("push API"): this is the recommended option.
+- Polling ("pull API"): this way is highly inefficient and should be avoided in most cases.
+
+With the "push API", applications have to indicate interest in consuming messages from a particular queue.     
+When they do so, we say that they register a consumer or, simply put, subscribe to a queue.     
+Each consumer (subscription) has an identifier called a consumer tag.      
+It can be used to unsubscribe from messages. consumer tag uniquely identifies the subscription within a channel.    
+```shell
+rabbitmqctl list_consumers
+```
+
 ### Message Attributes and Payload   
 Messages in the AMQP 0-9-1 model have attributes. Some attributes are so common that the AMQP 0-9-1 specification defines    
 for example: `Routing key`, `Content type`, `Content encoding`, `Delivery mode`
