@@ -68,7 +68,11 @@ rabbitmqctl list_consumers
 
 ### Message Attributes and Payload   
 Messages in the AMQP 0-9-1 model have attributes. Some attributes are so common that the AMQP 0-9-1 specification defines    
-for example: `Routing key`, `Content type`, `Content encoding`, `Delivery mode`
+for example: `Routing key`, `Content type`, `Content encoding`, `Delivery mode (persistent or not)`    
+> Messages may be published as persistent, which makes the broker persist them to disk(Delivery mode 2).
+
+Some attributes are optional and known as **headers**.     
+Messages also have a payload (the data that they carry), which AMQP brokers treat as an __opaque byte array__. The broker will not inspect or modify the payload.     
 
 ### References
 - [rabbitmq amqp model doc](https://www.rabbitmq.com/tutorials/amqp-concepts.html)
