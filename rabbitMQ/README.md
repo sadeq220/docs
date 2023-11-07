@@ -36,6 +36,11 @@ second argument is for batched acknowledgement used to reduce network traffic.
 **basic.reject Vs basic.nack**: both have a same functionality: delivery negative acknowledgement    
 but basic.nack is a protocol extension introduced by RabbitMQ to support batch negative acknowledgement.    
 
+### Channels
+AMQP 0-9-1 connections are multiplexed with channels that can be thought of as "lightweight connections that share a single TCP connection".
+Every protocol operation (Class.Method) performed by a client happens on a channel.     
+Communication on a particular channel is completely separate from communication on another channel.
+
 ### AMQP model
 `Queues`, `exchanges` and `bindings` are collectively referred to as AMQP entities.    
 Exchanges are AMQP 0-9-1 entities where messages are sent to.     
