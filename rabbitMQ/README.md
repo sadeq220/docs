@@ -16,7 +16,12 @@ Terminologies used in this document:
 ### AMQP protocol
 AMQP is an application layer protocol used for over-the-wire communication.     
 AMQP is considered a binary protocol.    
-AMQP instruction format is: `Class.Method`    
+> AMQP 0-9-1 is structured as a number of methods. Methods are operations (like HTTP methods)           
+> and have nothing in common with methods in object-oriented programming languages.      
+> Protocol methods in AMQP 0-9-1 are grouped into classes.     
+> Classes are just logical groupings of AMQP methods.
+
+AMQP operation format is: `Class.Method`    
 for example `basic.ack` , `basic.nack` , `basic.reject` , `connection.start` , `channel.open`   
 
 **Delivery Tag**:When a consumer (subscription) is registered, messages will be delivered __(pushed)__ by RabbitMQ using the `basic.deliver` method.     
