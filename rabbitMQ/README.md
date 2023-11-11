@@ -43,6 +43,10 @@ Communication on a particular channel is completely separate from communication 
 
 ### AMQP model
 `Queues`, `exchanges` and `bindings` are collectively referred to as AMQP entities.    
+Queues store messages that are consumed by applications.    
+Metadata of a durable queue is stored on disk, while metadata of a transient queue is stored in memory when possible.     
+>Queue names starting with "amq." are reserved for internal use by the broker.
+
 Exchanges are AMQP 0-9-1 entities where messages are sent to.     
 Exchanges take a message and route it into zero or more queues.     
 The routing algorithm used depends on the exchange type and rules called bindings.     
