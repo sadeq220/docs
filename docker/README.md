@@ -13,6 +13,19 @@ Docker is written in the **Go programming language** and leverages the **Linux k
 - **Container** :  sandboxed process on an isolated filesystem
 - **Volume**
 - **Network**   
+
+### Container Engine
+There are several competing Container Image formats (Docker, Appc, LXD), but the industry is moving forward with a standard governed under the Open Container Initiative - sometimes referred to simply as `Open Containers` or the `OCI`.      
+There are several competing Container Engines including Docker, **Podman**, CRI-O, Railcar, RKT, LXC. These Container Engines take a Container Image and turn it into a Container (aka running processes). How this happens is governed by the scope of the OCI which includes a Container Runtime Specification and a Reference Runtime Implementation called RunC.    
+
+>A container engine is a piece of software that accepts user requests, including command line options, pulls images, and from the end user's perspective runs the container.      
+> There are many container engines, including docker, RKT, CRI-O, and LXD. Also, many cloud providers, Platforms as a Service (PaaS), and Container Platforms have their own built-in container engines which consume Docker or OCI compliant Container Images.      
+> Having an industry standard Container Image Format allows interoperability between all of these different platforms.    
+> Going one layer deeper, most container engines don't actually run the containers, they rely on an OCI compliant runtime like runc.
+
+Docker Engine acts as a client-server application with: docker daemon , docker cli , APIs which specify interfaces that programs can use to talk to and instruct the Docker daemon.     
+Podman is a container Engine that relies on OCI compliant Container Runtime (runc, crun, runv, etc) to interface with the operating system and create the running containers.   
+Podman provides a command-line interface (CLI) similar to Docker but operates without a central daemon, making it daemonless. Each Podman command launches a container process directly, making it more lightweight and suitable for environments where a daemon is not desired.    
 ### Build with Docker   
 To build images automatically use the `Dockerfile` text file.
 You write the `Dockerfile` in a domain-specific language, called the Dockerfile syntax.   
@@ -46,6 +59,7 @@ Before the docker CLI sends the context to the docker daemon, it looks for a fil
 
 ### References
 - [docker overview doc](https://docs.docker.com/get-started/overview/)
-- [docker get-started doc ](https://docs.docker.com/get-started/)
+- [docker get-started doc ](https://docs.docker.com/get-started/)s
+- [redhat OCI doc](https://developers.redhat.com/blog/2018/02/22/container-terminology-practical-introduction#container)
 
 [^1]: The docker documents state "client-server architecture".
