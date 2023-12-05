@@ -65,6 +65,12 @@ rpm -qi <package-name>
 For example, if you want to list all installed java packages ordered by installation time:
 ```shell
 rpm -qa --last *java*
+# to list all packages ordered by their installation time:
+rpm -qa --last | less
+```
+To explore deliberately installed packages (not installed as a dependency)
+```shell
+dnf repoquery --userinstalled 
 ```
 ### Flatpak framework
 >Flatpak is a framework for distributing desktop applications across various Linux distributions.    
