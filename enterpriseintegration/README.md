@@ -27,5 +27,13 @@ asynchronous communication by its nature is message-driven whereas synchronous c
 ### 4 major enterprise integration styles    
 - File-based integration
 - Shared-database integration
-- Remote Procedure Calls
+- Remote Procedure Calls(RPC)    
+    - synchronous communication
+    - point-to-point communication(P2P)
+>**CRUD over HTTP is a degenerate kind of RPC**    
+> The best RPC implementations aim to be protocol agnostic
 - Message-based integration
+    - asynchronous communication (i.e. request proceeds with no wait for response/reply)
+    - reduce system-level coupling
+    - suitable for big data , high throughput data , chain of requests between microservices
+    - point-to-point and point-to-multiPoint communication(P2P & P2MP)
