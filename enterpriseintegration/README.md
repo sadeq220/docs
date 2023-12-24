@@ -39,7 +39,7 @@ asynchronous communication by its nature is message-driven whereas synchronous c
     - point-to-point and point-to-multiPoint communication(P2P & P2MP)
 
 ### Event-Driven Architecture(EDA)     
-Event-driven architecture (EDA) is a software design pattern that enables the construction of scalable and loosely coupled systems.      
+Event-driven architecture (EDA) is a modern architecture pattern that enables the construction of scalable and loosely coupled systems.      
 EDA is often implemented through the use of other important software patterns such as microservices and event-driven programming (EDP), coupled together with event processing technologies such as Apache Kafka.     
 Event-driven programming is software code-level paradigm where a program’s key value-add functions or business logic are invoked in response to incoming events; the program responds to events as they occur.     
 Events representing occurrences or changes in the system drive the flow.     
