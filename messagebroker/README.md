@@ -30,15 +30,23 @@ consider enabling a `publisher confirms` protocol extension
 In order to guarantee persistence, a client should use confirms.    
 > A transactional channel cannot be put into confirm mode and once a channel is in confirm mode, it cannot be made transactional.
 
-- support persistent and transient messages     
+- support persistent(write to disk) and transient messages     
 consider using `Delivery mode` header    
 
-In AMQP 0-9-1, publishing happens on a channel to an exchange. The exchange uses a routing topology set up by defining bindings between one or more queues and the exchange, or source exchange and destination exchange. Successfully routed messages are stored in queues.
-![AMQP producer](rabbitmq_amqp_model.png)
+- publish a single message through `basic.publish` operation    
+AMQP 0-9-1 protocol itself does not inherently support message batching in a single network round trip.      
+Each call to the `basic.publish` method sends a single message to the broker.
+
+In AMQP 0-9-1, publishing happens on a channel to an exchange.       
+The exchange uses a routing topology set up by defining bindings between one or more queues and the exchange, or source exchange and destination exchange.       
+Successfully routed messages are stored in queues.    
+
+![AMQP producer](rabbitmq_amqp_model.png)    
+
 ### References
 - [vmware event stream](https://tanzu.vmware.com/event-streaming)
 - [confluent event stream](https://developer.confluent.io/patterns/event-stream/event-stream/)
 - [confluent kraft](https://developer.confluent.io/learn/kraft/)
 - kafka: The Definitive Guide 
 - [confluent kafka producer](https://docs.confluent.io/platform/current/clients/producer.html)
-- [rabbitMQ publisher confirms]
+- [rabbitMQ publisher confirms](https://www.rabbitmq.com/confirms.html)
