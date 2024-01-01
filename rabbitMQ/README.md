@@ -76,6 +76,11 @@ With the "push API", applications have to indicate interest in consuming message
 When they do so, we say that they register a consumer or, simply put, subscribe to a queue.     
 Each consumer (subscription) has an identifier called a consumer tag.      
 It can be used to unsubscribe from messages. consumer tag uniquely identifies the subscription within a channel.    
+**Single Active Consumer**   
+Single active consumer allows to have only one consumer at a time consuming from a queue and to fail over to another registered consumer in case the active one is cancelled or dies.     
+Consuming with only one consumer is useful when messages must be consumed and processed in the same order they arrive in the queue.    
+Note that without the single active consumer feature enabled, messages would be dispatched to all consumers using round-robin.    
+round-robin scenario is useful for `task distribution`.    
 ```shell
 rabbitmqctl list_consumers
 ```
