@@ -47,6 +47,17 @@ Successfully routed messages are stored in queues.
 
 ![AMQP producer](rabbitmq_amqp_model.png)    
 
+### Kafka Consumers    
+The Kafka consumer works by issuing “fetch”(poll) requests to the brokers leading the partitions it wants to consume.    
+Kafka consumers are typically part of a `consumer group`.    
+you create a new consumer group for each application that needs all the messages from one or more topics.     
+
+![kafka-consumer-group](kafka-consumer-group.png)    
+![kafka-multiple-consumer-group](kafka-multiple-consumer-group.png)   
+
+Each consumer in consumer group owns zero to more partitions and coordination service manages the ownership.    
+**partition rebalance**: Moving partition ownership from one consumer to another is called a rebalance.    
+
 ### References
 - [vmware event stream](https://tanzu.vmware.com/event-streaming)
 - [confluent event stream](https://developer.confluent.io/patterns/event-stream/event-stream/)
