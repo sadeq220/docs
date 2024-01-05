@@ -14,6 +14,8 @@ DNF is a software package manager that installs, updates, and removes packages o
 ```
 SYNOPSIS    
 dnf [options] <command> [<args>...]
+
+dnf help <command>
 ```
 DNF package repositories reside in "/etc/yum.repos.d/" directory.
 ```shell
@@ -71,6 +73,23 @@ rpm -qa --last | less
 To explore deliberately installed packages (not installed as a dependency)
 ```shell
 dnf repoquery --userinstalled 
+```
+**package groups**
+>A package group is similar to a package: it is not useful by itself, but installing one pulls a group of dependent packages that serve a common purpose.    
+
+package group is set of packages that serve a common purpose.(e.g. KDE-desktop-environment)
+A package group has a name and a groupid (GID)
+```shell
+# to list package group names along with their groupId in parenthesis
+dnf group list -v
+# to inspect group members
+dnf group info -v <groupId>
+# to install a group
+dnf group install <groupId>
+dnf install @<groupId>
+# to remove a group
+dnf group remove <groupId>
+dnf remove @<groupId>
 ```
 ### Flatpak framework
 >Flatpak is a framework for distributing desktop applications across various Linux distributions.    
