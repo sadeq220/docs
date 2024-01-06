@@ -57,6 +57,24 @@ you create a new consumer group for each application that needs all the messages
 
 Each consumer in consumer group owns zero to more partitions and coordination service manages the ownership.    
 **partition rebalance**: Moving partition ownership from one consumer to another is called a rebalance.    
+There are two types of rebalances, depending on the partition assignment strategy that the consumer group uses:    
+- Eager Rebalances    
+Eager rebalance revokes all partitions, pauses consumption and re-assigns them.     
+- Cooperative Rebalances (incremental rebalances)     
+> initially the consumer group leader informs all the consumers that they will lose ownership of a subset of their partitions,     
+> the consumers stop consuming from these partitions and give up their ownership in them.     
+> At the second phase, the consumer group leader assigns these now orphaned partitions to their new owners.      
+> This incremental approach may take a few iterations until a stable partition assignment is achieved,     
+> but it avoids the complete “stop the world” unavailability that occurs with the eager approach.    
+
+**Group Coordinator**     
+The way consumers maintain membership in a consumer group and ownership of the partitions assigned to them is by sending heartbeats to a Kafka broker designated as the group coordinator.    
+![kafka-group-coordinator](kafka-group-coordinator.png)
+> When a consumer instance starts up it sends a FindCoordinator request that includes its group.id to any broker in the cluster.     
+> The broker will create a hash of the group.id and modulo that against the number of partitions in the internal __consumer_offsets topic.      
+> That determines the partition that all metadata events for this group will be written to.     
+> The broker that hosts the leader replica for that partition will take on the role of group coordinator for the new consumer group.     
+> The broker that received the FindCoordinator request will respond with the endpoint of the group coordinator.     
 
 ### References
 - [vmware event stream](https://tanzu.vmware.com/event-streaming)
@@ -65,3 +83,4 @@ Each consumer in consumer group owns zero to more partitions and coordination se
 - kafka: The Definitive Guide 
 - [confluent kafka producer](https://docs.confluent.io/platform/current/clients/producer.html)
 - [rabbitMQ publisher confirms](https://www.rabbitmq.com/confirms.html)
+- [confluent kafka consumer](https://developer.confluent.io/courses/architecture/consumer-group-protocol/)
