@@ -82,12 +82,24 @@ If a rebalance is triggered, it will be handled inside the poll loop as well, in
 if poll() is not invoked for longer than max.poll.interval.ms, the consumer will be considered dead and evicted from the consumer group. 
 in case of `static membership`, rebalance will be triggered after session.timeout.ms
 
-**consumer auto-commit**    
+**consumer commit offset**    
 action of updating the current position in the partition is a commit.    
-Consumer produces a message to Kafka, to a special `__consumer_offsets topic`, with the committed offset for each partition.     
-enable.auto.commit controls whether the consumer will commit offsets automatically(at intervals determined by auto.commit.interval.ms), and defaults to true.    
+Consumer produces a message to Kafka, to a special `__consumer_offsets topic`, with the committed offset for each partition.      
 In case of Rebalance, each consumer may be assigned a new set of partitions than the one it processed before.   
-![kafka-consumer-offset](kafka-consumer-offset-commit.png)
+![kafka-consumer-offset](kafka-consumer-offset-commit.png)    
+ways of committing offset:  
+- auto-commit    
+If you configure enable.auto.commit=true(default is true), then every five seconds(controlled by auto.commit.interval.ms) the consumer will commit the largest offset your client received from poll().   
+With autocommit enabled, when it is time to commit offsets, the next poll will commit the last offset returned by the previous poll.   
+With autocommit enabled, it is impossible to completely eliminate duplicate event processing.    
+- commit current offset    
+By setting enable.auto.commit=false, offsets will only be committed when the application explicitly chooses to do so.   
+`commitSync()` API will commit the latest offset returned by poll() and return once the offset is committed, throwing an exception if commit fails for some reason.    
+`commitAsync()` API is like its synchronous counterpart but instead of waiting for broker response it will carry on, and also it will not retry errors.    
+- commit specific offset
+Committing in the middle of batch processing.   
+the consumer API allows you to call commitSync() and commitAsync() and pass a map of partitions and offsets that you wish to commit.    
+
 ### References
 - [vmware event stream](https://tanzu.vmware.com/event-streaming)
 - [confluent event stream](https://developer.confluent.io/patterns/event-stream/event-stream/)
