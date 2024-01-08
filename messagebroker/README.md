@@ -76,6 +76,15 @@ The way consumers maintain membership in a consumer group and ownership of the p
 > The broker that hosts the leader replica for that partition will take on the role of group coordinator for the new consumer group.     
 > The broker that received the FindCoordinator request will respond with the endpoint of the group coordinator.     
 
+**poll-based consumer**    
+The same way that sharks must keep moving, or they die, consumers must keep polling Kafka, or they will be considered dead(determined by max.poll.interval.ms).        
+If a rebalance is triggered, it will be handled inside the poll loop as well, including related callbacks.    
+if poll() is not invoked for longer than max.poll.interval.ms, the consumer will be considered dead and evicted from the consumer group. 
+in case of `static membership`, rebalance will be triggered after session.timeout.ms
+
+**consumer auto-commit**    
+action of updating the current position in the partition a commit.    
+enable.auto.commit controls whether the consumer will commit offsets automatically(at intervals determined by auto.commit.interval.ms), and defaults to true.
 ### References
 - [vmware event stream](https://tanzu.vmware.com/event-streaming)
 - [confluent event stream](https://developer.confluent.io/patterns/event-stream/event-stream/)
