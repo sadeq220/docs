@@ -83,8 +83,11 @@ if poll() is not invoked for longer than max.poll.interval.ms, the consumer will
 in case of `static membership`, rebalance will be triggered after session.timeout.ms
 
 **consumer auto-commit**    
-action of updating the current position in the partition a commit.    
-enable.auto.commit controls whether the consumer will commit offsets automatically(at intervals determined by auto.commit.interval.ms), and defaults to true.
+action of updating the current position in the partition is a commit.    
+Consumer produces a message to Kafka, to a special `__consumer_offsets topic`, with the committed offset for each partition.     
+enable.auto.commit controls whether the consumer will commit offsets automatically(at intervals determined by auto.commit.interval.ms), and defaults to true.    
+In case of Rebalance, each consumer may be assigned a new set of partitions than the one it processed before.   
+![kafka-consumer-offset](kafka-consumer-offset-commit.png)
 ### References
 - [vmware event stream](https://tanzu.vmware.com/event-streaming)
 - [confluent event stream](https://developer.confluent.io/patterns/event-stream/event-stream/)
