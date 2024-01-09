@@ -98,8 +98,12 @@ By setting enable.auto.commit=false, offsets will only be committed when the app
 `commitAsync()` API is like its synchronous counterpart but instead of waiting for broker response it will carry on, and also it will not retry errors.    
 - commit specific offset
 Committing in the middle of batch processing.   
-the consumer API allows you to call commitSync() and commitAsync() and pass a map of partitions and offsets that you wish to commit.    
+the consumer API allows you to call commitSync() and commitAsync() and pass a map of partitions and offsets that you wish to commit.     
 
+```
+To ensure full compliance of the Consumer with Exactly-Once Semantics, it is essential to store the offset along with the processed data within a single atomic transaction.    
+and use ConsumerRebalanceListener with seek to make sure consumer starts reading records from the correct location.    
+```
 ### References
 - [vmware event stream](https://tanzu.vmware.com/event-streaming)
 - [confluent event stream](https://developer.confluent.io/patterns/event-stream/event-stream/)
