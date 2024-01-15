@@ -69,6 +69,8 @@ For example, if you want to list all installed java packages ordered by installa
 rpm -qa --last *java*
 # to list all packages ordered by their installation time:
 rpm -qa --last | less
+# to find a package name by its file 
+rpm -q -f $(which command)
 ```
 To explore deliberately installed packages (not installed as a dependency)
 ```shell
