@@ -10,6 +10,13 @@ identify <image-name>
 convert <original-image> -quality n% <produced-image-name>
 #to reduce image size and file size of the image
 covert <original-image> -resize mxn <produced-image-name>
+----pdf----
+package name: poppler-utils
+# to check embedded fonts
+pdffounts file.pdf
+# to embed fonts( to be compatible with printers)
+package name: ghostscript
+gs -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dPDFSETTINGS=/prepress -dEmbedAllFonts=true -sOutputFile=output.pdf input.pdf
 ----networking----
 ip link set <interface-name> name <new-interface-name>
 nmcli dev status
