@@ -10,6 +10,7 @@
 	- network protocol
 	- system call
 - Kernel modules have a `.ko` extension as of kernel 3.0. 
+- On Red Hat Enterprise Linux 8, kernel modules are extra kernel code which is built into compressed <KERNEL_MODULE_NAME>.ko.xz object files.       
 - A character device is one of the simplest ways to communicate with a module in the Linux kernel.
 - the character device drivers receive unaltered system calls made by users over device-type files(not altered by VFS)
 - To determine loaded modules run the command lsmod
@@ -31,6 +32,13 @@ modprobe <module_name>
 - To unload a module
 ```shell
 modprobe -r <module_name>
+```
+- To load a module at boot time    
+> [!WARNING]
+> The code of kernel modules is executed in kernel-space in the unrestricted mode.    
+> Because of this, you should be mindful of what modules you are loading.    
+```shell
+echo <MODULE_NAME> > /etc/modules-load.d/<MODULE_NAME>.conf
 ```
 - LKMs(Loadable Kernel Modules) are located in
 ```shell
