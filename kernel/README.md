@@ -1,3 +1,22 @@
+## Linux Kernel   
+The kernel is a core part of a Linux operating system that manages the system resources and,     
+provides interface between hardware and software applications.
+Red Hat minimum kernel installation, includes these packages:    
+- kernel (the kernel meta package)
+  - kernel-core(contains vmlinuz)
+  - kernel-modules-core
+  - kernel-modules(not necessary for virtualized and cloud environments)
+
+debian minimum kernel installation, includes this package:
+  - linux-image-<version>-<platform>
+
+## vmlinuz    
+vmlinuz is the compressed, bootable Linux kernel image.    
+The name is derived from "Virtual Memory LINUx gZip," indicating that it is a gzip-compressed Linux kernel.   
+The vmlinuz files usually reside in the */boot* directory.    
+During the boot process, the bootloader (such as GRUB2) loads the vmlinuz file into memory, and the kernel takes control of the system.    
+It initializes hardware, mounts the root filesystem, and starts the system's user-space processes.    
+
 ## Kernel modules
 - Without modules, we would have to build monolithic kernels and add new functionality directly into the kernel image.
 - A kernel module is a code (C language) that can be loaded into the kernel image at will, without requiring users to rebuild the kernel or reboot their computer
@@ -52,3 +71,4 @@ ls /usr/lib/modules/$(uname -r)/kernel
 - [Arch wiki:kernel modules](https://wiki.archlinux.org/title/Kernel_module)
 - [wiki books:the linux kernel modules](https://en.wikibooks.org/wiki/The_Linux_Kernel/Modules)
 - [tldp.org:introduction to LKM](https://tldp.org/HOWTO/Module-HOWTO/x73.html)
+- [dev.to vmlinuz](https://dev.to/er_dward/understanding-the-initrd-and-vmlinuz-in-linux-boot-process-534f)
