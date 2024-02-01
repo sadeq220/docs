@@ -5,8 +5,8 @@
 - To dynamically load or remove a module, it has to be configured as a loadable module in the kernel configuration (the line related to the module will therefore display the letter `M`).
 - Most of the device drivers are used in the form of kernel modules.
 - kernel modules usage :
-	- device deriver
-	- file system driver
+	- `Device driver` which adds support for new hardware
+	- File system driver, support for a file system such as GFS2 or NFS
 	- network protocol
 	- system call
 - Kernel modules have a `.ko` extension as of kernel 3.0. 
@@ -34,12 +34,13 @@ modprobe -r <module_name>
 ```
 - LKMs(Loadable Kernel Modules) are located in
 ```shell
-/lib is symlink to /usr/lib 
+# /lib is symlink to /usr/lib 
 ls /usr/lib/modules/$(uname -r)/kernel
 ```
 
 
 ## Refrences
+- [Red Hat kernel doc](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/managing_monitoring_and_updating_the_kernel/index)
 - [Arch wiki:kernel modules](https://wiki.archlinux.org/title/Kernel_module)
 - [wiki books:the linux kernel modules](https://en.wikibooks.org/wiki/The_Linux_Kernel/Modules)
 - [tldp.org:introduction to LKM](https://tldp.org/HOWTO/Module-HOWTO/x73.html)
