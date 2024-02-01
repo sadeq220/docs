@@ -109,8 +109,23 @@ To get list of installed applications:
 ```shell
 flatpak list
 ```
-
+### grubby
+To switch between kernels, or change kernel command-line args this tool comes handy.    
+grubby changes `GRUB 2` bootloader config files.    
+To list all boot entries:   
+```shell
+grubby --info ALL
+```
+To view a default boot entry:
+```shell
+grubby --info DEFAULT
+```
+To set a default kernel:
+```shell
+grubby --set-default /boot/vmlinuz-<version>.<architecture>
+```
 ### References
 - [fedora dnf docs](https://docs.fedoraproject.org/en-US/quick-docs/dnf/)
 - [RPM Fusion](https://docs.fedoraproject.org/en-US/quick-docs/rpmfusion-setup/)
 - [flatpak docs](https://docs.flatpak.org/en/latest/introduction.html)
+- [fedora grub2 wiki](https://fedoraproject.org/wiki/GRUB_2)
