@@ -76,6 +76,10 @@ To explore deliberately installed packages (not installed as a dependency)
 ```shell
 dnf repoquery --userinstalled 
 ```
+To display the list of files in a package(without installation):
+```shell
+dnf repoquery -l <package-name>
+```
 **package groups**
 >A package group is similar to a package: it is not useful by itself, but installing one pulls a group of dependent packages that serve a common purpose.    
 
