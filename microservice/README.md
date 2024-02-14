@@ -12,6 +12,15 @@ Martin Fowler define a microservice *architectural style* as follows:
 > These services are built around business capabilities and independently deployable by fully automated deployment machinery.     
 > There is a bare minimum of centralized management of these services, which may be written in different programming languages and use different data storage technologies.    
 
+Characteristics of microservice architecture:
+- Componentization via Services
+    - **Component** definition: component is a unit of software that is independently replaceable and upgradeable.   
+    - two form of components are *library* and *service*.
+    - Components are a form of module, with the additional property of independent replacement.
+- Organized around Business Capabilities
+    - each microservice should represent one specific **business domain**     
+    - Consequently the teams are cross-functional, including the full range of skills required for the development: user-experience, database, and project management.     
+  
 ### Cloud native applications    
 More applications are being deployed to the cloud(because of cost management) so write the application `cloud native` from the beginning.    
 
@@ -28,3 +37,4 @@ Using a common library instead of separate gateway service has these drawbacks:
 ### References
 - [Martin Fowler microservice architectural style](https://martinfowler.com/articles/microservices.html)
 - [Spring Microservices in Action, Second Edition](https://www.amazon.com/Spring-Microservices-Action-Second-Carnell/dp/1617296953/)
+- [Martin Fowler component definition](https://martinfowler.com/bliki/SoftwareComponent.html)
