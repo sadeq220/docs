@@ -34,6 +34,11 @@ Using a common library instead of separate gateway service has these drawbacks:
 - possibility of dependency hell by transitive dependencies of common library
 - update and redeploy each microservice on every single change on cross-cutting concerns
 
+API Gateway is using **predicates** and **filters** to route(proxy) requests.     
+Filters are used to enforce a consistent set of policies like security, logging. These policies are considered `cross-cutting concerns`.     
+practical filters would be:   
+- Pre-filter that adds **Correlation ID** header on each request(if not present) to trace user transaction flow
+
 ### References
 - [Martin Fowler microservice architectural style](https://martinfowler.com/articles/microservices.html)
 - [Spring Microservices in Action, Second Edition](https://www.amazon.com/Spring-Microservices-Action-Second-Carnell/dp/1617296953/)
