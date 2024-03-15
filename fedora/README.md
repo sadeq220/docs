@@ -80,6 +80,13 @@ To display the list of files in a package(without installation):
 ```shell
 dnf repoquery -l <package-name>
 ```
+To run commands on top of all packages in given repository
+```shell
+dnf repository-packages <repo-id> <sub-command>
+# sub-commands include: list, install, remove, info
+# for example to install all docker-ce repository packages
+dnf repository-packages docker-ce-stable install
+```
 **package groups**
 >A package group is similar to a package: it is not useful by itself, but installing one pulls a group of dependent packages that serve a common purpose.    
 
