@@ -87,6 +87,13 @@ dnf repository-packages <repo-id> <sub-command>
 # for example to install all docker-ce repository packages
 dnf repository-packages docker-ce-stable install
 ```
+To install alternative package(and remove the old conflicting package)
+```shell
+dnf swap <remove-spec> <install-spec>
+# for example to install the full ffmpeg
+# --allowerasing for Automatic conflict  solving
+dnf swap ffmpeg-free ffmpeg --allowerasing
+```
 **package groups**
 >A package group is similar to a package: it is not useful by itself, but installing one pulls a group of dependent packages that serve a common purpose.    
 
@@ -136,3 +143,4 @@ grubby --set-default /boot/vmlinuz-<version>.<architecture>
 - [RPM Fusion](https://docs.fedoraproject.org/en-US/quick-docs/rpmfusion-setup/)
 - [flatpak docs](https://docs.flatpak.org/en/latest/introduction.html)
 - [fedora grub2 wiki](https://fedoraproject.org/wiki/GRUB_2)
+- [fedora multimedia](https://rpmfusion.org/Howto/Multimedia)
