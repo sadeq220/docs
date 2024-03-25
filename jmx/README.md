@@ -16,6 +16,9 @@ JavaBean first introduced in JDK 1.1 specification as:
 
 > all beans must be serializable, have a zero-argument constructor, and allow access to properties using getter and setter methods.[^1]
 
+OCP8 defines a JavaBean as:
+> A JavaBean is a design principle for encapsulating data in an object in Java.    
+
 There is also a `JavaBeans pattern`[^2], in which you call a parameterless constructor to create the object 
 and then call setter methods to set each required parameter and each
 optional parameter of interest.     
