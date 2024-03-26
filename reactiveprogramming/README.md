@@ -1,4 +1,5 @@
-## Reactive programming    
+## Reactive programming paradigm[^1]    
+### Vert.x, RxJava, Reactor, reactive streams specification
 Today's software is shifting to more asynchronous, event-based solutions.For decades, the Observer pattern has been the go-to event infrastructure, but it is known to be bug-prone.     
 Functional reactive programming (FRP) replaces Observer, radically improving the quality of event-based code.    
 
@@ -9,12 +10,17 @@ The socket I/O operations are synchronous, so threads may block on I/O operation
 For example, writing to a socket may block, such as until the underlying TCP buffer data has been sent over the network.   
 
 The idea behind non-blocking I/O is to request a (blocking) operation,    
- and move on to doing other tasks until the operation result is ready.(apply a level of indirection[^1] like creational design patterns)    
+ and move on to doing other tasks until the operation result is ready.(apply a level of indirection[^2] like creational design patterns)    
 
 ---
+#### reactive Imperative - reactive functional
 A **callback** is an approach to reactive programming done imperatively.    
-A spreadsheet is a great example of reactive programming: cells dependent on other cells automatically “react” when those other cells change.    
-reactive-functional programming is solving is concurrency and parallelism.    
+A spreadsheet is a great example of reactive programming: cells dependent on other cells automatically “react” when those other cells change.        
+Reactive-functional programming is an abstraction,an abstraction on top of imperative systems—that allows us to program asynchronous and event-driven.    
+Reactive-functional programming is solving is concurrency and parallelism.    
 
+### References
+- [Reactor doc](https://projectreactor.io/docs/core/release/reference/#getting-started)
 
-[^1]: From OCP8, Level of indirection is a general term for solving a software design problem by conceptually separating the task into multiple levels.
+[^1]: paradigm refers to a fundamental way of thinking about and approaching a particular subject or problem. comprehensive philosophy and methodology behind Reactive Programming, including its principles, techniques, and best practices.
+[^2]: From OCP8, Level of indirection is a general term for solving a software design problem by conceptually separating the task into multiple levels.
