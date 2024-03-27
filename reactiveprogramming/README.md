@@ -1,8 +1,29 @@
 ## Reactive programming paradigm[^1]    
-### Vert.x, RxJava, Reactor, reactive streams specification
+### Vert.x, Reactor, reactive streams specification, RxJava    
+> As a first step in the direction of reactive programming, Microsoft created the Reactive Extensions (Rx) library in the .NET ecosystem. Then RxJava implemented reactive programming on the JVM.          
+> As time went on, a standardization for Java emerged through the Reactive Streams effort, a specification that defines a set of interfaces and interaction rules for reactive libraries on the JVM.Its interfaces have been integrated into Java 9 under the Flow class.     
+
+> The reactive programming paradigm is often presented in object-oriented languages as an extension of the Observer design pattern.    
+> You can also compare the main reactive streams pattern with the familiar Iterator design pattern, as there is a duality to the Iterable-Iterator pair in all of these libraries.      
+> One major difference is that, while an Iterator is pull-based, reactive streams are push-based.     
+
+>Using an iterator is an imperative programming pattern, even though the method of accessing values is solely the responsibility of the Iterable.    
+> Indeed, it is up to the developer to choose when to access the next() item in the sequence. In reactive streams, the equivalent of the above pair is Publisher-Subscriber.    
+> But it is the Publisher that notifies the Subscriber of newly available values as they come, and this push aspect is the key to being reactive.     
+> Also, operations applied to pushed values are expressed declaratively rather than imperatively: The programmer expresses the logic of the computation rather than describing its exact control flow.    
+
 Today's software is shifting to more asynchronous, event-based solutions.For decades, the Observer pattern has been the go-to event infrastructure, but it is known to be bug-prone.     
 Functional reactive programming (FRP) replaces Observer, radically improving the quality of event-based code.    
-
+---
+### Asynchronous, non-blocking code in JVM    
+By writing asynchronous, non-blocking code, you let the execution switch to another active task that uses the same underlying resources and later comes back to the current process when the asynchronous processing has finished.
+Java offers two models of asynchronous programming:     
+- Callback
+  - Asynchronous methods do not have a return value but take an extra callback parameter that gets called when the result is available.
+  - e.g. kafkaProducer.send(producerRecord,callback);
+- Futures 
+  - Asynchronous methods immediately return a Future<T>. The asynchronous process computes a T value, but the Future object wraps access to it.    
+  - e.g. ExecutorService#submit(runnable)
 ---
 #### Traditional synchronous connection
 Managing concurrent network connections by allocating a thread for each connection.     
