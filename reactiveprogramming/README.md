@@ -24,6 +24,42 @@ Java offers two models of asynchronous programming:
 - Futures 
   - Asynchronous methods immediately return a Future<T>. The asynchronous process computes a T value, but the Future object wraps access to it.    
   - e.g. ExecutorService#submit(runnable)
+
+Reactive libraries, such as Reactor, aim to address these drawbacks of “classic” asynchronous approaches on the JVM while also focusing on a few additional aspects:    
+- `Composability` the ability to orchestrate multiple asynchronous tasks, in which we use results from previous tasks to feed input to subsequent ones.    
+  - trying to accomplish this with Callbacks results in *Callback Hell*.     
+- `Backpressure` or the ability for the consumer to signal the producer that the rate of emission is too high.     
+- High level abstraction that is concurrency-agnostic.
+---
+### Reactive Streams Specification
+The purpose of Reactive Streams is to provide a standard for asynchronous stream processing with non-blocking backpressure.    
+In summary, Reactive Streams is a standard and specification for Stream-oriented libraries for the JVM that     
+- process a potentially unbounded number of elements
+- in sequence
+- asynchronously passing elements between components
+- with mandatory non-blocking backpressure.
+
+The API consists of the following components that are required to be provided by Reactive Stream implementations:
+- **Publisher**
+- **Subscriber**
+- **Subscription**
+- **Processor**
+
+A *Publisher* is a provider of a potentially unbounded number of sequenced elements, publishing them according to the demand received from its Subscriber(s).
+
+In response to a call to `Publisher.subscribe(Subscriber)` the possible invocation sequences for methods on the `Subscriber` are given by the following protocol:
+
+```
+onSubscribe onNext* (onError | onComplete)?
+```
+This means that `onSubscribe` is always signalled,
+followed by a possibly unbounded number of `onNext` signals (as requested by `Subscriber`) followed by an `onError` signal if there is a failure, or an `onComplete` signal when no more elements are available—all as long as the `Subscription` is not cancelled.    
+
+---
+### Reactor core
+The Reactor project main artifact is reactor-core, a reactive library that focuses on the **Reactive Streams specification** and targets Java 8.
+org.reactivestreams.Publisher implementations: `Flux` , `Mono`
+A Flux object represents a reactive sequence of 0..N items, while a Mono object represents a single-value-or-empty (0..1) result.
 ---
 #### Traditional synchronous connection
 Managing concurrent network connections by allocating a thread for each connection.     
@@ -43,6 +79,7 @@ Reactive-functional programming is solving is concurrency and parallelism.
 
 ### References
 - [Reactor doc](https://projectreactor.io/docs/core/release/reference/#getting-started)
+- [Reactive Streams Specification](https://github.com/reactive-streams/reactive-streams-jvm/blob/v1.0.4/README.md#specification)
 
 [^1]: paradigm refers to a fundamental way of thinking about and approaching a particular subject or problem. comprehensive philosophy and methodology behind Reactive Programming, including its principles, techniques, and best practices.      
 Similar to the Reactive Programming paradigm, Object-Oriented Programming paradigm provides a fundamental way of structuring and designing software systems. It offers a set of principles and practices for modeling real-world entities, promoting modularity, reusability, and maintainability in software development.     
