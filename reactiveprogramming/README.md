@@ -15,7 +15,8 @@
 Today's software is shifting to more asynchronous, event-based solutions.For decades, the Observer pattern has been the go-to event infrastructure, but it is known to be bug-prone.     
 Functional reactive programming (FRP) replaces Observer, radically improving the quality of event-based code.    
 ---
-### Asynchronous, non-blocking code in JVM    
+### Asynchronous, non-blocking code in JVM  
+Synchronous(ly) : Executes on the calling Thread.    
 By writing asynchronous, non-blocking code, you let the execution switch to another active task that uses the same underlying resources and later comes back to the current process when the asynchronous processing has finished.
 Java offers two models of asynchronous programming:     
 - Callback
@@ -56,10 +57,12 @@ This means that `onSubscribe` is always signalled,
 followed by a possibly unbounded number of `onNext` signals (as requested by `Subscriber`) followed by an `onError` signal if there is a failure, or an `onComplete` signal when no more elements are available—all as long as the `Subscription` is not cancelled.    
 
 ---
-### Reactor core
+### Reactor core(Reactive Streams Implementation)
 The Reactor project main artifact is reactor-core, a reactive library that focuses on the **Reactive Streams specification** and targets Java 8.
 org.reactivestreams.Publisher implementations: `Flux` , `Mono`
-A Flux object represents a reactive sequence of 0..N items, while a Mono object represents a single-value-or-empty (0..1) result.
+A Flux object represents a reactive sequence of 0..N items, while a Mono object represents a single-value-or-empty (0..1) result.    
+A Mono<T> is a specialized Publisher<T> that emits at most one item via the onNext signal.     
+
 ---
 #### Traditional synchronous connection
 Managing concurrent network connections by allocating a thread for each connection.     
