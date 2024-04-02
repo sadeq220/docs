@@ -56,6 +56,8 @@ onSubscribe onNext* (onError | onComplete)?
 This means that `onSubscribe` is always signalled,
 followed by a possibly unbounded number of `onNext` signals (as requested by `Subscriber`) followed by an `onError` signal if there is a failure, or an `onComplete` signal when no more elements are available—all as long as the `Subscription` is not cancelled.    
 
+Signal 	As a noun: one of the *onSubscribe*, *onNext*, *onComplete*, *onError*, *request(n)* or cancel methods. As a verb: calling/invoking a signal.    
+
 ---
 ### Reactor core(Reactive Streams Implementation)
 The Reactor project main artifact is reactor-core, a reactive library that focuses on the **Reactive Streams specification** and targets Java 8.
@@ -72,6 +74,8 @@ For example, writing to a socket may block, such as until the underlying TCP buf
 
 The idea behind non-blocking I/O is to request a (blocking) operation,    
  and move on to doing other tasks until the operation result is ready.(apply a level of indirection[^2] like creational design patterns)    
+In this model, many concurrent connections can be **multiplexed** on a single thread, as network latency typically exceeds the CPU time it takes to read incoming bytes.    
+
 
 ---
 #### reactive Imperative - reactive functional
