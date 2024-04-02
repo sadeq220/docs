@@ -76,6 +76,15 @@ The idea behind non-blocking I/O is to request a (blocking) operation,
  and move on to doing other tasks until the operation result is ready.(apply a level of indirection[^2] like creational design patterns)    
 In this model, many concurrent connections can be **multiplexed** on a single thread, as network latency typically exceeds the CPU time it takes to read incoming bytes.    
 
+### Multiplexing event-driven processing: The case of the event loop    
+A popular threading model for processing asynchronous events.    
+Events are pushed to an `event loop`(queue).    
+A single thread is assigned to an event loop, and processing events shouldn’t perform any blocking or long-running operation.     
+
+Javascript runtime model is based on an `event loop`.     
+JavaScript is single-threaded, but it never blocks by using the event loop model.    
+For example Javascript can process user input while it waits for fetch() request to return.     
+![javascript event loop](./the_javascript_runtime_eventloop.svg)
 
 ---
 #### reactive Imperative - reactive functional
