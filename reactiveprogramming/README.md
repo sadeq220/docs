@@ -86,6 +86,15 @@ JavaScript is single-threaded, but it never blocks by using the event loop model
 For example Javascript can process user input while it waits for fetch() request to return.     
 ![javascript event loop](./the_javascript_runtime_eventloop.svg)
 
+### Reactive systems(reactive manifesto)     
+Reactive System is and how it goes beyond “just” asynchronous programming.     
+Reactive System properties are **Responsive**, **Resilient**, **Elastic** and **Message Driven**.     
+- responsive: Consistent response times.     
+- Resilient: meet failure with elegance. how to handle crashing nodes, how to handle services in **degraded-mode**
+  - > Resilience is achieved by replication, containment, isolation and delegation
+- Elastic: scale on demand(horizontal scaling), code design impact is shared state across instances needs to be well identified and limited (e.g., server-side web sessions should be stored in redis). 
+  - >This implies designs that have no contention points or central bottlenecks, resulting in the ability to shard or replicate components and distribute inputs among them.
+- Message-Driven: Using asynchronous message passing rather than blocking RPC(e.g., using RabbitMQ, apache KafKa)     
 ---
 #### reactive Imperative - reactive functional
 A **callback** is an approach to reactive programming done imperatively.    
@@ -96,6 +105,7 @@ Reactive-functional programming is solving is concurrency and parallelism.
 ### References
 - [Reactor doc](https://projectreactor.io/docs/core/release/reference/#getting-started)
 - [Reactive Streams Specification](https://github.com/reactive-streams/reactive-streams-jvm/blob/v1.0.4/README.md#specification)
+- [Reactive manifesto](https://www.reactivemanifesto.org/)
 
 [^1]: paradigm refers to a fundamental way of thinking about and approaching a particular subject or problem. comprehensive philosophy and methodology behind Reactive Programming, including its principles, techniques, and best practices.      
 Similar to the Reactive Programming paradigm, Object-Oriented Programming paradigm provides a fundamental way of structuring and designing software systems. It offers a set of principles and practices for modeling real-world entities, promoting modularity, reusability, and maintainability in software development.     
