@@ -66,6 +66,11 @@ A Flux object represents a reactive sequence of 0..N items, while a Mono object 
 A Mono<T> is a specialized Publisher<T> that emits at most one item via the onNext signal.     
 
 ---
+## Vert.x tool-kit     
+Eclipse Vert.x is a tool-kit(collection of libraries) for building reactive applications on the JVM.     
+the focus of Vert.x is processing asynchronous events, mostly coming from **non-blocking I/O**,         
+and the threading model processes events in an **event loop**.
+
 #### Traditional synchronous connection
 Managing concurrent network connections by allocating a thread for each connection.     
 This is the model in many technologies, such as Servlets in Jakarta EE (before additions in version 3).
@@ -106,6 +111,8 @@ Reactive-functional programming is solving is concurrency and parallelism.
 - [Reactor doc](https://projectreactor.io/docs/core/release/reference/#getting-started)
 - [Reactive Streams Specification](https://github.com/reactive-streams/reactive-streams-jvm/blob/v1.0.4/README.md#specification)
 - [Reactive manifesto](https://www.reactivemanifesto.org/)
+- [Vert.x In Action](https://www.manning.com/books/vertx-in-action)
+- [vertx website](https://vertx.io/)
 
 [^1]: paradigm refers to a fundamental way of thinking about and approaching a particular subject or problem. comprehensive philosophy and methodology behind Reactive Programming, including its principles, techniques, and best practices.      
 Similar to the Reactive Programming paradigm, Object-Oriented Programming paradigm provides a fundamental way of structuring and designing software systems. It offers a set of principles and practices for modeling real-world entities, promoting modularity, reusability, and maintainability in software development.     
