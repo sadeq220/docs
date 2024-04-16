@@ -4,7 +4,7 @@ general Microservice patterns:
 - config server
 - discovery service
 - circuit breaker
-- service gateway
+- API Gateway
 
 Martin Fowler define a microservice *architectural style* as follows:
 > In short, the microservice architectural style is an approach to developing a single application as a suite of small services,     
@@ -24,7 +24,7 @@ Characteristics of microservice architecture:
 ### Cloud native applications    
 More applications are being deployed to the cloud(because of cost management) so write the application `cloud native` from the beginning.    
 
-### Service Gateway(API Gateway)
+### API Gateway(Service Gateway,edge service)
 **Central entrypoint** to microservices' cluster.    
 central means that `cross-cutting service concerns` can be carried out in a single place without the    
 individual development teams having to implement those concerns.     
