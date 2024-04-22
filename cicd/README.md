@@ -3,6 +3,7 @@ CI/CD falls under DevOps (the joining of development and operations teams).
 
 CI/CD is the critical part of TDD(Test Driven Development) and TDD is a core practice of Extreme Programming (XP) [Kent Beck].      
 We’ve used TDD on every agile project we’ve been involved in, and have found uses for it in non-agile projects.     
+TDD is an awareness of the gap between decision and feedback during programming, and techniques to control that gap [Kent Beck].     
 From TDD *empirical feedback* is a fundamental tool, and Without deployment, the feedback is not complete.    
 
 >Each feedback loop addresses different aspects of the system and development process.     
