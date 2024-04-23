@@ -74,6 +74,10 @@ use either form of *CMD* to set additional defaults that are more likely to be c
     - this scenario implies that `docker stop` will stop main process forcefully(SIGKILL) on timout and the main process will not exit cleanly.     
     - because  /bin/sh -c does not pass signals and main process will exit forcefully(SIGKILL), it won't have chance to store its states on exit.
 
+If you need shell abilities(e.g. parameter expansion,command substitution), use *ENTRYPOINT* exec form with shell, for example:
+```dockerfile
+ENTRYPOINT ["/bin/sh","-c","java ${JAVA_OPTS} -jar /api-gateway.jar ${0} ${@}"]
+```
 #### docker build context
 ```shell
 # Build an image from a Dockerfile in current working directory e.g.
