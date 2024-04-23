@@ -63,6 +63,17 @@ RUN ["/bin/bash","-c","dnf","install","java-11-openjdk"]
 exec form uses json array format in dockerfile syntax.     
 exec form pass all json array elements to exec() system call.     
 
+use *CMD* or *ENTRYPOINT* instructions to specify container runtime process (initial process(pid=1) of container runtime).    
+Best practice is:     
+use the exec form of *ENTRYPOINT* to set fairly stable default commands and arguments and then     
+use either form of *CMD* to set additional defaults that are more likely to be changed.     
+  the reasons are:    
+- Command line arguments to `docker run <image>` will be appended after all elements in an exec form *ENTRYPOINT*, and will override all elements specified using *CMD*.     
+- The shell form of *ENTRYPOINT* prevents any *CMD* command line arguments from being used. and also command line arguments to `docker run <image>` will be ignored.    
+- The shell form of *ENTRYPOINT* will start /bin/sh as PID=1 process which means `docker stop` will send SIGTERM to /bin/sh     
+    - this scenario implies that `docker stop` will stop main process forcefully(SIGKILL) on timout and the main process will not exit cleanly.     
+    - because  /bin/sh -c does not pass signals and main process will exit forcefully(SIGKILL), it won't have chance to store its states on exit.
+
 ```shell
 # Build an image from a Dockerfile in current working directory e.g.
 # docker build --tag=ImageName:tag <A build’s context>
@@ -80,7 +91,8 @@ Before the docker CLI sends the context to the docker daemon, it looks for a fil
 
 ### References
 - [docker overview doc](https://docs.docker.com/get-started/overview/)
-- [docker get-started doc ](https://docs.docker.com/get-started/)s
+- [docker get-started doc](https://docs.docker.com/get-started/)    
+- [docker ENTRYPOINT doc](https://docs.docker.com/reference/dockerfile/#entrypoint)
 - [redhat OCI doc](https://developers.redhat.com/blog/2018/02/22/container-terminology-practical-introduction#container)
 
 [^1]: The docker documents state "client-server architecture".
