@@ -74,6 +74,7 @@ use either form of *CMD* to set additional defaults that are more likely to be c
     - this scenario implies that `docker stop` will stop main process forcefully(SIGKILL) on timout and the main process will not exit cleanly.     
     - because  /bin/sh -c does not pass signals and main process will exit forcefully(SIGKILL), it won't have chance to store its states on exit.
 
+#### docker build context
 ```shell
 # Build an image from a Dockerfile in current working directory e.g.
 # docker build --tag=ImageName:tag <A build’s context>
