@@ -42,6 +42,27 @@ Each instruction in a Dockerfile roughly translates to an **image layer**.
 > If a layer has changed since the last build, that layer, and all layers that follow, must be rebuilt.   
 
 so it is better to place any dependency download instruction at the beginning of the Dockerfile .   
+
+#### shell and exec form
+The *RUN*, *CMD*, and *ENTRYPOINT* instructions all have two possible forms:      
+- exec form: `INSTRUCTION ["executable","param1","param2"]`     
+- shell form: `INSTRUCTION command param1 param2`    
+
+shell form uses default shell which is `["/bin/sh", "-c"]` on Linux and `["cmd", "/S", "/C"]` on Windows.     
+use *SHELL* instruction to override the default shell.     
+```dockerfile
+SHELL ["/bin/zsh", "-c"]
+```
+for example:         
+```dockerfile
+SHELL ["/bin/bash","-c"]
+RUN dnf install java-11-openjdk
+# above instructions are equivalent of following instruction
+RUN ["/bin/bash","-c","dnf","install","java-11-openjdk"]
+```
+exec form uses json array format in dockerfile syntax.     
+exec form pass all json array elements to exec() system call.     
+
 ```shell
 # Build an image from a Dockerfile in current working directory e.g.
 # docker build --tag=ImageName:tag <A build’s context>
