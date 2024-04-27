@@ -27,6 +27,7 @@ CD refers to continuous deployment or continuous delivery, which automates the a
 ### gitlab Vs Bamboo CI/CD     
 To use GitLab CI/CD, you start with a `.gitlab-ci.yml` file at the root of your project which contains the configuration for your CI/CD pipeline.     
 Bitbucket's repositories can be linked to bamboo server project in their settings.     
+Bamboo agent will create new working directory(build directory) for every job with this scheme `<project key>-<plan key>-<job key>`.    
 
 <table>
         <tr>
