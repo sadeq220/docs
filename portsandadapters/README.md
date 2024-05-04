@@ -23,6 +23,10 @@ This architecture depicts the application as a **closed area**. The closed area 
 The hexagon is the application core surrounded by ports(**interfaces**) which are facets of the hexagon.    
 Ports are the intention of a dialog, and **establish a clear boundary** between application core and its dependencies on technical infrastructure.    
 
+In this architecture there is a lef-side and right-side ports. difference lies in where port is Dependency Injected. 
+- If port is dependency Injected into hexagon it is a left-side port(aka driven port).
+- If port is dependency Injected into adapters it is a right-side port(aka driver port).   
+
 ### References
 - [GOOS book](https://www.amazon.com/Growing-Object-Oriented-Software-Guided-Tests/dp/0321503627)
 - [Alister describing hexagonal architecture](https://www.youtube.com/watch?v=th4AgBcrEHA)
