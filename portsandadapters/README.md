@@ -21,7 +21,8 @@ This architecture utilizes two principal heuristics:
 
 This architecture depicts the application as a **closed area**. The closed area is a hexagon(chosen by Alister Cockburn).    
 The hexagon is the application core surrounded by ports(**interfaces**) which are facets of the hexagon.    
-Ports are the intention of a dialog, and **establish a clear boundary** between application core and its dependencies on technical infrastructure.    
+Ports are the intention of a dialog, and should be described as **For verb<span style="color: yellow">ing</span> noun**.    
+Ports **establish a clear boundary** between application core and its dependencies on technical infrastructure.    
 
 In this architecture there is a lef-side and right-side ports. difference lies in where port is Dependency Injected. 
 - If port is dependency Injected into hexagon it is a left-side port(aka driven port).
