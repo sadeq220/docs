@@ -16,8 +16,9 @@ maintainability is achieved by well-designed classes(**loosely coupled and highl
 This architecture utilizes two principal heuristics:   
 - Separation of concerns
   - gather together code that will change for the same reason in an isolated package.
-- Higher levels of abstraction
+- Higher levels of abstraction[^1]
     - avoid complexities
+    - provide clear and simple interface(API)
 
 This architecture depicts the application as a **closed area**. The closed area is a hexagon(chosen by Alister Cockburn).    
 The hexagon is the application core surrounded by ports(**interfaces**) which are facets of the hexagon.    
@@ -32,3 +33,8 @@ In this architecture there is a lef-side and right-side ports. difference lies i
 - [GOOS book](https://www.amazon.com/Growing-Object-Oriented-Software-Guided-Tests/dp/0321503627)
 - [Alister describing hexagonal architecture](https://www.youtube.com/watch?v=th4AgBcrEHA)
 - [summary of Dr. Alister speeches](https://jmgarridopaz.github.io/content/hexagonalarchitecture.html)
+
+
+[^1]: Abstraction concept in OOP is described as 'Representing the essential features of something without including background or inessential detail' (object-oriented methods, Graham 1991),     
+and simply means providing a clear and simple interface (API) and hiding the internal structure of the object (even getters and setters).     
+Although hiding design decisions falls into the 'Information hiding'.    
