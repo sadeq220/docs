@@ -29,6 +29,24 @@ In this architecture there is a left-side and right-side ports. difference lies 
 - If port is dependency Injected into hexagon it is a right-side port(aka driven port).
 - If port is dependency Injected into adapters it is a left-side port(aka driver port).   
 
+### ACTOR
+Outside our software project there are services that our project(e.g. maven project) interacts with for example database service, SMTP service, or SPA(Single Page App)     
+we call these services `actors` and there are two types of actors based on who starts the conversation.    
+- Actors on the left/top side are Drivers, or Primary Actors. The interaction is triggered by the actor.
+    - e.g. SPA, Postman(http client), message queue(when our app is consuming)
+- Actors on the right/bottom side are Driven Actors, or Secondary Actors. The interaction is triggered by the application.
+    - e.g. database, message queue(when our app is publishing) 
+
+<pre>Actors
+├── Driver (primary Actor)
+│  
+└── Driven (secondary Actor)
+    │  
+    ├── Repository(when info is sent and received)
+    │
+    └── Recipient(when info is only sent) 
+</pre>
+
 ### References
 - [GOOS book](https://www.amazon.com/Growing-Object-Oriented-Software-Guided-Tests/dp/0321503627)
 - [Alister describing hexagonal architecture](https://www.youtube.com/watch?v=th4AgBcrEHA)
