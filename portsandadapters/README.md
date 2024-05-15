@@ -25,9 +25,9 @@ The hexagon is the application core surrounded by ports(**interfaces**) which ar
 Ports are the intention of a dialog, and should be described as **For verb<span style="color: yellow">ing</span> noun**.    
 Ports **establish a clear boundary** between application core and its dependencies on technical infrastructure.    
 
-In this architecture there is a lef-side and right-side ports. difference lies in where port is Dependency Injected. 
-- If port is dependency Injected into hexagon it is a left-side port(aka driven port).
-- If port is dependency Injected into adapters it is a right-side port(aka driver port).   
+In this architecture there is a left-side and right-side ports. difference lies in where port is Dependency Injected. 
+- If port is dependency Injected into hexagon it is a right-side port(aka driven port).
+- If port is dependency Injected into adapters it is a left-side port(aka driver port).   
 
 ### References
 - [GOOS book](https://www.amazon.com/Growing-Object-Oriented-Software-Guided-Tests/dp/0321503627)
