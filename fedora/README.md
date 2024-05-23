@@ -79,6 +79,8 @@ dnf repoquery --userinstalled
 To display the list of files in a package(without installation):
 ```shell
 dnf repoquery -l <package-name>
+# or if package reside in RMPDB
+rpm -q --list <package-name>
 ```
 To run commands on top of all packages in given repository
 ```shell
