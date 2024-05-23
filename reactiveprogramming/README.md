@@ -91,6 +91,23 @@ JavaScript is single-threaded, but it never blocks by using the event loop model
 For example Javascript can process user input while it waits for fetch() request to return.     
 ![javascript event loop](./the_javascript_runtime_eventloop.svg)
 
+messages in message queue is processed only when the stack frame is empty.      
+> The processing of functions continues until the stack is once again empty.    
+> Then, the event loop will process the next message in the queue (if there is one).
+
+>At some point during the event loop, the runtime starts handling the messages on the queue,starting with the oldest one.     
+> To do so, the message is removed from the queue and its corresponding function is called with the message as an input parameter.      
+> As always, calling a function creates a new stack frame for that function's use.
+
+> The event loop got its name because of how it's usually implemented, which usually resembles:
+```js
+while (queue.waitForMessage()) {
+  queue.processNextMessage();
+}
+```
+> queue.waitForMessage() waits synchronously for a message to arrive (if one is not already available and waiting to be handled).    
+
+
 ### Reactive systems(reactive manifesto)     
 Reactive System is and how it goes beyond “just” asynchronous programming.     
 Reactive System properties are **Responsive**, **Resilient**, **Elastic** and **Message Driven**.     
