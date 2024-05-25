@@ -1,6 +1,6 @@
 ## Microservice patterns and architecture
-This document aims to provide an overview of general Microservice patterns and architecture     
-general Microservice patterns:    
+This document aims to provide an overview of general Microservice architecture patterns.      
+General Microservice patterns:    
 - config server
 - discovery service
 - circuit breaker
