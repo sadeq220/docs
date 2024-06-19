@@ -53,7 +53,9 @@ In response to a call to `Publisher.subscribe(Subscriber)` the possible invocati
 ```
 onSubscribe onNext* (onError | onComplete)?
 ```
-This means that `onSubscribe` is always signalled,
+This means that `onSubscribe` is always signalled,    
+No further notifications will be received until Subscription#request(long) is called.(demand signal)     
+It is the responsibility of this Subscriber instance to call Subscription#request(long) whenever more data is wanted.    
 followed by a possibly unbounded number of `onNext` signals (as requested by `Subscriber`) followed by an `onError` signal if there is a failure, or an `onComplete` signal when no more elements are available—all as long as the `Subscription` is not cancelled.    
 
 Signal 	As a noun: one of the *onSubscribe*, *onNext*, *onComplete*, *onError*, *request(n)* or cancel methods. As a verb: calling/invoking a signal.    
