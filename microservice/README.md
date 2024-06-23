@@ -6,7 +6,7 @@ General Microservice patterns:
 - circuit breaker
 - API Gateway
 
-Martin Fowler define a microservice *architectural style*[1^] as follows:
+Martin Fowler define a microservice *architectural style*[^1] as follows:
 > In short, the microservice architectural style is an approach to developing a single application as a suite of small services,     
 > each running in its own process and communicating with lightweight mechanisms, often an HTTP resource API.      
 > These services are built around business capabilities and independently deployable by fully automated deployment machinery.     
@@ -23,7 +23,7 @@ Characteristics of microservice architecture:
   
 Some approaches help to adapt microservice architecture easily:
 - DDD aggregate pattern
-  - first structure the business logic as an object model(domain model)[2^]
+  - first structure the business logic as an object model(domain model)[^2]
   - then structuring a domain model as a set of aggregates and make the boundaries explicit.
 - monitoring using Grafana and Prometheus
 ### Cloud native applications    
@@ -50,7 +50,7 @@ practical filters would be:
 - [Microservice Patterns, written by Chris Richardson](https://www.amazon.com/Microservices-Patterns-examples-Chris-Richardson/dp/1617294543)
 - [Martin Fowler component definition](https://martinfowler.com/bliki/SoftwareComponent.html)
 
-[1^] architectural style 
+[^1] architectural style 
 
-[2^] domain model pattern: Organize the business logic as an object model consisting of classes that have state
+[^2] domain model pattern: Organize the business logic as an object model consisting of classes that have state
      and behavior.These classes typically correspond directly to concepts from the problem domain.(microservice patterns book)
