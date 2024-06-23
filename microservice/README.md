@@ -21,7 +21,7 @@ Characteristics of microservice architecture:
     - each microservice should represent one specific **business domain**     
     - Consequently the teams are cross-functional, including the full range of skills required for the development: user-experience, database, and project management.     
   
-Some approaches help to adapt microservice architecture easily:
+Some approaches help to adopt microservice architecture easily:
 - DDD aggregate pattern
   - first structure the business logic as an object model(domain model)[^2]
   - then structuring a domain model as a set of aggregates and make the boundaries explicit.
