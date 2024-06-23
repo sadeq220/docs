@@ -55,8 +55,10 @@ practical filters would be:
 - [Spring Microservices in Action, Second Edition](https://www.amazon.com/Spring-Microservices-Action-Second-Carnell/dp/1617296953/)
 - [Microservice Patterns, written by Chris Richardson](https://www.amazon.com/Microservices-Patterns-examples-Chris-Richardson/dp/1617294543)
 - [Martin Fowler component definition](https://martinfowler.com/bliki/SoftwareComponent.html)
+- [Marting Fowler architecture](https://martinfowler.com/architecture/)
 
-[^1]: architectural style 
+[^1]: architectural style(aka architectural pattern): from Martin Fowler point of view architecture is an important design. architectural style like 
+      building architecture, defines a family of such systems in terms of a pattern of structural organization.     
 
 [^2]: domain model pattern: Organize the business logic as an object model consisting of classes that have state
      and behavior.These classes typically correspond directly to concepts from the problem domain.(microservice patterns book)
