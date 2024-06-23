@@ -26,8 +26,12 @@ Some approaches help to adopt microservice architecture easily:
   - first structure the business logic as an object model(domain model)[^2]
   - then structuring a domain model as a set of aggregates and make the boundaries explicit.
 - monitoring using Grafana and Prometheus
+
 ### Cloud native applications    
 More applications are being deployed to the cloud(because of cost management) so write the application `cloud native` from the beginning.    
+A cloud-native application is specifically designed from the ground up to take advantage of the elasticity and distributed nature of the cloud.    
+Cloud-native applications are typically broken down into multiple, self-contained services through the use of technologies and methodologies, namely DevOps, continuous delivery and continuous integration, containers, microservices, and declarative APIs.
+“cloud native” isn’t solely about cloud adoption. Instead, it refers to how applications are built and delivered, rather than just where they are deployed.     
 
 ### API Gateway(Service Gateway,edge service)
 **Central entrypoint** to microservices' cluster.    
