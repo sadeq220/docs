@@ -50,7 +50,7 @@ practical filters would be:
 - [Microservice Patterns, written by Chris Richardson](https://www.amazon.com/Microservices-Patterns-examples-Chris-Richardson/dp/1617294543)
 - [Martin Fowler component definition](https://martinfowler.com/bliki/SoftwareComponent.html)
 
-[^1] architectural style 
+[^1]: architectural style 
 
-[^2] domain model pattern: Organize the business logic as an object model consisting of classes that have state
+[^2]: domain model pattern: Organize the business logic as an object model consisting of classes that have state
      and behavior.These classes typically correspond directly to concepts from the problem domain.(microservice patterns book)
