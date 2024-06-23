@@ -6,7 +6,7 @@ General Microservice patterns:
 - circuit breaker
 - API Gateway
 
-Martin Fowler define a microservice *architectural style* as follows:
+Martin Fowler define a microservice *architectural style*[1^] as follows:
 > In short, the microservice architectural style is an approach to developing a single application as a suite of small services,     
 > each running in its own process and communicating with lightweight mechanisms, often an HTTP resource API.      
 > These services are built around business capabilities and independently deployable by fully automated deployment machinery.     
@@ -21,6 +21,11 @@ Characteristics of microservice architecture:
     - each microservice should represent one specific **business domain**     
     - Consequently the teams are cross-functional, including the full range of skills required for the development: user-experience, database, and project management.     
   
+Some approaches help to adapt microservice architecture easily:
+- DDD aggregate pattern
+  - first structure the business logic as an object model(domain model)[2^]
+  - then structuring a domain model as a set of aggregates and make the boundaries explicit.
+- monitoring using Grafana and Prometheus
 ### Cloud native applications    
 More applications are being deployed to the cloud(because of cost management) so write the application `cloud native` from the beginning.    
 
@@ -42,4 +47,10 @@ practical filters would be:
 ### References
 - [Martin Fowler microservice architectural style](https://martinfowler.com/articles/microservices.html)
 - [Spring Microservices in Action, Second Edition](https://www.amazon.com/Spring-Microservices-Action-Second-Carnell/dp/1617296953/)
+- [Microservice Patterns, written by Chris Richardson](https://www.amazon.com/Microservices-Patterns-examples-Chris-Richardson/dp/1617294543)
 - [Martin Fowler component definition](https://martinfowler.com/bliki/SoftwareComponent.html)
+
+[1^] architectural style 
+
+[2^] domain model pattern: Organize the business logic as an object model consisting of classes that have state
+     and behavior.These classes typically correspond directly to concepts from the problem domain.(microservice patterns book)
