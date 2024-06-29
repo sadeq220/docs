@@ -54,7 +54,7 @@ In response to a call to `Publisher.subscribe(Subscriber)` the possible invocati
 onSubscribe onNext* (onError | onComplete)?
 ```
 This means that `onSubscribe` is always signalled,    
-No further notifications will be received until Subscription#request(long) is called.(demand signal)     
+No further notifications will be received until Subscription#request(long) is called.(**Demand**)     
 It is the responsibility of this Subscriber instance to call Subscription#request(long) whenever more data is wanted.    
 followed by a possibly unbounded number of `onNext` signals (as requested by `Subscriber`) followed by an `onError` signal if there is a failure, or an `onComplete` signal when no more elements are available—all as long as the `Subscription` is not cancelled.    
 
@@ -67,6 +67,65 @@ org.reactivestreams.Publisher implementations: `Flux` , `Mono`
 A Flux object represents a reactive sequence of 0..N items, while a Mono object represents a single-value-or-empty (0..1) result.    
 A Mono<T> is a specialized Publisher<T> that emits at most one item via the onNext signal.     
 
+> Obtaining a Flux or a Mono does not necessarily mean that it runs in a dedicated Thread.     
+> Instead, most operators continue working in the Thread on which the previous operator executed.     
+> Unless specified, the topmost operator (the source) itself runs on the Thread in which the subscribe() call was made.
+
+Triggered event is called `sink` in the reactor library context. sink types:
+- SynchronousSink
+- FluxSink
+- MonoSink
+
+Programmatically creating a reactive sequence:
+
+1) This is for synchronous and one-by-one emissions, meaning that the sink is a SynchronousSink and that its next() method can only be called at most once per callback invocation.
+```java
+// SynchronousSink - synchronous generate
+
+import reactor.core.publisher.Flux;
+
+public class SynchronousGenerate {
+  public void testSynchronousSequence() {
+    Flux<Integer> synchronousSequence = Flux.generate(() -> 0, (state, synchronousSink) -> {
+      sink.next(synchronousSink);
+      if (synchronousSink.equals(15))
+        synchronousSink.complete();
+      return ++synchronousSink;
+    });
+    synchronousSequence.subscribe(integer -> {
+      System.out.println(Thread.currentThread() + "  " + integer);
+    });
+  }
+}
+
+```
+
+2) It exposes a FluxSink, with its next, error, and complete methods. Contrary to generate, it doesn’t have a state-based variant. On the other hand, it can trigger multi-threaded events in the callback.
+
+```java
+import reactor.core.publisher.Flux;
+// create doesn’t parallelize your code nor does it make it asynchronous
+public class AsynchronousCreate {
+  public static void main(String[] args) {
+    ThreadGroup customPool = new ThreadGroup("customPool");
+    customPool.setDaemon(true);
+
+    ExecutorService executorService = Executors.newFixedThreadPool(10, runnable -> new Thread(customPool, runnable));
+
+    Flux<String> asynchronousSequence = Flux.create(fluxSink -> {
+      fluxSink.next("hello");
+      fluxSink.next("how are you?");
+      fluxSink.complete();
+    });
+    executorService.submit(()->
+            asynchronousSequence.subscribe(event->{
+              // computation logic
+              System.out.println(Thread.currentThread()+ "   " + event);
+            })
+    );
+  }
+}
+```
 ---
 ## Vert.x tool-kit     
 Eclipse Vert.x is a tool-kit(collection of libraries) for building reactive applications on the JVM.     
