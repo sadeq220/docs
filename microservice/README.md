@@ -6,6 +6,15 @@ General Microservice patterns:
 - circuit breaker
 - API Gateway
 
+Some approaches help to adopt microservice architecture easily:
+- DDD aggregate pattern
+    - first structure the business logic as an object model(domain model)[^2]
+    - then structuring a domain model as a set of aggregates and make the boundaries explicit.
+  
+- Event-Driven Architecture(EDA from Enterprise Integration Patterns)
+
+- monitoring using Grafana and Prometheus
+
 Martin Fowler define a microservice *architectural style*[^1] as follows:
 > In short, the microservice architectural style is an approach to developing a single application as a suite of small services,     
 > each running in its own process and communicating with lightweight mechanisms, often an HTTP resource API.      
@@ -20,13 +29,7 @@ Characteristics of microservice architecture:
 - Organized around Business Capabilities
     - each microservice should represent one specific **business domain**     
     - Consequently the teams are cross-functional, including the full range of skills required for the development: user-experience, database, and project management.     
-  
-Some approaches help to adopt microservice architecture easily:
-- DDD aggregate pattern
-  - first structure the business logic as an object model(domain model)[^2]
-  - then structuring a domain model as a set of aggregates and make the boundaries explicit.
-- monitoring using Grafana and Prometheus
-
+    
 ### Cloud native applications    
 More applications are being deployed to the cloud(because of cost management) so write the application `cloud native` from the beginning.    
 A cloud-native application is specifically designed from the ground up to take advantage of the elasticity and distributed nature of the cloud.    
