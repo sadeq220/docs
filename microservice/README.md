@@ -15,6 +15,7 @@ Some approaches help to adopt microservice architecture easily:
 
 - monitoring using Grafana and Prometheus
 
+---
 Martin Fowler define a microservice *architectural style*[^1] as follows:
 > In short, the microservice architectural style is an approach to developing a single application as a suite of small services,     
 > each running in its own process and communicating with lightweight mechanisms, often an HTTP resource API.      
@@ -52,6 +53,16 @@ API Gateway is using **predicates** and **filters** to route(proxy) requests.
 Filters are used to enforce a consistent set of policies like security, logging. These policies are considered `cross-cutting concerns`.     
 practical filters would be:   
 - Pre-filter that adds **Correlation ID** header on each request(if not present) to trace user transaction flow
+
+### Event-Driven Architecture(EDA)
+> An Event-Driven Consumer is an object that is invoked by the messaging system when a message arrives on the consumer’s channel.    
+> The consumer passes the message to the application through a callback in the application’s API.
+>
+> Event-Driven Consumers automatically consume messages as they become available.    
+> For more fine-grained control of the consumption rate, use a Polling Consumer (494).     
+
+Spring’s journey on Data Integration started with Spring Integration. With its programming model, it provided a consistent developer experience to build applications that can embrace Enterprise Integration Patterns to connect with external systems such as, databases, message brokers, and among others.      
+To extend this to Data Integration workloads, Spring Integration and Spring Boot were put together into a new project. **Spring Cloud Stream** was born.    
 
 ### References
 - [Martin Fowler microservice architectural style](https://martinfowler.com/articles/microservices.html)
