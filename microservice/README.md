@@ -5,6 +5,7 @@ General Microservice patterns:
 - discovery service
 - circuit breaker
 - API Gateway
+- Distributed tracing
 
 Some approaches help to adopt microservice architecture easily:
 - DDD aggregate pattern
