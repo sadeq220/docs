@@ -1,3 +1,6 @@
+### Messaging middleware, Messaging System, Message broker
+Middleware: software that acts as a bridge between an operating system or database and applications, especially on a network.
+
 ### queue and topic     
 Topics (also known as Event streams) are durable and partitioned, and they can be read by multiple consumers as many times as necessary. They are often used to communicate state and to provide a replayable source of truth for consumers.
 Queues are usually unpartitioned and are frequently used as an input buffer for work that needs to be done. Usually, each message in a queue is dequeued, processed, and deleted by a single consumer.    
