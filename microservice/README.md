@@ -64,6 +64,8 @@ practical filters would be:
 Spring’s journey on Data Integration started with Spring Integration. With its programming model, it provided a consistent developer experience to build applications that can embrace Enterprise Integration Patterns to connect with external systems such as, databases, message brokers, and among others.      
 To extend this to Data Integration workloads, Spring Integration and Spring Boot were put together into a new project. **Spring Cloud Stream** was born.    
 
+Spring Cloud Stream allows us to abstract away the implementation details of the messaging middleware that we’re using.
+
 ### References
 - [Martin Fowler microservice architectural style](https://martinfowler.com/articles/microservices.html)
 - [Spring Microservices in Action, Second Edition](https://www.amazon.com/Spring-Microservices-Action-Second-Carnell/dp/1617296953/)
