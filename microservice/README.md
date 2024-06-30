@@ -10,9 +10,8 @@ Some approaches help to adopt microservice architecture easily:
 - DDD aggregate pattern
     - first structure the business logic as an object model(domain model)[^2]
     - then structuring a domain model as a set of aggregates and make the boundaries explicit.
-  
 - Event-Driven Architecture(EDA from Enterprise Integration Patterns)
-
+- CI/CD
 - monitoring using Grafana and Prometheus
 
 ---
