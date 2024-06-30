@@ -73,8 +73,9 @@ Spring Cloud Stream allows us to abstract away the implementation details of the
 - [Martin Fowler component definition](https://martinfowler.com/bliki/SoftwareComponent.html)
 - [Marting Fowler architecture](https://martinfowler.com/architecture/)
 
-[^1]: architectural style(aka architectural pattern): from Martin Fowler point of view architecture is an important design. architectural style like 
-      building architecture, defines a family of such systems in terms of a pattern of structural organization.     
+[^1]: architectural style(aka architectural pattern): from Martin Fowler point of view architecture is an important design. and from microservice patterns book    
+      an application’s architecture is its decomposition into parts (the elements) and the relationships (the relations) between those parts.    
+      architectural style like building architecture, defines a family of such systems in terms of a pattern of structural organization.     
 
 [^2]: domain model pattern: Organize the business logic as an object model consisting of classes that have state
      and behavior.These classes typically correspond directly to concepts from the problem domain.(microservice patterns book)
