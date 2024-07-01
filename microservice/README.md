@@ -1,9 +1,9 @@
 ## Microservice patterns and architecture
 This document aims to provide an overview of general Microservice architecture patterns.      
 General Microservice patterns:    
-- config server
-- discovery service
-- circuit breaker
+- Config server
+- Discovery service
+- Circuit breaker
 - API Gateway
 - Distributed tracing
 
