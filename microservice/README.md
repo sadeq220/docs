@@ -32,6 +32,11 @@ Characteristics of microservice architecture:
     - Consequently the teams are cross-functional, including the full range of skills required for the development: user-experience, database, and project management.     
     
 ### Cloud native applications    
+Cloud Computing:   
+- cloud is a technology resource management system
+- Cloud computing is the on-demand availability of computing resources
+- based on Virtualization
+
 More applications are being deployed to the cloud(because of cost management) so write the application `cloud native` from the beginning.    
 A cloud-native application is specifically designed from the ground up to take advantage of the elasticity and distributed nature of the cloud.    
 Cloud-native applications are typically broken down into multiple, self-contained services through the use of technologies and methodologies, namely DevOps, continuous delivery and continuous integration, containers, microservices, and declarative APIs.
