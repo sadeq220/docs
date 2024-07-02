@@ -127,6 +127,13 @@ public class AsynchronousCreate {
 }
 ```
 ---
+## spring WebFlux
+Why was Spring WebFlux created?
+- need for a non-blocking web stack to handle concurrency with a small number of threads and scale with fewer hardware resources.
+- offer functional web endpoints alongside annotated controllers
+
+
+---
 ## Vert.x tool-kit     
 Eclipse Vert.x is a tool-kit(collection of libraries) for building reactive applications on the JVM.     
 the focus of Vert.x is processing asynchronous events, mostly coming from **non-blocking I/O**,         
@@ -181,7 +188,7 @@ Reactive System properties are **Responsive**, **Resilient**, **Elastic** and **
 ---
 #### reactive Imperative - reactive functional
 A **callback** is an approach to reactive programming done imperatively.    
-A spreadsheet is a great example of reactive programming: cells dependent on other cells automatically “react” when those other cells change.        
+`reacting to change`:  A spreadsheet is a great example of reactive programming: cells dependent on other cells automatically “react” when those other cells change.        
 Reactive-functional programming is an abstraction,an abstraction on top of imperative systems—that allows us to program asynchronous and event-driven.    
 Reactive-functional programming is solving is concurrency and parallelism.    
 
