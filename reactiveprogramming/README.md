@@ -132,6 +132,16 @@ Why was Spring WebFlux created?
 - need for a non-blocking web stack to handle concurrency with a small number of threads and scale with fewer hardware resources.
 - offer functional web endpoints alongside annotated controllers
 
+Spring WebFlux is based on Reactor library, and HTTP server acts as a **Subscriber** which can control the backpressure based on network bandwidth.     
+Spring WebFlux is supported on Tomcat, Jetty, Servlet containers, as well as on non-Servlet runtimes such as Netty and Undertow.     
+Spring MVC relies on Servlet blocking I/O and lets applications use the Servlet API directly if they need to. Spring WebFlux relies on Servlet non-blocking I/O and uses the Servlet API behind a low-level adapter.     
+
+> If you have blocking persistence APIs (JPA, JDBC) or networking APIs to use, Spring MVC is the best choice for common architectures at least.    
+
+The key expected benefit of reactive and non-blocking is the ability to scale with a small, fixed number of threads and less memory.      
+That makes applications more resilient under load.    
+non-blocking servers use a small, fixed-size thread pool (event loop workers) to handle requests.     
+The reactive WebClient operates in event loop style.     
 
 ---
 ## Vert.x tool-kit     
@@ -196,6 +206,7 @@ Reactive-functional programming is solving is concurrency and parallelism.
 - [Reactor doc](https://projectreactor.io/docs/core/release/reference/#getting-started)
 - [Reactive Streams Specification](https://github.com/reactive-streams/reactive-streams-jvm/blob/v1.0.4/README.md#specification)
 - [Reactive manifesto](https://www.reactivemanifesto.org/)
+- [Spring WebFlux](https://docs.spring.io/spring-framework/reference/web/webflux/new-framework.html)
 - [Vert.x In Action](https://www.manning.com/books/vertx-in-action)
 - [vertx website](https://vertx.io/)
 
