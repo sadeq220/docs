@@ -143,6 +143,9 @@ That makes applications more resilient under load.
 non-blocking servers use a small, fixed-size thread pool (event loop workers) to handle requests.     
 The reactive WebClient operates in event loop style.     
 
+In Netty server we have "ServerHttpRequest" and "ServerHttpResponse" instead of traditional "HttpServletRequest" and "HttpServletResponse".    
+ and "ServerWebExchange" contains both "ServerHttpRequest" and "ServerHttpResponse".    
+Spring WebFlux, similarly to Spring MVC, is designed around the front controller pattern, where a central WebHandler, the `DispatcherHandler`, pass requests to delegate components.
 ---
 ## Vert.x tool-kit     
 Eclipse Vert.x is a tool-kit(collection of libraries) for building reactive applications on the JVM.     
