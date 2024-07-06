@@ -143,6 +143,7 @@ That makes applications more resilient under load.
 non-blocking servers use a small, fixed-size thread pool (event loop workers) to handle requests.     
 The reactive WebClient operates in event loop style.     
 
+#### Server* and Web* classes
 In Netty server we have "ServerHttpRequest" and "ServerHttpResponse" instead of traditional "HttpServletRequest" and "HttpServletResponse".    
  and "ServerWebExchange" contains both "ServerHttpRequest" and "ServerHttpResponse".    
 Spring WebFlux, similarly to Spring MVC, is designed around the front controller pattern, where a central WebHandler, the `DispatcherHandler`, pass requests to delegate components.     
