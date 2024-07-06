@@ -145,7 +145,9 @@ The reactive WebClient operates in event loop style.
 
 In Netty server we have "ServerHttpRequest" and "ServerHttpResponse" instead of traditional "HttpServletRequest" and "HttpServletResponse".    
  and "ServerWebExchange" contains both "ServerHttpRequest" and "ServerHttpResponse".    
-Spring WebFlux, similarly to Spring MVC, is designed around the front controller pattern, where a central WebHandler, the `DispatcherHandler`, pass requests to delegate components.
+Spring WebFlux, similarly to Spring MVC, is designed around the front controller pattern, where a central WebHandler, the `DispatcherHandler`, pass requests to delegate components.     
+Also in Netty we have org.springframework.web.server.`WebFilter` instead of jakarta.servlet.Filter, which spring-security relies on.      
+
 ---
 ## Vert.x tool-kit     
 Eclipse Vert.x is a tool-kit(collection of libraries) for building reactive applications on the JVM.     
