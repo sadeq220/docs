@@ -71,6 +71,11 @@ A Mono<T> is a specialized Publisher<T> that emits at most one item via the onNe
 > Instead, most operators continue working in the Thread on which the previous operator executed.     
 > Unless specified, the topmost operator (the source) itself runs on the Thread in which the subscribe() call was made.
 
+Nothing Happens Until You subscribe()
+>when you write a Publisher chain, data does not start pumping into it by default. Instead, you create an abstract description of your asynchronous process
+
+meaning mono.map() or mono.flatMap() won't execute until subscribe().     
+
 Triggered event is called `sink` in the reactor library context. sink types:
 - SynchronousSink
 - FluxSink
@@ -126,6 +131,8 @@ public class AsynchronousCreate {
   }
 }
 ```
+Mono.create() 
+
 ---
 ## spring WebFlux
 Why was Spring WebFlux created?
