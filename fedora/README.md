@@ -113,6 +113,36 @@ dnf install @<groupId>
 dnf group remove <groupId>
 dnf remove @<groupId>
 ```
+**dnf modularity**    
+>Modules are special package groups usually representing an application, a language runtime, or a set of tools.      
+> They are available in one or multiple streams which usually represent a major version of a piece of software, giving you an option to choose what versions of packages you want to consume.     
+
+
+> Simply put, modulemd is a file that defines which packages get built for which releases.      
+> It includes a summary and a description, a list of source RPM packages, build information i.e. build order and macros, and usage information i.e. installation profiles and licenses.     
+
+module: Packages are grouped into modules — a representation of an application, a language runtime, or any logical group.    
+module streams: Stream  is  a  collection  of  packages, a virtual repository. It is identified with Name and Stream from modulemd separated with colon, for example "postgresql:9.6".     
+
+>Module streams can be active or inactive. active means the RPM packages from this stream are included in  the  set  of  available packages.      
+> Packages  from  inactive streams are filtered out.  Streams are active either if marked as default or if they are explicitly enabled by a user action.      
+> Streams that satisfy dependencies of default or enabled streams are  also  considered  active.     
+> Only one stream of a particular module can be active at a given point in time.
+
+```shell
+#to list available module streams
+dnf module list nginx
+#to enable a module stream
+dnf module enable Name:Stream
+# for example
+dnf module enable nginx:mainline
+```
+
+after enabling a module stream its packages become available for installation.     
+```shell
+dnf install nginx
+```
+
 ### Flatpak framework
 >Flatpak is a framework for distributing desktop applications across various Linux distributions.    
 
@@ -146,3 +176,4 @@ grubby --set-default /boot/vmlinuz-<version>.<architecture>
 - [flatpak docs](https://docs.flatpak.org/en/latest/introduction.html)
 - [fedora grub2 wiki](https://fedoraproject.org/wiki/GRUB_2)
 - [fedora multimedia](https://rpmfusion.org/Howto/Multimedia)
+- [fedora modularity](https://docs.fedoraproject.org/en-US/modularity/using-modules/)
