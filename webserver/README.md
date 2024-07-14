@@ -4,7 +4,7 @@ web server controls how to access hosted files.
 - Apache HTTP Server(`httpd`)
 - NGINX open source
 
-**application server** refers to a dynamic web server which is built on top of an **HTTP server** , for example servlet containers:    
+**application server** refers to a dynamic web server which is built on top of an **HTTP server** , for example servlet containers(**implementation of Jakarta EE platform**):      
 - Apache Tomcat
 - JBoss Application Server
 
