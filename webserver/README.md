@@ -1,5 +1,6 @@
 ### web server    
-web server controls how to access hosted files.     
+A web server is software[^1] that delivers web pages over a network (wire).   
+
 **HTTP server** refers to a web server serving static files, for example:    
 - Apache HTTP Server(`httpd`)
 - NGINX open source
@@ -30,3 +31,5 @@ nginx -s quit
 - [mozilla web server definition](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_web_server)
 - [nginx docs](https://docs.nginx.com/)
 - [nginx open source basics](https://nginx.org/en/docs/beginners_guide.html)
+
+[^1]: web server can refer to hardware as well
