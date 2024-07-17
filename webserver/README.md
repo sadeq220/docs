@@ -27,6 +27,14 @@ nginx -s stop
 # graceful shutdown of nginx (SIGQUIT)
 nginx -s quit
 ```
+#### nginx configuration file (nginx.conf)      
+nginx consists of modules which are controlled by *directives* specified in the configuration file.      
+There are two kinds of directives:     
+- simple directive
+- block directive
+    - context (block directive which has other directive inside)
+
+important *contexts* are **http**, **server**, **location**.      
 ### References
 - [mozilla web server definition](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_web_server)
 - [nginx docs](https://docs.nginx.com/)
