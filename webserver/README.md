@@ -36,8 +36,17 @@ There are two kinds of directives:
 
 Important *contexts* are **http**, **server**, **location**.      
 
+**http context**:     
+Provides the configuration file context in which the HTTP server directives are specified.      
+```nginx.conf
+http {
+  access_log  /var/log/nginx/access.log  main;
+  server {
+  }
+}
+```
 **server context**:    
-Sets configuration for a **virtual server**. There is no clear separation between IP-based (based on the IP address) and name-based (based on the “Host” request header field) virtual servers.     
+Sets configuration for a **virtual server** (provides multi-tenant system). There is no clear separation between IP-based (based on the IP address) and name-based (based on the “Host” request header field) virtual servers.     
 ```nginx.conf
 server {
   server_name   example.com www.example.com;
