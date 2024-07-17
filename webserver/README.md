@@ -34,10 +34,21 @@ There are two kinds of directives:
 - block directive
     - context (block directive which has other directive inside)
 
-important *contexts* are **http**, **server**, **location**.      
+Important *contexts* are **http**, **server**, **location**.      
+
+**server context**:    
+Sets configuration for a **virtual server**. There is no clear separation between IP-based (based on the IP address) and name-based (based on the “Host” request header field) virtual servers.     
+```nginx.conf
+server {
+  server_name   example.com www.example.com;
+  listen        80;
+  root          /usr/share/nginx/html;
+}
+```
 ### References
 - [mozilla web server definition](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_web_server)
 - [nginx docs](https://docs.nginx.com/)
 - [nginx open source basics](https://nginx.org/en/docs/beginners_guide.html)
+- [nginx modules config doc](https://nginx.org/en/docs/http/ngx_http_core_module.html#server)
 
 [^1]: web server can refer to hardware as well
