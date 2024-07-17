@@ -45,6 +45,25 @@ server {
   root          /usr/share/nginx/html;
 }
 ```
+**location context**:     
+Sets configuration depending on a request URI (path).A location can either be defined by a prefix string, or by a regular expression.        
+Regular expressions are specified with the preceding “~*” modifier (for case-insensitive matching), or the “~” modifier (for case-sensitive matching).        
+Also, using the “=” modifier it is possible to define an exact match of URI and location.     
+```nginx.conf
+server {
+  location /bff {
+        proxy_pass https://api-gateway.cloud/;
+        rewrite ^/bff/(.*)$ /$1 break;
+  }
+  location / {
+        proxy_pass https://spa.cloud/;
+  }
+  error_page 500 502 503 504 /50x.html;
+  location = /50x.html {
+        root /usr/share/nginx/html/error;
+  }
+}
+```
 ### References
 - [mozilla web server definition](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_web_server)
 - [nginx docs](https://docs.nginx.com/)
