@@ -133,6 +133,33 @@ public class AsynchronousCreate {
 ```
 Mono.create() 
 
+
+Reactor Context (since version 3.1.0)     
+To propagate states between reactive operators, Reactor provides a mechanism similar to `ThreadLocal` in imperative programming.     
+reactor.util.context.Context doc     
+> A key/value store that is propagated between components such as operators via the context protocol.
+
+One example of incompatible libraries with Reactor that rely on ThreadLocal would be: Using the MDC of Logback to store and log correlation IDs     
+
+```
+String key = "message";
+Mono<String> r = Mono.just("Hello")
+    .flatMap(s -> Mono.deferContextual(ctx ->
+         Mono.just(s + " " + ctx.get(key))))
+    .contextWrite(ctx -> ctx.put(key, "World"));
+
+StepVerifier.create(r)
+            .expectNext("Hello World")
+            .verifyComplete();
+```
+
+For example spring SecurityContext is stored on Reactor Context:     
+```
+Mono.deferContextual(Mono::just)
+				.cast(Context.class)
+				.filter(ReactiveSecurityContextHolder::hasSecurityContext)
+				.flatMap(ReactiveSecurityContextHolder::getSecurityContext);
+```
 ---
 ## spring WebFlux
 Why was Spring WebFlux created?
