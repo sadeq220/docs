@@ -142,6 +142,12 @@ after enabling a module stream its packages become available for installation.
 ```shell
 dnf install nginx
 ```
+### bash completion
+To provide bash completion in Linux, simply install bash-completion package.     
+```shell
+dnf install bash-completion
+```
+Installer places a script called `/etc/profile.d/bash_completion.sh`.     
 
 ### Flatpak framework
 >Flatpak is a framework for distributing desktop applications across various Linux distributions.    
