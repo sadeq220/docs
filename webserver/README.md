@@ -56,7 +56,7 @@ server {
 ```
 **location context**:     
 Sets configuration depending on a request URI (path).A location can either be defined by a prefix string, or by a regular expression.        
-Regular expressions are specified with the preceding “~*” modifier (for case-insensitive matching), or the “~” modifier (for case-sensitive matching).        
+Regular expressions are specified with the preceding “\~*” modifier (for case-insensitive matching), or the “\~” modifier (for case-sensitive matching).        
 Also, using the “=” modifier it is possible to define an exact match of URI and location.     
 ```nginx.conf
 server {
