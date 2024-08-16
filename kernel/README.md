@@ -17,6 +17,13 @@ The vmlinuz files usually reside in the */boot* directory.
 During the boot process, the bootloader (such as GRUB2) loads the vmlinuz file into memory, and the kernel takes control of the system.    
 It initializes hardware, mounts the root filesystem, and starts the system's user-space processes.    
 
+## Kernel space - user space
+Virtual memory address space separation for memory protection and hardware protection   
+> The kernel space is the memory area that is reserved to the kernel while user space is the memory area reserved to a particular user process.  
+
+virtual address space: the way the CPU sees the memory when the virtual memory module is activated.    
+Each user space process normally runs in its own virtual memory address space
+
 ## Kernel modules
 - Without modules, we would have to build monolithic kernels and add new functionality directly into the kernel image.
 - A kernel module is a code (C language) that can be loaded into the kernel image at will, without requiring users to rebuild the kernel or reboot their computer
@@ -72,3 +79,4 @@ ls /usr/lib/modules/$(uname -r)/kernel
 - [wiki books:the linux kernel modules](https://en.wikibooks.org/wiki/The_Linux_Kernel/Modules)
 - [tldp.org:introduction to LKM](https://tldp.org/HOWTO/Module-HOWTO/x73.html)
 - [dev.to vmlinuz](https://dev.to/er_dward/understanding-the-initrd-and-vmlinuz-in-linux-boot-process-534f)
+- [kernel space](https://linux-kernel-labs.github.io/refs/heads/master/lectures/intro.html)
