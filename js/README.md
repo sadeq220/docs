@@ -22,7 +22,12 @@ For example ES modules have `.mjs` extension, and CommonJs modules have `.cjs` e
 Node.js has two module systems: **CommonJS modules** and **ECMAScript modules**.      
 Calling require() always use the CommonJS module loader. Calling import() always use the ECMAScript module loader.     
 
-**ECMAScript Modules** are using `export` and `import` keywords.    
+**ECMAScript Modules** are using `export` and `import` keywords.      
+ESmodules is a more modern approach that is currently supported by browser and server-side apps with Node.    
+
+> [!WARNING]  
+> set "type" field in package.json: "module"    
+
 For example: moduleA would be
 ```js
 function createCanvas(parent) {
@@ -48,6 +53,9 @@ createCanvas(document.body);
 **CommonJS modules** are using `module.exports` and `require`.     
 CommonJS is mainly used in server-side JS apps with Node, as browsers don't support the use of CommonJS.     
 CommonJS modules are the original way to package JavaScript code for Node.js.     
+
+> [!INFO]     
+> set "type" field in package.json: "commonjs"
 
 For example: moduleA file would be     
 ```js
