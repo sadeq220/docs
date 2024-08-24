@@ -54,7 +54,7 @@ createCanvas(document.body);
 CommonJS is mainly used in server-side JS apps with Node, as browsers don't support the use of CommonJS.     
 CommonJS modules are the original way to package JavaScript code for Node.js.     
 
-> [!INFO]     
+> [!NOTE]     
 > set "type" field in package.json: "commonjs"
 
 For example: moduleA file would be     
