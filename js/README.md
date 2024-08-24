@@ -28,6 +28,9 @@ ESmodules is a more modern approach that is currently supported by browser and s
 > [!WARNING]  
 > set "type" field in package.json: "module"    
 
+> [!NOTE]
+> in HTML file you need to include type="module" in the <script> element
+
 For example: moduleA would be
 ```js
 function createCanvas(parent) {
