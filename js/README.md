@@ -78,7 +78,19 @@ and ModuleA could be utilized in main.js file as so
 const {hi , log} = require('./moduleA.js');
 hi()
 ```
+
+**The module wrapper**     
+Before a module's code is executed, Node.js will wrap it with a function wrapper that looks like the following:     
+```js
+(function(exports, require, module, __filename, __dirname) {
+// Module code actually lives in here
+});
+```
+By doing this, Node.js achieves a few things:
+- It keeps top-level variables (defined with var, const, or let) scoped to the module rather than the global object.
+
 ## References
 - [node.js modules support](https://nodejs.org/api/esm.html)
 - [node.js commonjs module](https://nodejs.org/api/modules.html)
 - [JS modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
+- [node.js module wrapper](https://nodejs.org/api/modules.html#the-module-wrapper)
