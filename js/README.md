@@ -22,7 +22,7 @@ For example ES modules have `.mjs` extension, and CommonJs modules have `.cjs` e
 Node.js has two module systems: **CommonJS modules** and **ECMAScript modules**.      
 Calling require() always use the CommonJS module loader. Calling import() always use the ECMAScript module loader.     
 
-**ECMAScript Modules** are using `export` and `import` keywords.      
+**ECMAScript Modules**(native ES modules) are using `export` and `import` keywords.      
 ESmodules is a more modern approach that is currently supported by browser and server-side apps with Node.    
 
 > [!WARNING]  
