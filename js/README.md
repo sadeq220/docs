@@ -52,6 +52,19 @@ and ModuleA could be utilized in main.js file as so
 import {createCanvas} from './moduleA.js';
 createCanvas(document.body);
 ```
+*default export* vs *named export*      
+default export: one default function exported by the module.      
+conversely, to named exports, default export don't need curly braces to be exported or imported.
+this helps JavaScript modules to interoperate with existing CommonJS and AMD module systems
+```js
+function hi() {
+    console.log("hi");
+}
+export default hi;
+```
+```js
+import hiLogger from './moduleA.js';
+```
 
 **CommonJS modules** are using `module.exports` and `require`.     
 CommonJS is mainly used in server-side JS apps with Node, as browsers don't support the use of CommonJS.     
@@ -95,5 +108,5 @@ By doing this, Node.js achieves a few things:
 ## References
 - [node.js modules support](https://nodejs.org/api/esm.html)
 - [node.js commonjs module](https://nodejs.org/api/modules.html)
-- [JS modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
+- [native ES modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
 - [node.js module wrapper](https://nodejs.org/api/modules.html#the-module-wrapper)
