@@ -7,6 +7,32 @@ General Microservice patterns:
 - API Gateway
 - Distributed tracing
 
+## Microservice vs Monolith
+A monolithic application built and delivered as a single unit. according to "Spring Microservices in Action" book: 
+> All the UI (user interface), business, and database access logic are packaged together into a single application artifact    
+> and deployed to an application server.    
+
+**Which architecture should be used when writing an application from scratch: monolith or microservice?**
+Martin Fowler believe in `monolith-first strategy`,    
+you shouldn't start a new project with microservices, even if you're sure your application will be big enough to make it worthwhile.     
+His reasons are:    
+- to prioritize speed over scalability.
+- to gain a better understanding of the domain and its boundaries.
+
+There are different ways to execute a monolith-first strategy:    
+- modular monolith 
+    - > The logical way is to design a monolith carefully, paying attention to modularity within the software, both at the API boundaries and how the data is stored.
+- start with a monolith and gradually peel off microservices at the edges.
+- start with just a couple of coarse-grained services.    
+- 
+
+and shift to microservice architecture when complexity arises and monolithic application became big ball of mud.    
+
+But there are also counter arguments that states:    
+> starting with microservices allows you to get used to the rhythm of developing in a microservice environment.     
+> It takes a lot, perhaps too much, discipline to build a monolith in a sufficiently modular way that it can be broken down into microservices easily.    
+
+---
 Some approaches help to adopt microservice architecture easily:
 - DDD aggregate pattern
     - first structure the business logic as an object model(domain model)[^2]
@@ -75,6 +101,7 @@ Spring Cloud Stream allows us to abstract away the implementation details of the
 - [Martin Fowler microservice architectural style](https://martinfowler.com/articles/microservices.html)
 - [Spring Microservices in Action, Second Edition](https://www.amazon.com/Spring-Microservices-Action-Second-Carnell/dp/1617296953/)
 - [Microservice Patterns, written by Chris Richardson](https://www.amazon.com/Microservices-Patterns-examples-Chris-Richardson/dp/1617294543)
+- [Martin Fowler, monolith-first strategy](https://martinfowler.com/bliki/MonolithFirst.html)
 - [Martin Fowler component definition](https://martinfowler.com/bliki/SoftwareComponent.html)
 - [Marting Fowler architecture](https://martinfowler.com/architecture/)
 
