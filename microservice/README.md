@@ -32,6 +32,10 @@ But there are also counter arguments that states:
 > starting with microservices allows you to get used to the rhythm of developing in a microservice environment.     
 > It takes a lot, perhaps too much, discipline to build a monolith in a sufficiently modular way that it can be broken down into microservices easily.    
 
+additionally, Microservices’ main benefit, is enabling parallel development by establishing a hard-to-cross boundary between different parts of the system.     
+In theory, Microservice architecture is not necessary if Modular Monolith with enforced clear boundaries is viable.    
+In practice, establishing clear boundaries in Monolithic application is very hard and the parts will become extremely tightly coupled to each other. 
+
 ---
 Some approaches help to adopt microservice architecture easily:
 - DDD aggregate pattern
@@ -102,6 +106,7 @@ Spring Cloud Stream allows us to abstract away the implementation details of the
 - [Spring Microservices in Action, Second Edition](https://www.amazon.com/Spring-Microservices-Action-Second-Carnell/dp/1617296953/)
 - [Microservice Patterns, written by Chris Richardson](https://www.amazon.com/Microservices-Patterns-examples-Chris-Richardson/dp/1617294543)
 - [Martin Fowler, monolith-first strategy](https://martinfowler.com/bliki/MonolithFirst.html)
+- [Martin Fowler,don't start monolith](https://martinfowler.com/articles/dont-start-monolith.html)
 - [Martin Fowler component definition](https://martinfowler.com/bliki/SoftwareComponent.html)
 - [Marting Fowler architecture](https://martinfowler.com/architecture/)
 
