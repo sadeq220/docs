@@ -24,7 +24,8 @@ There are different ways to execute a monolith-first strategy:
     - > The logical way is to design a monolith carefully, paying attention to modularity within the software, both at the API boundaries and how the data is stored.
 - start with a monolith and gradually peel off microservices at the edges.
 - start with just a couple of coarse-grained services.    
-- 
+
+In the context of modular monolith, module represents a sub-package in the main package. it has defined set of exposed APIs and required dependencies.
 
 and shift to microservice architecture when complexity arises and monolithic application became big ball of mud.    
 
