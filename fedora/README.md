@@ -3,8 +3,8 @@ Fedora's major differences with Debian include:
 - dnf package manager
 - wheel group(instead of sudo group)
 - alternatives system(reimplementation of the Debian alternatives system)
-- SELinux security architecture
 - Flatpak framework
+- SELinux security architecture
 
 ### dnf package manager   
 Fedora is a distribution that uses a package management system.   
@@ -176,6 +176,13 @@ To set a default kernel:
 ```shell
 grubby --set-default /boot/vmlinuz-<version>.<architecture>
 ```
+### SELinux(Security-Enhanced Linux)
+SELinux is an implementation of MAC(Mandatory Access Control) which is an enhancement over DAC (Discretionary Access Control).     
+DAC is the standard access policy based on the user, group, and other permissions. i.e. access that controlled by *chown* and *chmod* commands.    
+The problem with DAC is that every process a user executes can access and modify all files owned by that user, so minimal protection is provided against malicious software.    
+SELinux addresses this coarse-grained privileges.     
+> Security-Enhanced Linux (SELinux) is an implementation of a mandatory access control mechanism in the Linux kernel, checking for allowed operations after standard discretionary access controls are checked
+
 ### References
 - [fedora dnf docs](https://docs.fedoraproject.org/en-US/quick-docs/dnf/)
 - [RPM Fusion](https://docs.fedoraproject.org/en-US/quick-docs/rpmfusion-setup/)
@@ -183,3 +190,4 @@ grubby --set-default /boot/vmlinuz-<version>.<architecture>
 - [fedora grub2 wiki](https://fedoraproject.org/wiki/GRUB_2)
 - [fedora multimedia](https://rpmfusion.org/Howto/Multimedia)
 - [fedora modularity](https://docs.fedoraproject.org/en-US/modularity/using-modules/)
+- [redhat SELinux](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/6/html/security-enhanced_linux/chap-security-enhanced_linux-introduction#chap-Security-Enhanced_Linux-Introduction)
