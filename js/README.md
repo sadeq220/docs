@@ -5,6 +5,7 @@ topics
 - JavaScript modules
 - npm packages and modules
 - package.json structure
+- bundling
 
 
 ## Node.js
@@ -105,8 +106,35 @@ Before a module's code is executed, Node.js will wrap it with a function wrapper
 By doing this, Node.js achieves a few things:
 - It keeps top-level variables (defined with var, const, or let) scoped to the module rather than the global object.
 
+## npm packages and modules
+The npm registry contains packages, many of which are also Node modules, or contain Node modules.     
+npm registry is a hub to share packages. its URL is configured in `npm config` as follows:    
+```.npmrc
+registry = "https://registry.npmjs.org/"
+```
+npm package:     
+> A package is a file or directory that is described by a package.json file.     
+> A package must contain a package.json file in order to be published to the npm registry.
+
+npm module:    
+> A module is any file or directory in the node_modules directory that can be loaded by the Node.js require() function.
+
+To be loaded by the Node.js require() function, a module must be one of the following:    
+- A folder with a package.json file containing a "main" field.
+- A JavaScript file(so not all modules are packages).
+
+To install a npm package:    
+```shell
+# scope is a namespace for specific organization or user 
+npm install @<scope>/<package-name>
+# public packages are always unscoped
+npm install <package-name>
+```
+## JS bundling
+
 ## References
 - [node.js modules support](https://nodejs.org/api/esm.html)
 - [node.js commonjs module](https://nodejs.org/api/modules.html)
 - [native ES modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
 - [node.js module wrapper](https://nodejs.org/api/modules.html#the-module-wrapper)
+- [npm packages and modules](https://docs.npmjs.com/about-packages-and-modules)
