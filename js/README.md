@@ -139,6 +139,9 @@ A package.json file must contain "name" and "version" fields.
 To initialize a package.json file, execute `npm init`       
 
 ## JS bundling
+bundling in JS refers to: arranging and merging multiple JS files into a single unified JS file.     
+This process is important for browsers as it's not possible to initiate an HTTP request for every JS module.       
+Bundler is a tool that generates dependency graph and create single bundle or multiple chunk files.    
 
 ## References
 - [node.js modules support](https://nodejs.org/api/esm.html)
@@ -147,3 +150,4 @@ To initialize a package.json file, execute `npm init`
 - [node.js module wrapper](https://nodejs.org/api/modules.html#the-module-wrapper)
 - [npm packages and modules](https://docs.npmjs.com/about-packages-and-modules)
 - [npm package json](https://docs.npmjs.com/creating-a-package-json-file)
+- [webpack bundler github](https://github.com/webpack/webpack)
