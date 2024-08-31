@@ -130,6 +130,14 @@ npm install @<scope>/<package-name>
 # public packages are always unscoped
 npm install <package-name>
 ```
+## package.json structure
+> You can add a package.json file to your package to make it easy for others to manage and install.      
+> Packages published to the registry must contain a package.json file.    
+
+package.json file lists the packages your project depends on.     
+A package.json file must contain "name" and "version" fields.     
+To initialize a package.json file, execute `npm init`       
+
 ## JS bundling
 
 ## References
@@ -138,3 +146,4 @@ npm install <package-name>
 - [native ES modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
 - [node.js module wrapper](https://nodejs.org/api/modules.html#the-module-wrapper)
 - [npm packages and modules](https://docs.npmjs.com/about-packages-and-modules)
+- [npm package json](https://docs.npmjs.com/creating-a-package-json-file)
