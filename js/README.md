@@ -136,7 +136,13 @@ npm install <package-name>
 
 package.json file lists the packages your project depends on.     
 A package.json file must contain "name" and "version" fields.     
-To initialize a package.json file, execute `npm init`       
+To initialize a package.json file, execute `npm init`    
+
+There is also an automatically generated file called *package-lock.json*, that represents *node_modules* directory exact dependency tree.     
+by "exact" it means dependency versions don't include "* ^ ~".     
+this file can make the subsequent installs similar to current one by using `npm ci`(npm clean-install)     
+npm clean-install used in CI/CD context to achieve reproducible builds.    
+this file also helps npm to skip repeated metadata resolutions for previously-installed packages.    
 
 ## JS bundling
 bundling in JS refers to: arranging and merging multiple JS files into a single unified JS file.     
@@ -150,4 +156,5 @@ Bundler is a tool that generates dependency graph and create single bundle or mu
 - [node.js module wrapper](https://nodejs.org/api/modules.html#the-module-wrapper)
 - [npm packages and modules](https://docs.npmjs.com/about-packages-and-modules)
 - [npm package json](https://docs.npmjs.com/creating-a-package-json-file)
+- [npm package-lock](https://docs.npmjs.com/cli/v10/configuring-npm/package-lock-json)
 - [webpack bundler github](https://github.com/webpack/webpack)
