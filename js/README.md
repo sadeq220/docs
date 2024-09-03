@@ -149,6 +149,46 @@ bundling in JS refers to: arranging and merging multiple JS files into a single 
 This process is important for browsers as it's not possible to initiate an HTTP request for every JS module.       
 Bundler is a tool that generates dependency graph and create single bundle or multiple chunk files.    
 
+## React
+React is a library to build UI with use of Components.     
+React separates concerns with loosely coupled units called “components” that contain both **rendering logic** and **UI logic**.     
+React components are JavaScript functions that return markup.     
+
+JSX is a syntax extension for JavaScript that lets you write HTML-like markup inside a JavaScript file.     
+Embedding expressions in JSX: in *JSX* curly braces are used to escape back into JS.      
+```jsx
+const user = {
+    imageUrl: 'http://localhost/q23err',
+    name: 'sadeq',
+    imageSize: 220
+}
+const element = <h1>Hello, world!</h1>;
+const myUI = (
+<>
+<h2>{2+user.imageSize}</h2>
+<img
+    className="avatar"
+    src={user.imageUrl}
+    alt={'Photo of ' + user.name}
+    style={{
+        width: user.imageSize,
+        height: user.imageSize
+    }}
+/>
+</>
+)
+```
+
+Babel compiles JSX down to React.createElement() calls.
+```js
+const element = React.createElement(
+  'h1',
+  {className: 'greeting'},
+  'Hello, world!'
+);
+```
+These objects are called “React elements”.
+
 ## References
 - [node.js modules support](https://nodejs.org/api/esm.html)
 - [node.js commonjs module](https://nodejs.org/api/modules.html)
@@ -158,3 +198,5 @@ Bundler is a tool that generates dependency graph and create single bundle or mu
 - [npm package json](https://docs.npmjs.com/creating-a-package-json-file)
 - [npm package-lock](https://docs.npmjs.com/cli/v10/configuring-npm/package-lock-json)
 - [webpack bundler github](https://github.com/webpack/webpack)
+- [react jsx](https://legacy.reactjs.org/docs/introducing-jsx.html)
+- [react doc](https://react.dev/learn)
