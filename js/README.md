@@ -189,6 +189,43 @@ const element = React.createElement(
 ```
 These objects are called “React elements”.
 
+**Props** are React Components' inputs. *props* are like HTML attributes, but you can pass any JavaScript value through them, including objects, arrays, and functions.[^1]     
+> When React sees an element representing a user-defined component,     
+> it passes JSX attributes and children to this component as a single object.     
+> We call this object “props”.
+
+```jsx
+// the following function input syntax is called destructuring
+function MyButton({prop1,prop2}){
+    return (
+        <button name={prop2('f')} />
+    )
+}
+export default function Component(props){
+    return (
+        <MyButton prop1={2+2} prop2={(s)=> props.name+s} />
+    );
+}
+```
+
+> [!WARNING]
+> Note: Always start component names with a capital letter.     
+> React treats components starting with lowercase letters as DOM tags.
+
+In legacy React, Components could also be an ES6 class.     
+```jsx
+class Welcome extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.name}</h1>;
+  }
+}
+```
+
+**React Hooks**     
+Functions starting with `use` are called Hooks. `useState` and `useEffect` are built-in Hooks provided by React.       
+You can only call Hooks at the top of your components (or other Hooks).
+
+
 ## References
 - [node.js modules support](https://nodejs.org/api/esm.html)
 - [node.js commonjs module](https://nodejs.org/api/modules.html)
@@ -200,3 +237,8 @@ These objects are called “React elements”.
 - [webpack bundler github](https://github.com/webpack/webpack)
 - [react jsx](https://legacy.reactjs.org/docs/introducing-jsx.html)
 - [react doc](https://react.dev/learn)
+- [react props](https://legacy.reactjs.org/docs/components-and-props.html)
+- [js destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Unpacking_fields_from_objects_passed_as_a_function_parameter)
+
+[1^]: The destructuring assignment syntax is a JavaScript expression that makes it possible     
+to unpack values from arrays, or properties from objects, into distinct variables.
