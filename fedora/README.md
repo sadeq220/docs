@@ -4,6 +4,7 @@ Fedora's major differences with Debian include:
 - wheel group(instead of sudo group)
 - alternatives system(reimplementation of the Debian alternatives system)
 - Flatpak framework
+- firewalld
 - SELinux security architecture
 
 ### dnf package manager   
@@ -176,6 +177,49 @@ To set a default kernel:
 ```shell
 grubby --set-default /boot/vmlinuz-<version>.<architecture>
 ```
+### firewalld
+While Debian-based systems often use UFW for packet filtering, Red Hat-based systems use `firewalld`.    
+> firewalld is a firewall service daemon that provides a dynamic customizable host-based firewall with a D-Bus interface.
+
+A firewall zone defines the trust level for a connection, interface or source address binding.
+
+> firewalld uses the concepts of zones and services, that simplify the traffic management.      
+> Zones are predefined sets of rules.      
+> Network interfaces and sources can be assigned to a zone.     
+
+In firewalld **nftables** is the default backend and not *iptables*.     
+> nftables in a replacement for all of; iptables, ip6tables, arptables, ebtables, and ipset (henceforth know as “iptables and family”)     
+
+use `nft` binary to examine *nftables*, for example
+```shell
+nft list tables
+nft list ruleset
+```
+firewalld blocks all traffic on ports that are not explicitly set as open. Some zones, such as trusted, allow all traffic by default.      
+firewalld CLI is `firewall-cmd`.     
+To check firewalld daemon status
+```bash
+systemctl status firewalld
+
+firewall-cmd --state
+```
+To check available zones and active zones
+```shell
+firewall-cmd --get-zones
+firewall-cmd --get-active-zones
+```
+To list all rules in a specific zone
+```shell
+firewall-cmd --zone=<zoneName> --list-all
+```
+> When interface connections are added to NetworkManager, they are assigned to the default zone.     
+
+To change NetworkManager connection zone
+```shell
+nmcli connection modify <con-name> connection.zone <zone-name>
+```
+firewalld denies interzone traffic (from zone to zone) by default.     
+
 ### SELinux(Security-Enhanced Linux)
 SELinux is an implementation of MAC(Mandatory Access Control) which is an enhancement over DAC (Discretionary Access Control).     
 DAC is the standard access policy based on the user, group, and other permissions. i.e. access that controlled by *chown* and *chmod* commands.    
@@ -193,4 +237,6 @@ SELinux fundamentally answers the question: "May <subject>(process) do <action> 
 - [fedora grub2 wiki](https://fedoraproject.org/wiki/GRUB_2)
 - [fedora multimedia](https://rpmfusion.org/Howto/Multimedia)
 - [fedora modularity](https://docs.fedoraproject.org/en-US/modularity/using-modules/)
+- [redhat firewalld](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/configuring_and_managing_networking/using-and-configuring-firewalld_configuring-and-managing-networking#using-and-configuring-firewalld_configuring-and-managing-networking)
+- [firewalld nftables](https://firewalld.org/2018/07/nftables-backend)
 - [redhat SELinux](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/6/html/security-enhanced_linux/chap-security-enhanced_linux-introduction#chap-Security-Enhanced_Linux-Introduction)
