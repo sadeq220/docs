@@ -181,7 +181,10 @@ SELinux is an implementation of MAC(Mandatory Access Control) which is an enhanc
 DAC is the standard access policy based on the user, group, and other permissions. i.e. access that controlled by *chown* and *chmod* commands.    
 The problem with DAC is that every process a user executes can access and modify all files owned by that user, so minimal protection is provided against malicious software.    
 SELinux addresses this coarse-grained privileges.     
-> Security-Enhanced Linux (SELinux) is an implementation of a mandatory access control mechanism in the Linux kernel, checking for allowed operations after standard discretionary access controls are checked
+> Security-Enhanced Linux (SELinux) is an implementation of a mandatory access control mechanism in the Linux kernel,    
+> checking for allowed operations after standard discretionary access controls are checked.
+
+SELinux fundamentally answers the question: "May <subject>(process) do <action> to <object>(file)".   
 
 ### References
 - [fedora dnf docs](https://docs.fedoraproject.org/en-US/quick-docs/dnf/)
