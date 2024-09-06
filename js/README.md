@@ -2,6 +2,7 @@
 topics
 - ECMAScript
 - Node.js
+- JS prototype chain
 - JavaScript modules
 - npm packages and modules
 - package.json structure
@@ -11,6 +12,47 @@ topics
 ## Node.js
 Node.js is a JRE(JavaScript Runtime Environment), it embeds the V8(chrome JavaScript Engine)
 
+## JS prototype chain
+> All objects in JavaScript inherit from at least one other object.       
+> The object being inherited from is known as the prototype,       
+> and the inherited properties can be found in the prototype object of the constructor.      
+
+Wiki: In JavaScript, an object is an associative array, augmented with a prototype;      
+each key provides the name for an object property, and there are two ways to access the object property
+```js
+obj.x // dot notation
+obj['x'] // bracket notation
+```
+The root prototype of all js objects is `Object.prototype` and its own prototype is null.       
+The `Object.create()` method creates a new object and allows you to specify an object that will be used as the new object's prototype.       
+```js
+const personPrototype = {
+  greet() {
+    console.log("hello!");
+  },
+};
+
+const carl = Object.create(personPrototype);
+carl.greet(); // hello!
+```
+> In JavaScript, all functions have a property named prototype.      
+> When you call a function as a constructor, this property is set as the prototype of the newly constructed object (by convention, in the property named __proto__).
+
+```js
+const personPrototype = {
+  greet() {
+    console.log(`hello, my name is ${this.name}!`);
+  },
+};
+
+function Person(name) {
+  this.name = name;
+}
+
+Object.assign(Person.prototype, personPrototype);
+// or
+// Person.prototype.greet = personPrototype.greet;
+```
 
 ## JavaScript Modules
 To split functionality(separate concerns) in JavaScript, modules have been defined.      
@@ -234,6 +276,7 @@ You can only call Hooks at the top of your components (or other Hooks).
 - [npm packages and modules](https://docs.npmjs.com/about-packages-and-modules)
 - [npm package json](https://docs.npmjs.com/creating-a-package-json-file)
 - [npm package-lock](https://docs.npmjs.com/cli/v10/configuring-npm/package-lock-json)
+- [js prototype](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes)
 - [webpack bundler github](https://github.com/webpack/webpack)
 - [react jsx](https://legacy.reactjs.org/docs/introducing-jsx.html)
 - [react doc](https://react.dev/learn)
