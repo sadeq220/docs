@@ -72,7 +72,7 @@ ESmodules is a more modern approach that is currently supported by browser and s
 > set "type" field in package.json: "module"    
 
 > [!NOTE]
-> in HTML file you need to include type="module" in the <script> element
+> in HTML file you need to include type="module" in the \<script\> element
 
 For example: moduleA would be
 ```js
@@ -266,6 +266,8 @@ class Welcome extends React.Component {
 **React Hooks**     
 Functions starting with `use` are called Hooks. `useState` and `useEffect` are built-in Hooks provided by React.       
 You can only call Hooks at the top of your components (or other Hooks).
+> Hooks let you use more of React’s features without classes.
+
 
 
 ## References
@@ -281,6 +283,7 @@ You can only call Hooks at the top of your components (or other Hooks).
 - [react jsx](https://legacy.reactjs.org/docs/introducing-jsx.html)
 - [react doc](https://react.dev/learn)
 - [react props](https://legacy.reactjs.org/docs/components-and-props.html)
+- [react hooks](https://legacy.reactjs.org/docs/hooks-overview.html)
 - [js destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Unpacking_fields_from_objects_passed_as_a_function_parameter)
 
 [1^]: The destructuring assignment syntax is a JavaScript expression that makes it possible     
