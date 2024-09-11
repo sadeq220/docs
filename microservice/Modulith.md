@@ -1,6 +1,7 @@
 ## Modular Monolith(Modulith)
 **A key motivation of the module system is strong encapsulation.**      
 In the context of modular monolith, module represents a sub-package in the main package. it has a defined set of exposed APIs and required dependencies.      
+Packages are a means of encapsulation, internal types and beans should not been accessed.      
 There are various technologies to implement Modular Monolith:     
 - Java 9 Platform Module System
 - Spring Modulith  
