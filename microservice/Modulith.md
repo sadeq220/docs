@@ -23,7 +23,7 @@ Event-based communication in Spring Modulith, is possible through Spring core ev
 org.springframework.context.ApplicationEventPublisher#publishEvent(...)
 
 // consumer
-@org.springframework.modulith.events.ApplicationModuleListener
+@org.springframework.transaction.event.TransactionalEventListener
 void on(DomainEvent event){...}
 ```
 
@@ -32,7 +32,17 @@ To expose an internal module Spring bean to other modules use `NamedInterfaces`
 @NamedInterface("restAPI")
 package com.example.modulith_main.moduleA.exposed;
 ```
+## The Event Publication Registry
+> Spring Modulith ships with an event publication registry that hooks into the core event publication mechanism of Spring Framework.     
+> On event publication, it finds out about the transactional event listeners that will get the event delivered and writes entries for each of them into an event publication log as part of the original business transaction.
+
+Domain event consumption is synchronous by default.     
+Spring modulith writes the even publication log into DB, it retries the event publication in case of listener failure.     
+TransactionEventListener annotation is An EventListener that is invoked according to a **TransactionPhase**.     
+so the event publication should be within an active transaction, and if not it would be discarded unless *fallbackExecution* flag is explicitly set.
+
 ## References
 - [Java9 Modules](https://www.oracle.com/corporate/features/understanding-java-9-modules.html)
 - [Spring Modulith](https://docs.spring.io/spring-modulith/reference/events.html)
+- [Spring Modulith events](https://docs.spring.io/spring-modulith/docs/current-SNAPSHOT/reference/html/#events)
 - [Across framework](https://www.iodigital.com/en/history/foreach/building-a-modular-monolith-with-spring-boot-and-across?srsltid=AfmBOoqFvgSDCTVKdtiymtLoRZSrUN4--WmUWtZcWCQ7CAIYstqgcUdx)
