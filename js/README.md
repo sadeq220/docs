@@ -221,7 +221,9 @@ const myUI = (
 )
 ```
 
-Babel compiles JSX down to React.createElement() calls.
+Babel compiles JSX down to React.createElement() calls.     
+JSX turns into JavaScript and attributes written in JSX become keys of JavaScript objects.     
+that's why we should use *className* instead of *class*.     
 ```js
 const element = React.createElement(
   'h1',
@@ -230,6 +232,7 @@ const element = React.createElement(
 );
 ```
 These objects are called “React elements”.
+React considers `false`, `null`, `undefined` as a “hole” in the JSX tree, and doesn’t render anything in its place.
 
 **Props** are React Components' inputs. *props* are like HTML attributes, but you can pass any JavaScript value through them, including objects, arrays, and functions.[^1]     
 > When React sees an element representing a user-defined component,     
@@ -280,7 +283,8 @@ You can only call Hooks at the top of your components (or other Hooks).
 - [npm package-lock](https://docs.npmjs.com/cli/v10/configuring-npm/package-lock-json)
 - [js prototype](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes)
 - [webpack bundler github](https://github.com/webpack/webpack)
-- [react jsx](https://legacy.reactjs.org/docs/introducing-jsx.html)
+- [react legacy jsx](https://legacy.reactjs.org/docs/introducing-jsx.html)
+- [react jsx](https://react.dev/learn/writing-markup-with-jsx)
 - [react doc](https://react.dev/learn)
 - [react props](https://legacy.reactjs.org/docs/components-and-props.html)
 - [react hooks](https://legacy.reactjs.org/docs/hooks-overview.html)
