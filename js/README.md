@@ -271,6 +271,15 @@ Functions starting with `use` are called Hooks. `useState` and `useEffect` are b
 You can only call Hooks at the top of your components (or other Hooks).
 > Hooks let you use more of React’s features without classes.
 
+`useState`:   
+State as a snapshot:     
+> Unlike regular JavaScript variables, React state behaves more like a snapshot.        
+> Setting it does not change the state variable you already have, but instead triggers a re-render.      
+
+so any state change queues a new render.      
+> “Rendering” means that React is calling your component, which is a function.       
+> The JSX you return from that function is like a snapshot of the UI in time.        
+> Its props, event handlers, and local variables were all calculated using its state at the time of the render.     
 
 
 ## References
@@ -288,6 +297,7 @@ You can only call Hooks at the top of your components (or other Hooks).
 - [react doc](https://react.dev/learn)
 - [react props](https://legacy.reactjs.org/docs/components-and-props.html)
 - [react hooks](https://legacy.reactjs.org/docs/hooks-overview.html)
+- [react state as a snapshot](https://react.dev/learn/state-as-a-snapshot)
 - [js destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Unpacking_fields_from_objects_passed_as_a_function_parameter)
 
 [1^]: The destructuring assignment syntax is a JavaScript expression that makes it possible     
