@@ -269,6 +269,7 @@ class Welcome extends React.Component {
 **React Hooks**     
 Functions starting with `use` are called Hooks. `useState` and `useEffect` are built-in Hooks provided by React.       
 You can only call Hooks at the top of your components (or other Hooks).
+React 16.8.0 is the first release to support Hooks.      
 > Hooks let you use more of React’s features without classes.
 
 `useState`:   
@@ -280,6 +281,16 @@ so any state change queues a new render.
 > “Rendering” means that React is calling your component, which is a function.       
 > The JSX you return from that function is like a snapshot of the UI in time.        
 > Its props, event handlers, and local variables were all calculated using its state at the time of the render.     
+
+`useEffect`:     
+let you “step outside” of React and synchronize your components with some external system.    
+> Effects have a different lifecycle from components.      
+> Components may mount, update, or unmount.     
+> An Effect can only do two things: to start synchronizing something, and later to stop synchronizing it.
+
+when a component renders, effect checks if its deps have changed, if so it executes the effect callback function.    
+> In development, React will immediately run and clean up your Effect one extra time.     
+> This ensures that you don’t forget to implement the cleanup function.
 
 
 ## References
@@ -298,6 +309,7 @@ so any state change queues a new render.
 - [react props](https://legacy.reactjs.org/docs/components-and-props.html)
 - [react hooks](https://legacy.reactjs.org/docs/hooks-overview.html)
 - [react state as a snapshot](https://react.dev/learn/state-as-a-snapshot)
+- [react escape hatches](https://react.dev/learn/escape-hatches)
 - [js destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Unpacking_fields_from_objects_passed_as_a_function_parameter)
 
 [1^]: The destructuring assignment syntax is a JavaScript expression that makes it possible     
