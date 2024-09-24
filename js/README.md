@@ -286,9 +286,11 @@ so any state change queues a new render.
 let you “step outside” of React and synchronize your components with some external system.    
 > Effects have a different lifecycle from components.      
 > Components may mount, update, or unmount.     
-> An Effect can only do two things: to start synchronizing something, and later to stop synchronizing it.
+> An Effect can only do two things: to start synchronizing something, and later to stop synchronizing it.    
+> This cycle can happen multiple times if your Effect depends on props and state that change over time.    
 
 when a component renders, effect checks if its deps have changed, if so it executes the effect callback function.    
+To stop synchronizing, the callback function may return a "clean up function".     
 > In development, React will immediately run and clean up your Effect one extra time.     
 > This ensures that you don’t forget to implement the cleanup function.
 
