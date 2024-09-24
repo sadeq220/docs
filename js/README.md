@@ -270,7 +270,9 @@ class Welcome extends React.Component {
 Functions starting with `use` are called Hooks. `useState` and `useEffect` are built-in Hooks provided by React.       
 You can only call Hooks at the top of your components (or other Hooks).
 React 16.8.0 is the first release to support Hooks.      
-> Hooks let you use more of React’s features without classes.
+Hooks let you use more of React’s features without classes.    
+> Hooks are functions that let you “hook into” React state and lifecycle features from function components.      
+> Hooks don’t work inside classes — they let you use React without classes.     
 
 `useState`:   
 State as a snapshot:     
@@ -294,6 +296,8 @@ To stop synchronizing, the callback function may return a "clean up function".
 > In development, React will immediately run and clean up your Effect one extra time.     
 > This ensures that you don’t forget to implement the cleanup function.
 
+> The Effect Hook, useEffect, adds the ability to perform side effects from a function component.        
+> It serves the same purpose as componentDidMount, componentDidUpdate, and componentWillUnmount in React classes, but unified into a single API.      
 
 ## References
 - [node.js modules support](https://nodejs.org/api/esm.html)
@@ -310,6 +314,7 @@ To stop synchronizing, the callback function may return a "clean up function".
 - [react doc](https://react.dev/learn)
 - [react props](https://legacy.reactjs.org/docs/components-and-props.html)
 - [react hooks](https://legacy.reactjs.org/docs/hooks-overview.html)
+- [react legacy hooks](https://legacy.reactjs.org/docs/hooks-overview.html)
 - [react state as a snapshot](https://react.dev/learn/state-as-a-snapshot)
 - [react escape hatches](https://react.dev/learn/escape-hatches)
 - [js destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Unpacking_fields_from_objects_passed_as_a_function_parameter)
