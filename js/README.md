@@ -233,7 +233,7 @@ const element = React.createElement(
 ```
 These objects are called “React elements”.
 React considers `false`, `null`, `undefined` as a “hole” in the JSX tree, and doesn’t render anything in its place.
-
+By default, React DOM escapes any values embedded in JSX before rendering them to prevent XSS attacks.     
 **Props** are React Components' inputs. *props* are like HTML attributes, but you can pass any JavaScript value through them, including objects, arrays, and functions.[^1]     
 > When React sees an element representing a user-defined component,     
 > it passes JSX attributes and children to this component as a single object.     
