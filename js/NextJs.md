@@ -50,6 +50,8 @@ we have two types of Server Components:
 React Server Components can be an **async** function.    
 React Server Components can not use React Hooks and Web APIs(e.g. HTML event listeners).    
 
+From Next.js 13 onward Any component which has 'use client' at the top of the file is identified as a Client Component.       
+If we don't specify that at the top of the file, the component in the file is considered a Server Component.     
 
 ## References
 - [define route](https://nextjs.org/docs/app/building-your-application/routing/defining-routes)
