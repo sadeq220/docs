@@ -19,6 +19,7 @@ parent directory layout.js
 > A special page.js file is used to make route segments publicly accessible.     
 > A layout file to show UI that is shared across multiple routes.
 
+In Contrary to Pages router, random files are not accessible in the app directory tree.     
 `layout.js`:      
 > A layout is UI that is shared between multiple routes.      
 > On navigation, layouts preserve state, remain interactive, and do not re-render.      
@@ -53,7 +54,19 @@ React Server Components can not use React Hooks and Web APIs(e.g. HTML event lis
 From Next.js 13 onward Any component which has 'use client' at the top of the file is identified as a Client Component.       
 If we don't specify that at the top of the file, the component in the file is considered a Server Component.     
 
+## data fetching and caching
+basic server-side data fetch using the `fetch` API in an asynchronous React Server Component.
+> If you are not using any dynamic functions anywhere else in this route,       
+> React Server Component will be prerendered during next build to a static page.       
+> The data can then be updated using Incremental Static Regeneration.
+
+If you do not want to cache the response from fetch, you can do the following:    
+```jsx
+let data = await fetch('https://api.vercel.app/blog', { cache: 'no-store' });
+```
+
 ## References
 - [define route](https://nextjs.org/docs/app/building-your-application/routing/defining-routes)
 - [app router](https://nextjs.org/docs/app/building-your-application/routing)
 - [React Server Components](https://react.dev/reference/rsc/server-components)
+- [Next.js caching](https://nextjs.org/docs/app/building-your-application/data-fetching/fetching)
