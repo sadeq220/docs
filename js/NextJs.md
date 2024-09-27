@@ -73,8 +73,34 @@ Why not using the effect hook for data fetching?
 - handle concurrent setup function execution
     - > network responses may arrive in a different order than you sent them.
 - handle loading and error state
+
+## React Query
+React Query is not a data fetching library. The best way to describe it is as an **async state manager** that is also acutely aware of the needs of server state.      
+> In React Query terms, stale is the opposite of fresh.      
+> As long as a query is considered fresh, data will only be delivered from the cache.       
+> And staleTime is what defines the time (in milliseconds) until a query is considered stale.     
+
+By default, `staleTime` is 0.     
+When data "isStale: true" after re-render data is delivered straight from the cache then react-query resynchronizes in the background and updates the cache.      
+If a query is stale, React Query will refetch the data and update the cache when a trigger occurs.    
+`useQuery` will create a subscription.     
+```tsx
+const {data} = useQuery({
+  queryKey: ['userData'],
+  queryFn: () => fetch("URL").then(res => res.json())
+});
+```
+To forcibly re-fetch data, `invalidateQueries` or `refetchQueries` methods can be used 
+```tsx
+queryClient.invalidateQueries({queryKey: ['userData']});
+queryClient.refetchQueries({queryKey: ['userData']});
+```
 ## References
 - [define route](https://nextjs.org/docs/app/building-your-application/routing/defining-routes)
 - [app router](https://nextjs.org/docs/app/building-your-application/routing)
 - [React Server Components](https://react.dev/reference/rsc/server-components)
 - [Next.js caching](https://nextjs.org/docs/app/building-your-application/data-fetching/fetching)
+- [React Query docs](https://ui.dev/c/query)
+- [react-query data-synchronization](https://ui.dev/c/query/data-synchronization)
+- [TanStack react-query quick-start](https://tanstack.com/query/latest/docs/framework/react/quick-start)
+- [TanStack query invalidation](https://tanstack.com/query/latest/docs/framework/react/guides/query-invalidation)
