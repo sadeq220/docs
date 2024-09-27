@@ -194,6 +194,7 @@ Bundler is a tool that generates dependency graph and create single bundle or mu
 ## React
 React is a library to build UI with use of Components.     
 React separates concerns with loosely coupled units called “components” that contain both **rendering logic** and **UI logic**.     
+React Component encapsulates both the visual representation of a particular piece of UI as well as the state and logic that goes along with it.     
 React components are JavaScript functions that return markup.     
 
 JSX is a syntax extension for JavaScript that lets you write HTML-like markup inside a JavaScript file.     
@@ -268,6 +269,7 @@ class Welcome extends React.Component {
 ```
 
 **React Hooks**     
+While React Components help to compose and reuse a piece of UI, React Hooks help to compose and reuse a non-visual logic.    
 Functions starting with `use` are called Hooks. `useState` and `useEffect` are built-in Hooks provided by React.       
 You can only call Hooks at the top of your components (or other Hooks).
 React 16.8.0 is the first release to support Hooks.      
