@@ -64,7 +64,15 @@ If you do not want to cache the response from fetch, you can do the following:
 ```jsx
 let data = await fetch('https://api.vercel.app/blog', { cache: 'no-store' });
 ```
+Client(browser) data fetching ways:     
+- useEffect alongside useState
+- SWR
+- React Query(TanStack Query)  
 
+Why not using the effect hook for data fetching?     
+- handle concurrent setup function execution
+    - > network responses may arrive in a different order than you sent them.
+- handle loading and error state
 ## References
 - [define route](https://nextjs.org/docs/app/building-your-application/routing/defining-routes)
 - [app router](https://nextjs.org/docs/app/building-your-application/routing)
