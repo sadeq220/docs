@@ -45,8 +45,8 @@ Server Components are a new type of Component that renders ahead of time, before
 > React Server Components allow you to write UI that can be rendered and optionally cached on the server.     
 
 we have two types of Server Components:     
-- Server Components without a WebServer(build time rendering)
-- Server Components with a WebServer
+- `Static Rendering`(render at build time): Server Components without a WebServer
+- `Dynamic Rendering`(render at request time): Server Components with a WebServer
 
 React Server Components can be an **async** function.    
 React Server Components can not use React Hooks and Web APIs(e.g. HTML event listeners).    
