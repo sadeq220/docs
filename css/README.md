@@ -16,6 +16,10 @@ Grid Layout is designed for two dimensions. `dispaly: grid`
 use Float to wrap an element with text.`float: left`    
 > A floated element is taken out of normal flow      
 > and the boxes of the following items actually run behind the float
+
+Positioning lets you fix an element position relative to the browser viewport, or other element.`position: fixed`     
+Absolute and fixed Positioning remove an element from the normal flow completely.     
 ### References
 - [building blocks of CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks)    
+- [CSS layout](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Introduction)
 - [CSS layout float](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Floats)
