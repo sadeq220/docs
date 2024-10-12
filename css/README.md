@@ -30,7 +30,9 @@ features to use when creating responsive sites:
   - To conditionally apply styles based on the specific characteristics of a given user agent
 - flexible grids
   - to specify columns' properties(e.g. column count, column width)
-
+- viewport units
+  - for responsive typography(font-size)
+  - `1vw` is equal to one percent of the viewport width
 ### References
 - [building blocks of CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks)    
 - [CSS layout](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Introduction)
