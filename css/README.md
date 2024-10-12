@@ -19,7 +19,20 @@ use Float to wrap an element with text.`float: left`
 
 Positioning lets you fix an element position relative to the browser viewport, or other element.`position: fixed`     
 Absolute and fixed Positioning remove an element from the normal flow completely.     
+
+### Responsive web design (RWD)
+> Responsive web design (RWD) is a web design approach to make web pages render well on all screen sizes and resolutions.
+
+Before RWD, this approach was called mobile web design, mobile web development, or sometimes, mobile-friendly design.    
+RWD is a `design approach` that contains best practices to create a layout that can respond to any device screen.    
+features to use when creating responsive sites:    
+- media query (@media)
+  - To conditionally apply styles based on the specific characteristics of a given user agent
+- flexible grids
+  - to specify columns' properties(e.g. column count, column width)
+
 ### References
 - [building blocks of CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks)    
 - [CSS layout](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Introduction)
 - [CSS layout float](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Floats)
+- [mozilla RWD](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design)
