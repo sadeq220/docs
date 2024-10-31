@@ -17,8 +17,26 @@ use Float to wrap an element with text.`float: left`
 > A floated element is taken out of normal flow      
 > and the boxes of the following items actually run behind the float
 
-Positioning lets you fix an element position relative to the browser viewport, or other element.`position: fixed`     
-Absolute and fixed Positioning remove an element from the normal flow completely.     
+Positioning lets you fix an element position relative to the browser viewport, or other element.      
+by default The element is positioned according to the Normal Flow of the document(`position: static`)      
+> The top, right, bottom, left, and z-index properties have no effect.
+
+Absolute and fixed Positioning remove an element from the normal flow completely.
+
+Relative Positioning:
+- remain in the normal flow
+- offset(`right`,`top`,`left`,`bottom`) a given amount from their normal position within the document, but without the offset affecting other elements
+
+Absolute Positioning:
+- is taken out of the normal flow
+- is positioned relative to its nearest positioned ancestor (i.e., the nearest ancestor that is not `static`)
+- span 100% of the width of our parent element, and tall as their child content
+
+Fixed Positioning:
+Fixed positioning is similar to absolute positioning, with the exception that element is positioned relative to the viewport.    
+> The element is positioned relative to its initial containing block, which is the viewport in the case of visual media.
+
+This can be used to create a "floating" element that stays in the same position regardless of scrolling.     
 
 ### Responsive web design (RWD)
 > Responsive web design (RWD) is a web design approach to make web pages render well on all screen sizes and resolutions.
@@ -37,4 +55,5 @@ features to use when creating responsive sites:
 - [building blocks of CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks)    
 - [CSS layout](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Introduction)
 - [CSS layout float](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Floats)
+- [CSS positioning](https://developer.mozilla.org/en-US/docs/Web/CSS/position)
 - [mozilla RWD](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design)
