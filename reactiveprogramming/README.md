@@ -183,6 +183,26 @@ In Netty server we have "ServerHttpRequest" and "ServerHttpResponse" instead of 
 Spring WebFlux, similarly to Spring MVC, is designed around the front controller pattern, where a central WebHandler, the `DispatcherHandler`, pass requests to delegate components.     
 Also in Netty we have org.springframework.web.server.`WebFilter` instead of jakarta.servlet.Filter, which spring-security relies on.      
 
+`HttpHandler`: basic contract for reactive http request handling, web servers(e.g. Netty) implement this interface  
+> Basic contract for HTTP request handling with non-blocking I/O and Reactive Streams back pressure.    
+
+```java
+public interface HttpHandler {
+    Mono<Void> handle(ServerHttpRequest request, ServerHttpResponse response);
+}
+```
+returned Mono completion signal represents end of http request processing.     
+
+`WebHandler`: provides web applications needed features, such as session, request attributes.    
+
+```java
+public interface WebHandler {
+	Mono<Void> handle(ServerWebExchange exchange);
+}
+```
+
+`WebHttpHandlerBuilder`: creates the chain of multiple WebExceptionHandler, multiple WebFilter, single WebHandler.    
+
 ---
 ## Vert.x tool-kit     
 Eclipse Vert.x is a tool-kit(collection of libraries) for building reactive applications on the JVM.     
