@@ -267,6 +267,7 @@ Reactive-functional programming is solving is concurrency and parallelism.
 - [Reactive Streams Specification](https://github.com/reactive-streams/reactive-streams-jvm/blob/v1.0.4/README.md#specification)
 - [Reactive manifesto](https://www.reactivemanifesto.org/)
 - [Spring WebFlux](https://docs.spring.io/spring-framework/reference/web/webflux/new-framework.html)
+- [Spring WebFlux Components](https://docs.spring.io/spring-framework/reference/web/webflux/reactive-spring.html)
 - [Vert.x In Action](https://www.manning.com/books/vertx-in-action)
 - [vertx website](https://vertx.io/)
 
