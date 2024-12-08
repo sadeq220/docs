@@ -9,6 +9,17 @@ One of main use cases of queue is `task distribution`:
 > The main idea behind Work Queues (aka: Task Queues) is to avoid doing a resource-intensive task immediately and having to wait for it to complete. Instead we schedule the task to be done later.     
 > We encapsulate a task as a message and send it to a queue.
 
+### event and message
+Message is a base pattern from Enterprise Integration Patterns.     
+A message consists of two basic parts: 
+- *Header*
+  - information used by the messaging system
+- *Body*
+  - transmitted as-is.
+An event represents an immutable fact about something that happened( an occurrence in Real World).     
+In Apache Kafka, Events are referred to as `records`. Records are modeled as a key / value pair with a timestamp and optional metadata (called headers).    
+> Event pattern is derived in part from Message, Event Message, and Document Message in Enterprise Integration Patterns.    
+
 ### event stream    
 Streaming data means a constant(continuous) flow of data,  Streaming data is processed in real-time as it’s delivered to a system.     
 Generally speaking, an Event Stream records the history of what has happened in the world as a sequence of events (think: a sequence of facts)     
@@ -109,6 +120,7 @@ and use ConsumerRebalanceListener with seek to make sure consumer starts reading
 ```
 ### References
 - [vmware event stream](https://tanzu.vmware.com/event-streaming)
+- [confluent event](https://developer.confluent.io/patterns/event/event/)
 - [confluent event stream](https://developer.confluent.io/patterns/event-stream/event-stream/)
 - [confluent kraft](https://developer.confluent.io/learn/kraft/)
 - kafka: The Definitive Guide 
