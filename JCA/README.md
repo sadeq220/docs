@@ -16,5 +16,12 @@ JCA packages:
 - Signature
 - KeyPairGenerator
 - KeyFactory
+
+`Cryptographic Service Providers`(CSP): implementation of one or more security services(algorithms)    
+Each JDK installation has one or more providers installed and configured by default. For example Sun, SunJSSE, SunJCE    
+Each CSP contains an Instance of "java.security.Provider" which contains the provider's name and lists all of the security services/algorithms it implements.       
+![](./JCA-provider.png)
+
+
 ### References
 - [Oracle JCA doc](https://docs.oracle.com/en/java/javase/11/security/java-cryptography-architecture-jca-reference-guide.html#GUID-2BCFDD85-D533-4E6C-8CE9-29990DEB0190)
