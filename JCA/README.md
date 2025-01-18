@@ -22,6 +22,21 @@ Each JDK installation has one or more providers installed and configured by defa
 Each CSP contains an Instance of "java.security.Provider" which contains the provider's name and lists all of the security services/algorithms it implements.       
 ![](./JCA-provider.png)
 
+`java.security.spec.KeySpec`: A marker interface, A (transparent) specification of the underlying key material.      
+for example PBEKeySpec contains   char[] password; byte[] salt = null; int iterationCount = 0; int keyLength = 0;    
+    and PBKDF2HMAC SecretKeyFactory uses it to generate SecretKey.      
+for example DSAKeySpec contains BigInteger x; BigInteger p; BigInteger q; BigInteger g;  
+    and DSA KeyFactory uses it to generate DSAPrivateKey(which only contains BigInteger X)    
 
+`java.security.Key`: The Key interface is the top-level interface for all keys.      
+It defines the functionality shared by all key objects. All keys have three characteristics     
+- String algorithm
+- byte[] encoded form
+  - The key is encoded according to a standard format (e.g. PKCS#8)
+- String format
+  - returns format that is used for encoding the key    
+  - for example the name of the ASN.1 data format for private keys is PrivateKeyInfo, as defined by the PKCS #8 standard.    
+
+`java.security.PrivateKey` and `javax.crypto.SecretKey` are extending this interface. 
 ### References
 - [Oracle JCA doc](https://docs.oracle.com/en/java/javase/11/security/java-cryptography-architecture-jca-reference-guide.html#GUID-2BCFDD85-D533-4E6C-8CE9-29990DEB0190)
