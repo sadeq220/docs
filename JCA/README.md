@@ -37,6 +37,25 @@ It defines the functionality shared by all key objects. All keys have three char
   - returns format that is used for encoding the key    
   - for example the name of the ASN.1 data format for private keys is PrivateKeyInfo, as defined by the PKCS #8 standard.    
 
-`java.security.PrivateKey` and `javax.crypto.SecretKey` are extending this interface. 
+`java.security.PrivateKey` and `javax.crypto.SecretKey` are extending this interface.    
+
+### Java Secure Socket Extension (JSSE)
+Implementation of TLS and DTLS    
+
+#### SSL Certificate     
+
+SSL certificate types:  
+- Single Domain SSL certificate
+- Wildcard SSL certificate
+- Multi-Domain SSL Certificates (MDC)
+
+
+SSL certificate validation level:   
+- Domain Validation(DV)
+- Organization Validation(OV)
+- Extended Validation(EV SSL)
+
+
 ### References
 - [Oracle JCA doc](https://docs.oracle.com/en/java/javase/11/security/java-cryptography-architecture-jca-reference-guide.html#GUID-2BCFDD85-D533-4E6C-8CE9-29990DEB0190)
+- [cloudflare types of SSL](https://www.cloudflare.com/learning/ssl/types-of-ssl-certificates/)
