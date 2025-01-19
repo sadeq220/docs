@@ -43,6 +43,7 @@ It defines the functionality shared by all key objects. All keys have three char
 Implementation of TLS and DTLS    
 
 #### SSL Certificate     
+Bind public key value to a subject     
 
 SSL certificate types:  
 - Single Domain SSL certificate
@@ -55,7 +56,15 @@ SSL certificate validation level:
 - Organization Validation(OV)
 - Extended Validation(EV SSL)
 
+X.509 v3 certificates:    
+X.509 defines a standard certificate format.    
+Certificates are data structures that bind public key values to subjects.   
+The binding is asserted by having a trusted CA digitally sign each certificate.    
+`Certification Path`: certificate chain, from end-entity certificate(certificate of the public key owner signed by one CA) to root CA    
+Self-signed certificates: are self-issued certificates where the digital signature may be verified by the public key bound into the certificate.     
+X.509 also defines `certificate revocation lists`    
 
 ### References
 - [Oracle JCA doc](https://docs.oracle.com/en/java/javase/11/security/java-cryptography-architecture-jca-reference-guide.html#GUID-2BCFDD85-D533-4E6C-8CE9-29990DEB0190)
 - [cloudflare types of SSL](https://www.cloudflare.com/learning/ssl/types-of-ssl-certificates/)
+- [RFC5280 X509 standard](https://www.rfc-editor.org/rfc/rfc5280)
