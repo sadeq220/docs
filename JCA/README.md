@@ -60,7 +60,7 @@ X.509 v3 certificates:
 X.509 defines a standard certificate format.    
 Certificates are data structures that bind public key values to subjects.   
 The binding is asserted by having a trusted CA digitally sign each certificate.    
-`Certification Path`: certificate chain, from end-entity certificate(certificate of the public key owner signed by one CA) to root CA    
+`Certification Path`: certificate chain, from end-entity certificate(certificate of the public key owner signed by one CA) to root CA certificate(trust anchor)    
 Self-signed certificates: are self-issued certificates where the digital signature may be verified by the public key bound into the certificate.     
 X.509 also defines `certificate revocation lists`    
 
