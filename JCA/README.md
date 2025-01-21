@@ -81,6 +81,26 @@ ASN.1 is analogous to schemaful formats such as : protobuf, thrift, avro.
 In the context of ASN.1 **encoding** and **serialization** are used interchangeably, and means to transform an object to a byte stream.    
 ASN.1’s main serialization format is “Distinguished Encoding Rules” (DER). They are a variant of “Basic Encoding Rules” (BER) with canonicalization added.     
 A `SEQUENCE` is equivalent to “struct” in most programming languages. It holds a fixed number of fields of different types.      
+
+ASN.1 Types:
+- INTEGER (MAX 126 byte in DER encoding)
+- string types:
+  - PrintableString
+  - UTF8String
+  - IA5String
+- byte stream types:
+  - BIT STRING
+  - OCTET STRING
+- date and time types:
+  - UTCTime (format as YYMMDDhhmm[ss])
+  - GeneralizedTime
+
+ASN.1 has a lot of string types, but     
+For the purposes of HTTPS certificates you mostly have to care about `PrintableString`, `UTF8String`, and `IA5String`.      
+PrintableString is a restricted subset of ASCII.    
+IA5String allows nearly any ASCII character, and is used for email address, DNS names, and URLs in certificates.     
+
+`BIT STRING` and `OCTET STRING` These can be used to hold unstructured data, like nonces or hash function output.
 Comments begin with `--`   
 ```asn.1
  Certificate  ::=  SEQUENCE  {
