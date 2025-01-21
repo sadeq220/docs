@@ -64,7 +64,54 @@ The binding is asserted by having a trusted CA digitally sign each certificate.
 Self-signed certificates: are self-issued certificates where the digital signature may be verified by the public key bound into the certificate.     
 X.509 also defines `certificate revocation lists`    
 
+**For signature calculation**, the data that is to be signed is encoded using the ASN.1 distinguished encoding rules (DER).        
+In the context of ASN.1 **encoding** and **serialization** are used interchangeably, and means to transform an object to a byte stream.    
+
+> An HTTPS certificate is a type of file, like any other file.     
+> Its contents follow a format defined by RFC 5280.      
+> The definitions are expressed in ASN.1, which is a language used to define file formats or (equivalently) data structures.    
+
+SSL certificate use ASN.1 1988 edition to encode data with its serialization format DER.    
+A certificate represented in DER is often further encoded into PEM, which uses base64 to encode arbitrary bytes as alphanumeric characters.
+#### ASN.1 and DER
+ASN.1 is a standard interface description language for defining data structures that can be serialized and deserialized in a cross-platform way.     
+The relevant standards are X.680 (defining the ASN.1 language, 1995 edition) and X.690 (defining the serialization formats DER and BER).    
+
+ASN.1 is analogous to schemaful formats such as : protobuf, thrift, avro.    
+In the context of ASN.1 **encoding** and **serialization** are used interchangeably, and means to transform an object to a byte stream.    
+ASN.1’s main serialization format is “Distinguished Encoding Rules” (DER). They are a variant of “Basic Encoding Rules” (BER) with canonicalization added.     
+A `SEQUENCE` is equivalent to “struct” in most programming languages. It holds a fixed number of fields of different types.      
+Comments begin with `--`   
+```asn.1
+ Certificate  ::=  SEQUENCE  {
+        tbsCertificate       TBSCertificate,
+        signatureAlgorithm   AlgorithmIdentifier,
+        signatureValue       BIT STRING  }
+
+   TBSCertificate  ::=  SEQUENCE  {
+        version         [0]  EXPLICIT Version DEFAULT v1,
+        serialNumber         CertificateSerialNumber,
+        signature            AlgorithmIdentifier,
+        issuer               Name,
+        validity             Validity,
+        subject              Name,
+        subjectPublicKeyInfo SubjectPublicKeyInfo,
+        issuerUniqueID  [1]  IMPLICIT UniqueIdentifier OPTIONAL,
+                             -- If present, version MUST be v2 or v3
+        subjectUniqueID [2]  IMPLICIT UniqueIdentifier OPTIONAL,
+                             -- If present, version MUST be v2 or v3
+        extensions      [3]  EXPLICIT Extensions OPTIONAL
+                             -- If present, version MUST be v3
+        }
+```
+BER is a `Type-Length-Value` encoding, just like Protocol Buffers and Thrift.      
+That means that, as you read bytes that are encoded with BER, first you encounter a type, called in ASN.1 a tag.     
+Type is a byte, or series of bytes, that tells you what type of thing is encoded: an INTEGER, or a UTF8String, or a structure, or whatever else.     
+Length: a number that tells you how many bytes of data you’re going to need to read in order to get the value.      
+Then, of course, comes the bytes containing the value itself.    
+
 ### References
 - [Oracle JCA doc](https://docs.oracle.com/en/java/javase/11/security/java-cryptography-architecture-jca-reference-guide.html#GUID-2BCFDD85-D533-4E6C-8CE9-29990DEB0190)
 - [cloudflare types of SSL](https://www.cloudflare.com/learning/ssl/types-of-ssl-certificates/)
 - [RFC5280 X509 standard](https://www.rfc-editor.org/rfc/rfc5280)
+- [lets encrypt ASN.1](https://letsencrypt.org/docs/a-warm-welcome-to-asn1-and-der/)
