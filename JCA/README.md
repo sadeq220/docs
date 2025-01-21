@@ -124,6 +124,8 @@ Comments begin with `--`
                              -- If present, version MUST be v3
         }
 ```
+The *signatureValue* field contains a digital signature computed upon the ASN.1 DER encoded *tbsCertificate*.     
+
 BER is a `Type-Length-Value` encoding, just like Protocol Buffers and Thrift.      
 That means that, as you read bytes that are encoded with BER, first you encounter a type, called in ASN.1 a tag.     
 Type is a byte, or series of bytes, that tells you what type of thing is encoded: an INTEGER, or a UTF8String, or a structure, or whatever else.     
