@@ -14,5 +14,11 @@ Vault allows you to store, manage, and retrieve secrets, generate on-demand cred
 `manage common PKI workflows`,     
 and encrypt data for applications in transit and at rest.     
 
+Vault use cases:    
+- Centralize and secure credentials(Passwords, API keys, ...)
+- Key Management System(Manage Private and secret keys' lifecycle)
+- Microservice platform config server
+- Data Encryption
+
 ### References
 - [hashicorp vault doc](https://developer.hashicorp.com/vault/docs/what-is-vault)
