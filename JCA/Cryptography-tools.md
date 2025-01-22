@@ -20,5 +20,26 @@ Vault use cases:
 - Microservice platform config server
 - Data Encryption
 
+##### Secrets Engines
+Secrets engines are components which store, generate, or encrypt data.     
+Some secrets engines simply store and read data - like encrypted Redis/Memcached.     
+Each secrets engine is isolated to its path.    
+for example KV secrets engine may be enabled at *kv/*
+```bash
+# to enable kv secrets engines at kv/ path
+$ vault secrets enable -path kv -version 2 kv
+```
+
+##### How works
+Clients use TLS to verify the identity of the server and to establish a secure communication channel.      
+Servers require that a client provides a client token for every request which is used to identify the client.     
+
+All server-to-server traffic between Vault instances within a cluster (i.e, high availability, enterprise replication or integrated storage)    
+uses mutually-authenticated TLS(mTLS)
+
+Vault uses a security barrier for all requests made to the storage backend.    
+The security barrier automatically encrypts all data leaving Vault using a 256-bit AES-GCM cipher with 96-bit nonces.     
+
 ### References
-- [hashicorp vault doc](https://developer.hashicorp.com/vault/docs/what-is-vault)
+- [hashicorp Vault doc](https://developer.hashicorp.com/vault/docs/what-is-vault)
+- [Vault secrets engines](https://developer.hashicorp.com/vault/docs/secrets)
