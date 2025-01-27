@@ -30,6 +30,55 @@ for example KV secrets engine may be enabled at *kv/*
 $ vault secrets enable -path kv -version 2 kv
 ```
 
+##### Authentication and Token
+> tokens are the core method for authentication within Vault,     
+> there is a token auth method (often referred to as token store).     
+> This is a special auth method responsible for creating and storing tokens.
+
+Tokens are the core method for authentication within Vault.    
+Tokens in Vault are analogous to Session-ID within web-app.     
+`Root tokens`: are tokens that have the root policy attached to them and can do anything in Vault. Anything.      
+In addition, they are the only type of token within Vault that can be set to never expire without any renewal needed.     
+
+Vault supports multiple auth methods including GitHub, LDAP, AppRole, and more. Upon authentication, a token is generated.        
+Most authentication backends must be enabled before use, for example to use user-pass authentication
+```sh
+vault auth enable --path=auth/userpass userpass
+```
+
+`The approle auth method` allows machines or apps to authenticate with Vault-defined roles.     
+This auth method is oriented to automated workflows (machines and services), and is less useful for human operators.      
+It is recommended using **batch tokens** with the AppRole auth method.    
+Auth methods must be configured in advance before users or machines can authenticate.    
+```sh
+# enable approle auth method
+vault auth enable approle    
+# create named role
+vault write auth/approle/role/<role-name> \
+    token_type=batch \
+    secret_id_ttl=10m \
+    token_ttl=20m \
+    token_max_ttl=30m \
+    token_policies=<policy-name> \
+    secret_id_num_uses=40
+
+```
+The approle auth method credentials include: `RoleID, SecretID`
+The RoleID is a required argument (via role_id) at all times.    
+
+Based on SecretID provision, approle authentication operates in two different mode: 
+- pull mode(recommended)
+  - If the SecretID used for login is fetched from an AppRole.
+  - final authenticating client retrieves SecretID by using Response Wrapping.
+- push mode(legacy)
+  - If a "custom" SecretID is set against an AppRole by the client
+
+```sh
+#To read RoleID
+$ vault read auth/approle/role/<role-name>/role-id
+#To read SecretID
+vault write -force auth/approle/role/<role-name>/secret-id
+```
 ##### How works
 Clients use TLS to verify the identity of the server and to establish a secure communication channel.      
 Servers require that a client provides a client token for every request which is used to identify the client.     
@@ -43,3 +92,5 @@ The security barrier automatically encrypts all data leaving Vault using a 256-b
 ### References
 - [hashicorp Vault doc](https://developer.hashicorp.com/vault/docs/what-is-vault)
 - [Vault secrets engines](https://developer.hashicorp.com/vault/docs/secrets)
+- [Vault appRole auth method](https://developer.hashicorp.com/vault/docs/auth/approle)
+- [Vault appRole setup](https://developer.hashicorp.com/vault/tutorials/auth-methods/approle)
