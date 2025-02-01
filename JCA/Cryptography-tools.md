@@ -76,9 +76,22 @@ Based on SecretID provision, approle authentication operates in two different mo
 ```sh
 #To read RoleID
 $ vault read auth/approle/role/<role-name>/role-id
-#To read SecretID
+#To read SecretID(push mode)
 vault write -force auth/approle/role/<role-name>/secret-id
 ```
+
+> The RoleID is similar to a username; therefore, you will get the same value for a given role.     
+> While SecretID is similar to a password that Vault will generate a new value every time you request it.
+
+Use `periodic tokens` if the token should never expire.    
+**Response wrap the SecretID**: instead of injecting a SecretID to the app, inject the token which wraps the SecretID     
+```sh
+#will return a wrapping_token that wraps the SecretID
+vault write -wrap-ttl=60s -force auth/approle/role/<role-name>/secret-id
+# to unwrap the wrapping_token
+VAULT_TOKEN=<wrapping_token> vault unwrap
+```
+![vault_appRole_pullMode](https://developer.hashicorp.com/_next/image?url=https%3A%2F%2Fcontent.hashicorp.com%2Fapi%2Fassets%3Fproduct%3Dtutorials%26version%3Dmain%26asset%3Dpublic%252Fimg%252Fvault-approle-workflow2.png%26width%3D934%26height%3D358&w=1080&q=75&dpl=dpl_51xHPhUfS8V8psmxZz4cyaQEQaWE) 
 ##### How works
 Clients use TLS to verify the identity of the server and to establish a secure communication channel.      
 Servers require that a client provides a client token for every request which is used to identify the client.     
