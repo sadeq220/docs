@@ -61,7 +61,15 @@ vault write auth/approle/role/<role-name> \
     token_max_ttl=30m \
     token_policies=<policy-name> \
     secret_id_num_uses=40
-
+# each token is associated with one or more policies 
+# vault policy authorize a client to operate in vault
+vault policy write user-management-policy user-management.hcl
+# user-management.hcl file includes
+#
+#path "kv/data/user-management/*" {
+#  capabilities = ["create", "read", "update", "delete", "list"]
+#}
+ 
 ```
 The approle auth method credentials include: `RoleID, SecretID`
 The RoleID is a required argument (via role_id) at all times.    
