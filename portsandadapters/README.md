@@ -20,14 +20,25 @@ This architecture utilizes two principal heuristics:
     - avoid complexities
     - provide clear and simple interface(API)
 
-This architecture depicts the application as a **closed area**. The closed area is a hexagon(chosen by Alister Cockburn).    
+This architecture depicts the application as a **closed area**. The closed area is a hexagon(chosen by Alister Cockburn).  
+### PORT
 The hexagon is the application core surrounded by ports(**interfaces**) which are facets of the hexagon.    
 Ports are the intention of a dialog, and should be described as **For verb<span style="color: yellow">ing</span> noun**.    
 Ports **establish a clear boundary** between application core and its dependencies on technical infrastructure.    
+An important thing to remark is that ports belong to the application.
 
-In this architecture there is a left-side and right-side ports. difference lies in where port is Dependency Injected. 
-- If port is dependency Injected into hexagon it is a right-side port(aka driven port).
-- If port is dependency Injected into adapters it is a left-side port(aka driver port).   
+In this architecture there is a left-side and right-side ports. difference lies in where port is implemented and Dependency Injected. 
+- Ports that are implemented by the adapters(aka driven port, required interfaces, Outbound port, right-side port).
+  - port is dependency Injected into the hexagon.
+- Ports that are implemented by the app itself(aka driver port, driving port, Inbound port, left-side port).
+  - port is dependency Injected into adapters
+
+### Adapter
+Each adapter represents a specific technology bridge. for example one adapter for restful api(controller), another adapter for automated testing(unit test class).    
+Actors interact with hexagon ports through adapters using a specific technology.      
+An adapter is a software component that allows a technology to interact with a port of the hexagon("the application").   
+
+![ports and adapters](portsAndAdapters.jpeg)   
 
 ### ACTOR
 Outside our software project there are services that our project(e.g. maven project) interacts with for example database service, SMTP service, or SPA(Single Page App)     
