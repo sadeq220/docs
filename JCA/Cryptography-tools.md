@@ -30,6 +30,16 @@ for example KV secrets engine may be enabled at *kv/*
 # to enable kv secrets engines at kv/ path
 $ vault secrets enable -path kv -version 2 kv
 ```
+To list directory at *kv/user-management*, vault uses `kv/metadata/user-management` path.    
+but to read node data (list of key/value) at *kv/user-management/ec*, vault uses `kv/data/user-management/ec` path.    
+```bash
+# to list a directory
+vault kv list /kv/user-management
+# to read node data
+vault kv get /kv/user-management/ec
+# to set or update data
+vault kv put /kv/user-management/properties firstKey=firstValue secondKey=secondValue
+```
 
 ##### Authentication and Token
 > tokens are the core method for authentication within Vault,     
