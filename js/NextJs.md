@@ -75,7 +75,9 @@ Why not using the effect hook for data fetching?
 - handle loading and error state
 
 ## React Query
-React Query is not a data fetching library. The best way to describe it is as an **async state manager** that is also acutely aware of the needs of server state.      
+React Query(TanStack Query) is more than a data fetching library, it makes **fetching**, **caching**, **synchronizing and updating server state** in your web applications a breeze.     
+The older docs describe it is as an **async state manager** that is also acutely aware of the needs of server state.      
+React Query uses Hierarchical Key/Value as a caching strategy.    
 > In React Query terms, stale is the opposite of fresh.      
 > As long as a query is considered fresh, data will only be delivered from the cache.       
 > And staleTime is what defines the time (in milliseconds) until a query is considered stale.     
@@ -86,7 +88,7 @@ If a query is stale, React Query will refetch the data and update the cache when
 `useQuery` will create a subscription.     
 ```tsx
 const {data} = useQuery({
-  queryKey: ['userData'],
+  queryKey: ['userData'], // used as cache key
   queryFn: () => fetch("URL").then(res => res.json())
 });
 ```
