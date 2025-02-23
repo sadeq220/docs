@@ -34,7 +34,13 @@ In this architecture there is a left-side and right-side ports. difference lies 
   - port is dependency Injected into adapters
 
 ### Adapter
-Each adapter represents a specific technology bridge. for example one adapter for restful api(controller), another adapter for automated testing(unit test class).    
+Each adapter represents a specific technology bridge.    
+for example inbound adapters(driver adapter):
+- Adapter for restful api(controller)
+- Adapter for automated testing(unit test class).
+for example outbound adapters(driven adapter):
+- JPA repository adapter(e.g. UserRepositoryJpaAdapter.java)
+- Kafka publisher adapter
 Actors interact with hexagon ports through adapters using a specific technology.      
 An adapter is a software component that allows a technology to interact with a port of the hexagon("the application").   
 
