@@ -64,10 +64,32 @@ we call these services `actors` and there are two types of actors based on who s
     └── Recipient(when info is only sent) 
 </pre>
 
+### Business Invariant
+A business invariant is a rule or constraint in a business domain that must always hold true.    
+Business invariants ensure that the business rules and policies are maintained, and that the business operates in a consistent and predictable manner.     
+They are typically **enforced by the domain model** and the business logic, and are considered a critical part of the domain-driven design process.    
+
+For example, in a bank account aggregate, an invariant could be that the balance must never be negative.      
+This constraint must always be maintained, no matter how many transactions are performed on the account.      
+By enforcing these invariants, the aggregate root helps to maintain the consistency of the aggregate and the overall system.    
+
+In other words: `domain model should never be in an inconsistent state`, and you should **enforce invariants**     
+You shouldn't use verify() method, instead put constraint checks in setter methods for example:     
+```java
+public void setFileName(String fileName) {
+        if (!StringUtils.hasText(fileName)){
+            throw new UserFileStoringRequestNotValidException("FN",null);
+        } else {
+            this.fileName = fileName;
+        }
+    }
+```
+
 ### References
 - [GOOS book](https://www.amazon.com/Growing-Object-Oriented-Software-Guided-Tests/dp/0321503627)
 - [Alister describing hexagonal architecture](https://www.youtube.com/watch?v=th4AgBcrEHA)
 - [summary of Dr. Alister speeches](https://jmgarridopaz.github.io/content/hexagonalarchitecture.html)
+- [DDD invariant](https://ddd-practitioners.com/home/glossary/business-invariant/)
 
 
 [^1]: Abstraction concept in OOP is described as 'Representing the essential features of something without including background or inessential detail' (object-oriented methods, Graham 1991),     
