@@ -93,7 +93,12 @@ React Query uses Hierarchical Key/Value as a caching strategy.
 
 By default, `staleTime` is 0.     
 When data "isStale: true" after re-render data is delivered straight from the cache then react-query resynchronizes in the background and updates the cache.      
-If a query is stale, React Query will refetch the data and update the cache when a trigger occurs.    
+Stale queries are refetched automatically in the background when:
+- New instances of the query mount(not just a component rerender)
+- The window is refocused
+- The network is reconnected
+- The query is optionally configured with a refetch interval
+ 
 `useQuery` will create a subscription.     
 ```tsx
 const {data} = useQuery({
