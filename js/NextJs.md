@@ -34,6 +34,14 @@ SSR is a part of the Pages router doc.
 If a page uses Server-side Rendering, the page HTML is generated on each request.    
 Component function props is populated by an async function called **getServerSideProps** which is invoked for every HTTP request.     
 
+## Static Site Generation(SSG)
+SSG is a part of Nextjs Pages router doc.     
+If a page uses Static Generation, the page HTML is generated at build time.       
+That means in production, the page HTML is generated when you run `next build`.       
+This HTML will then be reused on each request. It can be cached by a CDN.     
+
+Static Generation is not a good idea if you cannot pre-render a page ahead of a user's request.    
+
 ## Client-side Rendering (CSR)   
 CSR is a part of the Pages router doc.     
 > In Client-Side Rendering (CSR) with React, the browser downloads a minimal HTML page and the JavaScript needed for the page.        
@@ -41,12 +49,13 @@ CSR is a part of the Pages router doc.
 > When the application is first loaded, the user may notice a slight delay before they can see the full page, this is because the page isn't fully rendered until all the JavaScript is downloaded, parsed, and executed.    
 
 ## React Server Components     
-Server Components are a new type of Component that renders ahead of time, before bundling, in an environment separate from your client app or SSR server.     
+React Server Components are rendered in **server environment**, meaning its code is executed by node.js in contrast to browser.          
 > React Server Components allow you to write UI that can be rendered and optionally cached on the server.     
 
-we have two types of Server Components:     
-- `Static Rendering`(render at build time): Server Components without a WebServer
-- `Dynamic Rendering`(render at request time): Server Components with a WebServer
+There are three different server rendering strategies:     
+- `Static Rendering`(render at build time, SSG): Server Components without a WebServer
+- `Dynamic Rendering`(render at request time, SSR): Server Components with a WebServer
+- `Streaming`
 
 React Server Components can be an **async** function.    
 React Server Components can not use React Hooks and Web APIs(e.g. HTML event listeners).    
