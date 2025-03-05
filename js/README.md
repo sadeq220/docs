@@ -186,6 +186,25 @@ this file can make the subsequent installs similar to current one by using `npm 
 npm clean-install used in CI/CD context to achieve reproducible builds.    
 this file also helps npm to skip repeated metadata resolutions for previously-installed packages.    
 
+## Typescript
+TypeScript is a language that is a *typed superset of JavaScript*: JS syntax is therefore legal TS.    
+While JS is a dynamic type system, TS is a static type system.    
+> TypeScript is a “flavor” or “variant” of JavaScript.
+> TypeScript: A Static Type Checker
+> Detecting errors in code without running it is referred to as static checking.
+
+Therefore, Typescript helps to catch bugs (specifically TypeError) early in compile time.     
+Typescript has a compiler named `tsc` and it compiles *.ts and *.tsx files to *.js and *.jsx files accordingly.    
+Typescript utilizes `type annotation(using colon :)` to explicitly set a type.
+```ts
+interface Person{
+    name:string;
+    age:number;
+} 
+```
+By default, types are optional, inference takes the most lenient types, and there’s no checking for potentially null/undefined values.     
+Once your code is compiled, the resulting plain JS code has no type information.   
+
 ## JS bundling
 bundling in JS refers to: arranging and merging multiple JS files into a single unified JS file.     
 This process is important for browsers as it's not possible to initiate an HTTP request for every JS module.       
@@ -312,6 +331,8 @@ To stop synchronizing, the callback function may return a "clean up function".
 - [npm package-lock](https://docs.npmjs.com/cli/v10/configuring-npm/package-lock-json)
 - [js prototype](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes)
 - [webpack bundler github](https://github.com/webpack/webpack)
+- [typescript intro](https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html)
+- [typescript basics](https://www.typescriptlang.org/docs/handbook/2/basic-types.html)
 - [react legacy jsx](https://legacy.reactjs.org/docs/introducing-jsx.html)
 - [react jsx](https://react.dev/learn/writing-markup-with-jsx)
 - [react doc](https://react.dev/learn)
