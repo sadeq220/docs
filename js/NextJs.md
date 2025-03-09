@@ -34,6 +34,17 @@ SSR is a part of the Pages router doc.
 If a page uses Server-side Rendering, the page HTML is generated on each request.    
 Component function props is populated by an async function called **getServerSideProps** which is invoked for every HTTP request.     
 
+SSR, **series of blocking steps** :
+- First, all data for a given page is fetched on the server.
+- The server then renders the HTML for the page.
+- The HTML, CSS, and JavaScript for the page are sent to the client.
+- A non-interactive user interface is shown using the generated HTML, and CSS.
+- Finally, React hydrates the user interface to make it interactive.
+
+[SSR without streaming](./server-rendering-without-streaming-chart.avif)   
+
+Use `<Suspense>` component for Streaming Server Rendering    
+
 ## Static Site Generation(SSG)
 SSG is a part of Nextjs Pages router doc.     
 If a page uses Static Generation, the page HTML is generated at build time.       
@@ -115,6 +126,7 @@ queryClient.refetchQueries({queryKey: ['userData']});
 - [define route](https://nextjs.org/docs/app/building-your-application/routing/defining-routes)
 - [app router](https://nextjs.org/docs/app/building-your-application/routing)
 - [React Server Components](https://react.dev/reference/rsc/server-components)
+- [Next.js streaming and loading UI](https://nextjs.org/docs/app/building-your-application/routing/loading-ui-and-streaming)
 - [Next.js caching](https://nextjs.org/docs/app/building-your-application/data-fetching/fetching)
 - [React Query docs](https://ui.dev/c/query)
 - [react-query data-synchronization](https://ui.dev/c/query/data-synchronization)
