@@ -118,6 +118,16 @@ the consumer API allows you to call commitSync() and commitAsync() and pass a ma
 To ensure full compliance of the Consumer with Exactly-Once Semantics, it is essential to store the offset along with the processed data within a single atomic transaction.    
 and use ConsumerRebalanceListener with seek to make sure consumer starts reading records from the correct location.    
 ```
+
+**KRaft consensus protocol**      
+Apache Kafka Raft (KRaft) is the consensus protocol that was introduced in KIP-500 to remove Apache Kafka’s dependency on ZooKeeper for metadata management.     
+KRaft mode makes use of a new `quorum controller` service(A kafka broker which configured as a controller) in Kafka which replaces the previous controller and makes use of an event-based variant of the Raft consensus protocol.    
+`Quorum controllers` use the new KRaft protocol to ensure that metadata is accurately replicated across the quorum.     
+KRaft protocol is a variant of event-based Raft consensus protocol.    
+Raft implements consensus by a leader approach.     
+Raft achieves consensus via an elected leader. A server in a raft cluster is either a leader or a follower, and can be a candidate in the precise case of an election (leader unavailable).     
+![kraft](./KRaft-Diagram.jpg)
+
 ### References
 - [vmware event stream](https://tanzu.vmware.com/event-streaming)
 - [confluent event](https://developer.confluent.io/patterns/event/event/)
