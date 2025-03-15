@@ -38,6 +38,24 @@ Fixed positioning is similar to absolute positioning, with the exception that el
 
 This can be used to create a "floating" element that stays in the same position regardless of scrolling.     
 
+### CSS Cascade Layers
+For each CSS property applied to an element, there can only be one value.     
+To prioritize `CSS selectors` over one another, use CSS Cascade Layers.     
+CSS layers take precedence based on their order of introduction, regardless of where the layer definitions are placed.     
+```css
+@layer base,components, utilities;
+@layer scopedModule;
+
+@layer scopedModule {
+  .loader {
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+  }
+}
+```
+In the example above, CSS selectors defined in the *scopedModule* layer have the lowest priority.    
+
 ### Responsive web design (RWD)
 > Responsive web design (RWD) is a web design approach to make web pages render well on all screen sizes and resolutions.
 
@@ -56,4 +74,5 @@ features to use when creating responsive sites:
 - [CSS layout](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Introduction)
 - [CSS layout float](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Floats)
 - [CSS positioning](https://developer.mozilla.org/en-US/docs/Web/CSS/position)
+- [CSS cascade layers](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Cascade_layers)
 - [mozilla RWD](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design)
