@@ -2,7 +2,8 @@
 topics
 - ECMAScript
 - Node.js
-- JS prototype chain
+- JS object
+- JS prototype chain(Inheritance and the prototype chain)
 - JavaScript modules
 - npm packages and modules
 - package.json structure
@@ -12,7 +13,79 @@ topics
 ## Node.js
 Node.js is a JRE(JavaScript Runtime Environment), it embeds the V8(chrome JavaScript Engine)
 
-## JS prototype chain
+## JS object
+JS objects are associative arrays(Map) where property names are keys of the map and property values are values of the map.      
+According to **class-transformer** library doc    
+There are two types of objects in JS:    
+- plain object(literal object) 
+  - created using **object initializer/literal syntax**(properties enclosed in curly braces)
+- class instance
+  - created using `new` keyword
+  - defined using `constructor function` or `class` keyword
+
+Difference lies between method definition place,    
+in class instances methods are defined on the prototype object of the constructor
+hence **spread syntax** will not work on defined methods.
+
+plain(literal) object creation using object initializer(*{}*) example:    
+```JS
+// literal object creation using object initializer(object literal)
+const o={
+    //property definition example
+    a:"value",
+    b:1,
+    "c":"string literal property",
+    // method definition example
+    property: function (parameters) {
+        // this.a is accissable
+    },
+    property(parameters){ 
+        // equivalent to above function defintion
+    }
+}
+// spread syntax works in literal objects
+const spreaded={...o};
+spreaded.property();
+```
+
+Class Instance creation:
+```JS
+// constructor function example
+function Car(make, model, year) {
+  this.make = make;
+  this.model = model;
+  this.year = year;
+}
+Car.prototype.printCarProperties= function (){
+    console.log(`Car Model: ${this.model}, Car make: ${this.make}, Car year: ${this.year}`);
+}
+
+// class definition example
+class Car{
+  constructor(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+  }
+  printCarProperties(){
+    console.log(`Car Model: ${this.model}, Car make: ${this.make}, Car year: ${this.year}`);
+  }
+}
+
+// class instance creation
+const myCar = new Car("Eagle", "Talon TSi", 1993);
+
+// spread syntax won't work on defined methods in class instances
+const spreaded = {...myCar};
+spreaded.printCarProperties();//runtime error
+```
+All objects in JavaScript inherit from at least one other object.     
+Almost all objects in JavaScript ultimately inherit from `Object.prototype`     
+
+> Methods are typically defined on the prototype object of the constructor, 
+> so that all objects of the same type share the same method.
+
+## JS prototype chain(Inheritance and the prototype chain)
 > All objects in JavaScript inherit from at least one other object.       
 > The object being inherited from is known as the prototype,       
 > and the inherited properties can be found in the prototype object of the constructor.      
@@ -330,6 +403,8 @@ To stop synchronizing, the callback function may return a "clean up function".
 - [npm package json](https://docs.npmjs.com/creating-a-package-json-file)
 - [npm package-lock](https://docs.npmjs.com/cli/v10/configuring-npm/package-lock-json)
 - [js prototype](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes)
+- [JS objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_objects)
+- [class-transformer library](https://github.com/typestack/class-transformer)
 - [webpack bundler github](https://github.com/webpack/webpack)
 - [typescript intro](https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html)
 - [typescript basics](https://www.typescriptlang.org/docs/handbook/2/basic-types.html)
