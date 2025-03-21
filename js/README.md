@@ -19,6 +19,7 @@ According to **class-transformer** library doc
 There are two types of objects in JS:    
 - plain object(literal object) 
   - created using **object initializer/literal syntax**(properties enclosed in curly braces)
+  - instance of `Object`
 - class instance
   - created using `new` keyword
   - defined using `constructor function` or `class` keyword
