@@ -61,8 +61,41 @@ Bamboo agent will create new working directory(build directory) for every job wi
 
 </table>
 
+### Database DevOps
+To integrate database changes into CI/CD workflow, use database change as code.    
+Liquibase is a database schema change management solution, Treating database change as code.     
+Liquibase track database changes in specialized scripts: `changelog`(migration script)    
+Changelog file contains sequence of `changesets`    
+changeset is an atomic unit of change in changelog file.    
+When you want to modify your database, simply add a new changeset and specify its operation as a `Change Type`.    
+Your changelogs can be written in the SQL, XML, YAML, or JSON formats.    
+
+> Liquibase uses the DATABASECHANGELOG table to keep track of which changes it has already deployed.      
+> In Liquibase 4.27.0 and later, Liquibase also records additional migration information in the DATABASECHANGELOGHISTORY table.
+
+A sample changelog:   
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.29.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1744614839412-1" author="Sadeq Safdari">
+        <createTable tableName="breed">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_breed"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="breed_type_id" type="INT"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
+```
 ### References
 - [gitlab ci-cd doc](https://about.gitlab.com/topics/ci-cd/)
 - [redhat ci-cd doc](https://www.redhat.com/en/topics/devops/what-is-ci-cd)
 - [bamboo ci-cd doc](https://confluence.atlassian.com/bamboo/configuring-plans-289276853.html)
+- [liquibase doc](https://docs.liquibase.com/concepts/changelogs/home.html)
 - [GOOS book](https://www.amazon.com/Growing-Object-Oriented-Software-Guided-Tests/dp/0321503627)
