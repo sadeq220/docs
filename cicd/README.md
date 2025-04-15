@@ -93,9 +93,20 @@ A sample changelog:
     </changeSet>
 </databaseChangeLog>
 ```
+Liquibase is written by Java, you can install its CLI on your OS.     
+```bash
+dnf5 config-manager addrepo --from-repofile=https://repo.liquibase.com/repo-liquibase-com.repo
+```
+Changelog is the core of your Liquibase project,    
+It is recommended to have multiple changelog files and link them with *include* tag.    
+Log in changelog refers to `Log pattern`, described as append-only sequence of immutable changesets.     
+Therefor to update a changeset, you should write a new changeset instead of updating that changeset.    
+
+
 ### References
 - [gitlab ci-cd doc](https://about.gitlab.com/topics/ci-cd/)
 - [redhat ci-cd doc](https://www.redhat.com/en/topics/devops/what-is-ci-cd)
 - [bamboo ci-cd doc](https://confluence.atlassian.com/bamboo/configuring-plans-289276853.html)
-- [liquibase doc](https://docs.liquibase.com/concepts/changelogs/home.html)
+- [Liquibase doc](https://docs.liquibase.com/concepts/changelogs/home.html)
+- [Liquibase update changeset](https://www.liquibase.com/blog/dealing-with-changing-changesets)
 - [GOOS book](https://www.amazon.com/Growing-Object-Oriented-Software-Guided-Tests/dp/0321503627)
