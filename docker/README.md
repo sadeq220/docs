@@ -73,6 +73,16 @@ volumes:
   db_data:
 ```
 
+**Volume Backup**:
+To back up a Volume with archive files, you can use a temp container with that volume mounted as well as a bind mount.    
+```bash
+$VOLUME="replace with the name of your volume"
+# Backup:
+docker run --rm -v "${VOLUME}:/data" -v "${PWD}:/backup-dir" ubuntu tar cvzf /backup-dir/backup.tar.gz /data
+# Restore:
+docker run --rm -v "${VOLUME}:/data" -v "${PWD}:/backup-dir" ubuntu bash -c "rm -rf /data/{*,.*}; cd /data && tar xvzf /backup-dir/backup.tar.gz --strip 1"
+```
+
 ### Build with Docker   
 To build images automatically use the `Dockerfile` text file.
 You write the `Dockerfile` in a domain-specific language, called the Dockerfile syntax.   
