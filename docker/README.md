@@ -73,6 +73,9 @@ volumes:
   db_data:
 ```
 
+> Form K8s docs:
+> The technical definition of orchestration is execution of a defined workflow: first do A, then B, then C.
+
 **Volume Backup**:
 To back up a Volume with archive files, you can use a temp container with that volume mounted as well as a bind mount.    
 ```bash
@@ -82,6 +85,7 @@ docker run --rm -v "${VOLUME}:/data" -v "${PWD}:/backup-dir" ubuntu tar cvzf /ba
 # Restore:
 docker run --rm -v "${VOLUME}:/data" -v "${PWD}:/backup-dir" ubuntu bash -c "rm -rf /data/{*,.*}; cd /data && tar xvzf /backup-dir/backup.tar.gz --strip 1"
 ```
+You can also use `restic` to back up docker volumes.     
 
 ### Build with Docker   
 To build images automatically use the `Dockerfile` text file.
@@ -157,6 +161,7 @@ Before the docker CLI sends the context to the docker daemon, it looks for a fil
 - [docker ENTRYPOINT doc](https://docs.docker.com/reference/dockerfile/#entrypoint)
 - [docker storage driver](https://docs.docker.com/engine/storage/drivers/)
 - [docker compose file sample](https://github.com/docker/awesome-compose/blob/master/nextcloud-redis-mariadb/compose.yaml)
+- [docker volume backup](https://www.augmentedmind.de/2023/08/20/backup-docker-volumes/)
 - [redhat OCI doc](https://developers.redhat.com/blog/2018/02/22/container-terminology-practical-introduction#container)
 
 [^1]: The docker documents state "client-server architecture".
