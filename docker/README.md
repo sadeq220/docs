@@ -87,6 +87,11 @@ docker run --rm -v "${VOLUME}:/data" -v "${PWD}:/backup-dir" ubuntu bash -c "rm 
 ```
 You can also use `restic` to back up docker volumes.     
 
+> [!WARNING]
+> To prevent inconsistent state while backup RDBMS volumes, first lock db
+> for example to lock mariadb execute `FLUSH TABLES WITH READ LOCK`
+> and to reopen the db execute `UNLOCK TABLES`
+
 ### Build with Docker   
 To build images automatically use the `Dockerfile` text file.
 You write the `Dockerfile` in a domain-specific language, called the Dockerfile syntax.   
