@@ -1,6 +1,7 @@
 ## The Docker platform   
 Docker enables you to separate your applications from your infrastructure, so you can deliver software quickly.   
-Docker provides the ability to package and run an application in a loosely isolated environment called a container.  
+Docker provides the ability to package and run an application in a loosely isolated environment called a container.
+Use containers to prevent differences between OS libraries and environments.     
 Docker uses a **client-server model[^1]**. The Docker client talks to the Docker daemon, which creates and manage Docker objects, such as images, containers, networks, and volumes.   
 The Docker client and daemon communicate using a REST API, over UNIX sockets or a network interface. Another Docker client is Docker Compose, that lets you work with applications consisting of a set of containers.   
 Docker is written in the **Go programming language** and leverages the **Linux kernel namespaces and cgroups**.    
