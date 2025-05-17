@@ -395,6 +395,48 @@ To stop synchronizing, the callback function may return a "clean up function".
 > The Effect Hook, useEffect, adds the ability to perform side effects from a function component.        
 > It serves the same purpose as componentDidMount, componentDidUpdate, and componentWillUnmount in React classes, but unified into a single API.      
 
+**React Error Boundary**    
+Catching rendering errors with an error boundary     
+> By default, if your application throws an error during rendering, React will remove its UI from the screen.      
+> To prevent this, you can wrap a part of your UI into an error boundary.      
+> An error boundary is a special component that lets you display some fallback UI instead of the part that crashed—for example, an error message.
+
+Currently, you should use class component with two lifecycle methods: `static getDerivedStateFromError`, `componentDidCatch`     
+to implement error boundary component, but there is a library you can install 
+```shell
+npm install react-error-boundary
+```
+Error boundaries do not catch errors for:
+- Event handlers (learn more)
+- Asynchronous code (e.g. setTimeout or requestAnimationFrame callbacks)
+- Server side rendering
+- Errors thrown in the error boundary itself (rather than its children)
+
+Then to rise an error with TanStack query so that catching it with error boundary:    
+```ts
+function makeQueryClient() {
+  return new QueryClient({
+    defaultOptions: {
+      queries: {
+        // With SSR, we usually want to set some default staleTime
+        // above 0 to avoid refetching immediately on the client
+        staleTime: 60 * 1000,
+        throwOnError: (error) => {  // to throw errors on next rendering and handle it with `Error Boundaries`
+          // Only throw if it's a 401
+          return (error as any)?.response?.status == 401
+        }
+      },
+      mutations: {
+        throwOnError: (error) => {
+          return (error as any)?.response?.status === 401
+        }
+      }
+    },
+  });
+}
+```
+React Error Boundary acts like try/catch, but in JSX and catches its child components rendering errors.     
+
 ## References
 - [node.js modules support](https://nodejs.org/api/esm.html)
 - [node.js commonjs module](https://nodejs.org/api/modules.html)
@@ -417,6 +459,7 @@ To stop synchronizing, the callback function may return a "clean up function".
 - [react legacy hooks](https://legacy.reactjs.org/docs/hooks-overview.html)
 - [react state as a snapshot](https://react.dev/learn/state-as-a-snapshot)
 - [react escape hatches](https://react.dev/learn/escape-hatches)
+- [react error boundary](https://legacy.reactjs.org/docs/error-boundaries.html)
 - [js destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#Unpacking_fields_from_objects_passed_as_a_function_parameter)
 
 [1^]: The destructuring assignment syntax is a JavaScript expression that makes it possible     
