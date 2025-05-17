@@ -74,6 +74,11 @@ React Server Components can not use React Hooks and Web APIs(e.g. HTML event lis
 From Next.js 13 onward Any component which has 'use client' at the top of the file is identified as a Client Component.       
 If we don't specify that at the top of the file, the component in the file is considered a Server Component.     
 
+> By default, Server Components are automatically code split,     
+> and you can use streaming to progressively send pieces of UI from the server to the client.     
+> Lazy loading applies to Client Components.     
+> When using React.lazy() and Suspense, Client Components will be prerendered(SSR) by default.
+
 ## data fetching and caching
 basic server-side data fetch using the `fetch` API in an asynchronous React Server Component.
 > If you are not using any dynamic functions anywhere else in this route,       
