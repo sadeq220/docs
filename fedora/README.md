@@ -23,6 +23,13 @@ DNF package repositories reside in "/etc/yum.repos.d/" directory.
 dnf config-manager --add-repo <URL> 
 dnf repolist 
 ```
+What dnf command refers to in different Fedora versions:
+
+| Fedora version   | dnf command |
+|------------------|-------------|
+| 36-40(inclusive) | dnf-3       |
+| 41+              | dnf-5       |
+
 Third-party software repositories contains packages that are not officially affiliated by the fedora project(e.g. vlc).    
 **RPM Fusion** is the most commonly used third-party repository, to enable it:
 ```shell
@@ -85,10 +92,10 @@ rpm -q --list <package-name>
 ```
 To run commands on top of all packages in given repository
 ```shell
-dnf repository-packages <repo-id> <sub-command>
+dnf-3 repository-packages <repo-id> <sub-command>
 # sub-commands include: list, install, remove, info
 # for example to install all docker-ce repository packages
-dnf repository-packages docker-ce-stable install
+dnf-3 repository-packages docker-ce-stable install
 ```
 To install alternative package(and remove the old conflicting package)
 ```shell
