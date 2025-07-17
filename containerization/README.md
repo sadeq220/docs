@@ -11,6 +11,9 @@ Docker is written in the **Go programming language** and leverages the **Linux k
 - **Docker registries(image registry, container registry)**: stores Docker images. Docker Hub is a public registry that anyone can use, and Docker is configured to look for images on Docker Hub by default.You can even run your own private registry.
 #### Docker objects includes:   
 - **Image** : custom filesystem with metadata (e.g. environment variables , default command to run)
+  - series of filesystem layers with configuration file(c.i. aufs, overlay)[from k8s up and running book]
+  - > The first thing to remember is that files that are removed by subsequent layers in the system
+    > are actually still present in the images; they’re just inaccessible.
 - **Container** :  sandboxed process on an isolated filesystem
 - **Volume** : persistent data storage for containers
 - **Network**   
@@ -73,9 +76,16 @@ services:
 volumes:
   db_data:
 ```
+ports section refers to `port forwarding` configuration     
+between virtual network and Host network and complies with `Host:Container` form.    
 
-> Form K8s docs:
-> The technical definition of orchestration is execution of a defined workflow: first do A, then B, then C.
+**Optimize Image Size**:    
+1) Files that are removed by subsequent layers in the system are actually still present in the images; they’re just inaccessible.    
+2) Every time you change a layer, it changes every layer that comes after it.    
+3) Don't do the actual program compilation as part of the construction of the application container image.
+   1) It leaves all of the unnecessary development tools lying inside image.
+   2) To resolve this problem, Docker introduced `multistage builds`.
+
 
 **Volume Backup**:
 To back up a Volume with archive files, you can use a temp container with that volume mounted as well as a bind mount.    
@@ -169,5 +179,6 @@ Before the docker CLI sends the context to the docker daemon, it looks for a fil
 - [docker compose file sample](https://github.com/docker/awesome-compose/blob/master/nextcloud-redis-mariadb/compose.yaml)
 - [docker volume backup](https://www.augmentedmind.de/2023/08/20/backup-docker-volumes/)
 - [redhat OCI doc](https://developers.redhat.com/blog/2018/02/22/container-terminology-practical-introduction#container)
+- [kubernetes up and running book](https://www.amazon.co.uk/Kubernetes-Running-Dive-Future-Infrastructure/dp/1492046531)
 
 [^1]: The docker documents state "client-server architecture".

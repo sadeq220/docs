@@ -3,6 +3,10 @@ Kubernetes is an open source container orchestration engine for
 automating deployment, scaling, and management of containerized applications.     
 The open source project is hosted by the Cloud Native Computing Foundation (CNCF).     
 
+> Form K8s docs:
+> The technical definition of orchestration is execution of a defined workflow: first do A, then B, then C.
+
+
 K8S features:
 - immutable infrastructure
   - once an artifact is created in the system it does not change via user modifications
