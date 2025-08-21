@@ -75,7 +75,7 @@ Cloud-native applications are typically broken down into multiple, self-containe
 
 <img height="30%" width="40%" src="./cloudnative.png"/>
 
-### Distributed Systems
+### Distributed Systems( From Designing Data-Intensive Applications book)
 network of interconnected nodes is called distributed system.    
 By distributed systems, we are trying to achieve these goals:    
 - Reliability
@@ -127,7 +127,8 @@ Spring Cloud Stream allows us to abstract away the implementation details of the
 - [Martin Fowler, monolith-first strategy](https://martinfowler.com/bliki/MonolithFirst.html)
 - [Martin Fowler,don't start monolith](https://martinfowler.com/articles/dont-start-monolith.html)
 - [Martin Fowler component definition](https://martinfowler.com/bliki/SoftwareComponent.html)
-- [Marting Fowler architecture](https://martinfowler.com/architecture/)
+- [Martin Fowler architecture](https://martinfowler.com/architecture/)
+- [Designing Data-Intensive Applications book](https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/)
 
 [^1]: architectural style(aka architectural pattern): from Martin Fowler point of view architecture is an important design. and from microservice patterns book    
       an application’s architecture is its decomposition into parts (the elements) and the relationships (the relations) between those parts.    
