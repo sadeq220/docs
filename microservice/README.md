@@ -75,6 +75,24 @@ Cloud-native applications are typically broken down into multiple, self-containe
 
 <img height="30%" width="40%" src="./cloudnative.png"/>
 
+### Distributed Systems
+network of interconnected nodes is called distributed system.    
+By distributed systems, we are trying to achieve these goals:    
+- Reliability
+  - preventing a fault to become a failure(fault-tolerant/resilient)
+  - solution: replica/redundancy
+  - Fault-tolerant microservices adopt these patterns: circuit breaker, fallback, bulkhead
+- Scalability
+  - system’s ability to cope with increased load.
+  - In online systems, performance is typically measured as `response time` expressed in percentiles (e.g., the 50th percentile, or median, should be below 200ms).
+  - solution: horizontal scaling 
+- Maintainability
+  - codes should be understandable and easy to modify
+  - A software project mired in complexity is described as a `big ball of mud`
+  - solution: TDD, abstraction to hide complexity
+  - operability: making routine tasks easy.
+  - solution: monitoring, CI/CD
+
 ### API Gateway(Service Gateway,edge service)
 **Central entrypoint** to microservices' cluster.    
 central means that `cross-cutting service concerns` can be carried out in a single place without the    
