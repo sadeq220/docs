@@ -75,7 +75,7 @@ Cloud-native applications are typically broken down into multiple, self-containe
 
 <img height="30%" width="40%" src="./cloudnative.png"/>
 
-### Distributed Systems( From Designing Data-Intensive Applications book)
+### Distributed Systems (From Designing Data-Intensive Applications book)
 network of interconnected nodes is called distributed system.    
 By distributed systems, we are trying to achieve these goals:    
 - Reliability
@@ -92,6 +92,31 @@ By distributed systems, we are trying to achieve these goals:
   - solution: TDD, abstraction to hide complexity
   - operability: making routine tasks easy.
   - solution: monitoring, CI/CD
+
+### SQL or NoSQL (From Designing Data-Intensive Applications book)
+`Data models` determine how we think about the problem.    
+In Object-Oriented Programming we model **real-world problem concepts** in terms of Objects     
+ then it is object model(encapsulating both data (properties) and behavior (methods)).
+General-purpose data models:    
+- JSON or XML documents
+- tables in a relational database
+- graph model
+
+General-purpose data models are used to persist(store) the data.    
+*NoSQL* was originally intended simply as a catchy Twitter hashtag   
+ for a meetup on open source, distributed, nonrelational databases in 2009.    
+
+There are several driving forces behind the adoption of NoSQL databases, including:
+- A need for greater scalability than relational databases can easily achieve,      
+  including very large datasets or very high write throughput
+- Frustration with the restrictiveness of relational schemas, and a desire for a more
+  dynamic and expressive data model
+
+To implement one-to-many relationship in SQL we need to `normalize data`.     
+`Database normalization` is a relational design to structuring data in a way that      
+ reduces redundancy(duplicate data) and preserves data integrity,      
+ through a set of rules called **normal forms**.    
+
 
 ### API Gateway(Service Gateway,edge service)
 **Central entrypoint** to microservices' cluster.    
@@ -129,6 +154,7 @@ Spring Cloud Stream allows us to abstract away the implementation details of the
 - [Martin Fowler component definition](https://martinfowler.com/bliki/SoftwareComponent.html)
 - [Martin Fowler architecture](https://martinfowler.com/architecture/)
 - [Designing Data-Intensive Applications book](https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/)
+- [database normalization](https://www.digitalocean.com/community/tutorials/database-normalization#introduction)
 
 [^1]: architectural style(aka architectural pattern): from Martin Fowler point of view architecture is an important design. and from microservice patterns book    
       an application’s architecture is its decomposition into parts (the elements) and the relationships (the relations) between those parts.    
