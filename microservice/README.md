@@ -114,8 +114,20 @@ There are several driving forces behind the adoption of NoSQL databases, includi
 
 To implement one-to-many relationship in SQL we need to `normalize data`.     
 `Database normalization` is a relational design to structuring data in a way that      
- reduces redundancy(duplicate data) and preserves data integrity,      
+ reduces redundancy(duplicate data) and preserves data integrity(consistent data),      
  through a set of rules called **normal forms**.    
+In normalization, the data is divided into several tables linked together with *foreign keys*.   
+consistent data means an entity info should be the same on every place.     
+normal form rules:    
+- 1NF
+  - A column contains only An atomic, indivisible value(no lists, sets, or composite fields).
+  - Each row is unique (typically enforced by a primary key).
+- 2NF: complying with 1NF and also
+  - has no partial dependency. That is, all non-key attributes are fully dependent on a primary key.
+    by updating one entity, it shouldn't be necessary to update other entities(tables). 
+- 3NF: complying with 2NF and also
+  - no transitive dependencies
+
 
 
 ### API Gateway(Service Gateway,edge service)
