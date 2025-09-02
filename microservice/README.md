@@ -128,7 +128,29 @@ normal form rules:
 - 3NF: complying with 2NF and also
   - no transitive dependencies
 
+NoSQL refers to non-relational databases and consist of document-model, graph-model, key-value.   
 
+Document model advantages:    
+- schema flexibility
+  - arbitrary key and value can be persisted. then better `schema evolution`
+  - in relation model, A `migration script` should be written for schema change
+- better locality
+  - all the relevant information is in one place, and one query is sufficient.
+
+Document model drawbacks:
+- weak join support
+  - denormalized data(duplicate and inconsistent data possibility), duplicate data means hard updating.
+  - not acceptable with highly interconnected data(many-to-many relations)
+
+> For highly interconnected data, the document model is awkward, the relational model is acceptable,
+> and graph models are the most natural.
+
+> If data is split across multiple tables,
+> multiple index lookups are required to retrieve it all, 
+> which may require more disk seeks and take more time.
+
+
+**Relational model query optimizer**
 
 ### API Gateway(Service Gateway,edge service)
 **Central entrypoint** to microservices' cluster.    
