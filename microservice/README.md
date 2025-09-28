@@ -130,10 +130,11 @@ normal form rules:
 
 NoSQL refers to non-relational databases and consist of document-model, graph-model, key-value.   
 
-Document model advantages:    
+Document model(hierarchy model) advantages:    
 - schema flexibility
   - arbitrary key and value can be persisted. then better `schema evolution`
   - in relation model, A `migration script` should be written for schema change
+  - useful in Inheritance (Heterogeneous data--not same structure data) support
 - better locality
   - all the relevant information is in one place, and one query is sufficient.
 
@@ -141,6 +142,8 @@ Document model drawbacks:
 - weak join support
   - denormalized data(duplicate and inconsistent data possibility), duplicate data means hard updating.
   - not acceptable with highly interconnected data(many-to-many relations)
+- manual access path
+  - for arrays(one-to-many relation) specifying item index is annoying
 
 > For highly interconnected data, the document model is awkward, the relational model is acceptable,
 > and graph models are the most natural.
@@ -149,8 +152,25 @@ Document model drawbacks:
 > multiple index lookups are required to retrieve it all, 
 > which may require more disk seeks and take more time.
 
+**Relational Model**:     
+Relational model, lays out all the data in the open.    
+Due to `query optimizer` No complicated access paths to follow   
+query optimizer automatically make the  `access path`.
+> Query optimizers for relational databases are complicated beasts,     
+> and they have consumed many years of research and development effort
+
 
 **Relational model query optimizer**
+**Declarative vs Imperative approach**
+Declarative languages often lend themselves to parallel execution.    
+SQL is a declarative query language, therefore it is the responsibility of the Query optimizer to plan and execute it.    
+> Imperative code is very hard to parallelize across multiple cores and multiple machines,     
+> because it specifies instructions that must be performed in a particular order.     
+
+CSS also is a declarative language.       
+Basically Imperative approach defined as how to do job, whereas Declarative approach defined as defining the job itself.    
+for example iterating over list of items to find a specific item is an Imperative approach.    
+whereas requesting a specific item over list of items is a Declarative approach.   
 
 ### API Gateway(Service Gateway,edge service)
 **Central entrypoint** to microservices' cluster.    
