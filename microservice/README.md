@@ -80,6 +80,7 @@ network of interconnected nodes is called distributed system.
 By distributed systems, we are trying to achieve these goals:    
 - Reliability
   - preventing a fault to become a failure(fault-tolerant/resilient)
+    -  failure is a system malfunction e.g. in a WebService 5xx status code is a failure.    
   - solution: replica/redundancy
   - Fault-tolerant microservices adopt these patterns: circuit breaker, fallback, bulkhead
 - Scalability

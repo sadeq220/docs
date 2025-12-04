@@ -35,7 +35,9 @@ Until Java 8 classes in this package used **volatile variable** and a method wit
 ```
 boolean compareAndSet(expectedValue, updateValue);
 ```
-From Java 11 onwards, atomic classes used `VarHandle` instead of volatile variable.   
+From Java 9 onwards, atomic classes used `VarHandle` instead of volatile variable. successor to `sun.misc.Unsafe`.   
+VarHandle exposes all the low-level memory semantics (`volatile`, `opaque`, `acquire`, `release`, `CAS`, etc.).    
+**Memory ordering**: 
 Atomic operation is performed without interruption ("interruption" refers to the scenario where a thread performing an atomic operation is not preempted by another thread midway through the operation).   
 Atomic operations in single core-processor means disabling interrupts(by CPU instruction) to prevent context switch.
 

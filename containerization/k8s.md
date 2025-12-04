@@ -37,6 +37,33 @@ a declaration of the desired state of the world.
 The idea of storing declarative configuration in source control     
 is often referred to as `infrastructure as code`.    
 
+## Install and use K8S
+There are a few options to use K8S:    
+- Cloud provider SAS(e.g. Amazon EKS)
+- development minikube
+
+The official Kubernetes client is kubectl: a command-line tool for interacting with the Kubernetes API.     
+The first thing you can do is check the version of the cluster that you are running:
+```shell
+$ kubectl version
+```
+## concepts 
+Definition of some concepts:    
+- namespace
+  - to organize objects in the cluster.
+- pod
+- service
+- deployment
+
+## kube-system namespace
+Many of the components that make up the Kubernetes cluster are actually deployed using Kubernetes itself.     
+They reside in `kube-system` namespace.     
+For example some pods:    
+- kube-proxy
+  - is a reverse proxy to route traffic to load-balanced services
+  - must be on every K8S node
+- DNS server  
+  - provides naming and discovery for the services that are defined in the cluster.    
 
 ## References
 - [kubernetes](https://kubernetes.io/docs/home/)
