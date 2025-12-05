@@ -136,6 +136,11 @@ For example ES modules have `.mjs` extension, and CommonJs modules have `.cjs` e
 > Node.js has had this ability for a long time, and there are a number of JavaScript libraries and frameworks that enable module usage     
 > (for example, other CommonJS and AMD-based module systems like RequireJS, and more recently Webpack and Babel).
 
+> CommonJS and AMD are JavaScript module definition APIs that have different implementations,     
+> but both come from the same origins.
+> AMD is more suited for the browser, because it supports asynchronous loading of module dependencies.
+> RequireJS is an implementation of AMD, while at the same time trying to keep the spirit of CommonJS (mainly in the module identifiers).
+
 Node.js has two module systems: **CommonJS modules** and **ECMAScript modules**.      
 Calling require() always use the CommonJS module loader. Calling import() always use the ECMAScript module loader.     
 
