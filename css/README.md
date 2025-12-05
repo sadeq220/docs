@@ -42,6 +42,7 @@ This can be used to create a "floating" element that stays in the same position 
 For each CSS property applied to an element, there can only be one value.     
 To prioritize `CSS selectors` over one another, use CSS Cascade Layers.     
 CSS layers take precedence based on their order of introduction, regardless of where the layer definitions are placed.     
+As with declarations, the last layer to be listed will win if declarations are found in multiple layers.
 ```css
 @layer base,components, utilities;
 @layer scopedModule;
@@ -54,7 +55,7 @@ CSS layers take precedence based on their order of introduction, regardless of w
   }
 }
 ```
-In the example above, CSS selectors defined in the *scopedModule* layer have the lowest priority.    
+In the example above, CSS selectors defined in the *scopedModule* layer have the highest priority.    
 
 ### Responsive web design (RWD)
 > Responsive web design (RWD) is a web design approach to make web pages render well on all screen sizes and resolutions.
