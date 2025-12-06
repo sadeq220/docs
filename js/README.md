@@ -365,7 +365,16 @@ class Welcome extends React.Component {
   }
 }
 ```
+#### Purity: Components as formulas
+function purity refers to the concept that a function (or functional component)     
+should always return the same output for the same input without causing any side effects.    
 
+> In computer science (and especially the world of functional programming),   
+> a pure function is a function with the following characteristics:   
+> - It minds its own business. It does not change any objects or variables that existed before it was called.
+> - Same inputs, same output. Given the same inputs, a pure function should always return the same result.
+
+math formulas are good example of pure function.   
 **React Hooks**     
 While React Components help to compose and reuse a piece of UI, React Hooks help to compose and reuse a non-visual logic.    
 Functions starting with `use` are called Hooks. `useState` and `useEffect` are built-in Hooks provided by React.       
@@ -386,6 +395,7 @@ so any state change queues a new render.
 > Its props, event handlers, and local variables were all calculated using its state at the time of the render.     
 
 `useEffect`:     
+**client component to sync with other systems(like backend through fetch/xhr or browser API)**   
 let you “step outside” of React and synchronize your components with some external system.    
 > Effects have a different lifecycle from components.      
 > Components may mount, update, or unmount.     
@@ -399,6 +409,9 @@ To stop synchronizing, the callback function may return a "clean up function".
 
 > The Effect Hook, useEffect, adds the ability to perform side effects from a function component.        
 > It serves the same purpose as componentDidMount, componentDidUpdate, and componentWillUnmount in React classes, but unified into a single API.      
+
+
+Effects only run on the client. They don’t run during server rendering.
 
 **React Error Boundary**    
 Catching rendering errors with an error boundary     
