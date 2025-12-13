@@ -30,7 +30,24 @@ This includes the integration of observability tools into the DevOps toolchain, 
 - Kafka
 - OpenTelemetry
 
-### Metrics
+### Metrics, Logs, Traces
+Metrics, Logs, and Traces , plus events are types of `Telemetry data`, and are pillars of Observability.   
+- Log: timestamped text record
+- Trace: the breadcrumb trail a request leaves as it moves through a system
+  - the journey of a user transaction flow across different services
+  - helps with root cause analysis, and identifying bottlenecks
+- Metric: numerical measurement of a system, software, or application captured at runtime.
+  - quantity analysis of performance over time, and include things like CPU usage, request rate, error rate, response time, and memory utilization.
+  - helps with anomaly detection to things like capacity planning and SLA compliance monitoring
+
+### OpenTelemetry
+The open source observability framework that unifies data collection and standardizes telemetry data formats.   
+To send your telemetry data. you'll need a transmission protocol.     
+This could be HTTPS (or HTTP) for web apps,     
+MQTT for IoT devices,     
+or even specialized protocols such as OpenTelemetry (OTLP).    
+
 
 ### References
 - [redhat observability](https://www.redhat.com/en/topics/devops/what-is-observability)
+- [elasticsearch telemetry data](https://www.elastic.co/what-is/telemetry-data)
