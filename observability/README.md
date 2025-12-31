@@ -41,13 +41,28 @@ Metrics, Logs, and Traces , plus events are types of `Telemetry data`, and are p
   - helps with anomaly detection to things like capacity planning and SLA compliance monitoring
 
 ### OpenTelemetry
-The open source observability framework that unifies data collection and standardizes telemetry data formats.   
+The open source `observability framework` that unifies data collection and standardizes telemetry data formats.   
 To send your telemetry data. you'll need a transmission protocol.     
 This could be HTTPS (or HTTP) for web apps,     
 MQTT for IoT devices,     
 or even specialized protocols such as OpenTelemetry (OTLP).    
 
+To make a system observable, it must be **instrumented**. That is, the code must emit traces, metrics, or logs.      
+The instrumented data must then be sent to an observability backend(storage).    
+
+Using OpenTelemetry, you can instrument your code in two primary ways:    
+- Code-based solutions via official APIs and SDKs for most languages    
+- Zero-code solutions   
+
+Typically, zero-code instrumentation adds instrumentation for the libraries you’re using:   
+> Zero-code instrumentation adds the OpenTelemetry API and SDK capabilities to your application typically as an agent or agent-like installation.      
+> The specific mechanisms involved may differ by language, ranging from bytecode manipulation, monkey patching, or eBPF to inject calls to the OpenTelemetry API and SDK into your application.
+
+
+
+
 
 ### References
 - [redhat observability](https://www.redhat.com/en/topics/devops/what-is-observability)
 - [elasticsearch telemetry data](https://www.elastic.co/what-is/telemetry-data)
+- [OTel doc](https://opentelemetry.io/docs/)
