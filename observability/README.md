@@ -2,7 +2,7 @@
 Observability refers to the ability to monitor, measure, and understand the state of a system or application    
 by examining its outputs, logs, and performance metrics.        
 In modern software systems and cloud computing, observability plays an increasingly crucial role in ensuring the     
-`reliability(fault-tolerance patterns)`, `performance(response-time)`, `security(influx of requests)` of applications and infrastructure.     
+`reliability(fault-tolerance patterns, all functionalities work correctly)`, `performance(response-time)`, `security(influx of requests)` of applications and infrastructure.     
 Observability absorbs and extends classic monitoring systems and helps teams identify the root cause of issues.    
 
 Why Observability Matters?
@@ -37,6 +37,7 @@ Metrics, Logs, and Traces , plus events are types of `Telemetry data`, and are p
   - the journey of a user transaction flow across different services
   - helps with root cause analysis, and identifying bottlenecks
 - Metric: numerical measurement of a system, software, or application captured at runtime.
+  - aggregations over a period of time of numeric data.
   - quantity analysis of performance over time, and include things like CPU usage, request rate, error rate, response time, and memory utilization.
   - helps with anomaly detection to things like capacity planning and SLA compliance monitoring
 
@@ -58,6 +59,18 @@ Typically, zero-code instrumentation adds instrumentation for the libraries youâ
 > Zero-code instrumentation adds the OpenTelemetry API and SDK capabilities to your application typically as an agent or agent-like installation.      
 > The specific mechanisms involved may differ by language, ranging from bytecode manipulation, monkey patching, or eBPF to inject calls to the OpenTelemetry API and SDK into your application.
 
+Logs arenâ€™t enough for tracking code execution, as they usually lack contextual information, such as where they were called from.    
+**Span**:    
+Represents a unit of work or operation. Spans track specific operations that a request makes,     
+painting a picture of what happened during the time in which that operation was executed.    
+A span contains name, time-related data, structured log messages, and other metadata (that is, Attributes) to provide information about the operation it tracks.    
+**trace(correlation)**:
+A distributed trace, more commonly known as a trace,    
+records the paths taken by requests (made by an application or end-user) as they propagate through multi-service architectures, like microservice and serverless applications.    
+A trace is made of one or more spans. spans are building blocks of trace.     
+Without tracing, finding the root cause of performance problems in a distributed system can be challenging.   
+Many Observability backends visualize traces as waterfall diagrams that look like this:     
+![waterfall trace](./waterfall-trace.svg)
 
 
 
@@ -66,3 +79,4 @@ Typically, zero-code instrumentation adds instrumentation for the libraries youâ
 - [redhat observability](https://www.redhat.com/en/topics/devops/what-is-observability)
 - [elasticsearch telemetry data](https://www.elastic.co/what-is/telemetry-data)
 - [OTel doc](https://opentelemetry.io/docs/)
+- [OTel basic concepts](https://opentelemetry.io/docs/concepts/observability-primer/)
