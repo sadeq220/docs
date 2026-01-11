@@ -19,7 +19,7 @@ K8S features:
   - replica and load balancing 
 
 K8S facilitates both `declarative configuration` and automation, and provides `reliable, scalable distributed systems`.    
-K8S encourage principles of `immutable infrastructure`. In an immutable system, rather than a series of incremental updates     
+K8S encourage developers to adhere to the principles of `immutable infrastructure`. In an immutable system, rather than a series of incremental updates     
 and changes, an entirely new, complete image is built.    
 series of incremental updates example:    
 ```shell
@@ -36,7 +36,26 @@ a declaration of the desired state of the world.
 
 The idea of storing declarative configuration in source control     
 is often referred to as `infrastructure as code`.    
+The advantage of the *Infrastructure as code* is `easy rollbacking`.    
 
+## Scaling Development Teams with Microservices
+The ideal team size is the `two-pizza team`.   
+> As noted in a variety of research, the ideal team size is the “two-pizza team,” or   
+> roughly six to eight people. This group size often results in good knowledge sharing,   
+> fast decision making, and a common sense of purpose. Larger teams tend to suffer   
+> from issues of hierarchy, poor visibility, and infighting, which hinder agility and success.
+
+there is a tension between the ideal team size for    
+agility and the necessary team size for the product’s end goals.   
+The common solution to this tension has been the development of decoupled,    
+service-oriented teams that each build a single microservice.
+
+## Why to use k8s    
+k8s as container management engine and container orchestration API:
+- easy scaling due to declarative configs and discovery service
+- separation of concerns bwn machine operator and application operator by using API
+- economic benefit(efficiency) by utilizing each machine resource
+  - further increase in efficiency comes from the fact that a test env can be quickly and cheaply created in different namespace
 ## Install and use K8S
 There are a few options to use K8S:    
 - Cloud provider SAS(e.g. Amazon EKS)
