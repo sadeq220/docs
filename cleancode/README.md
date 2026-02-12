@@ -50,3 +50,36 @@ if (!hasPermission) return;
 doWork();
 
 ```
+
+### Abstract class as Template Method design pattern
+Interface should only define the public surface. And Abstract class should govern and control the rules and policies.    
+`protected` and `final` are true powers in Abstract classes to define policy/rule enforcements.    
+In a nutshell, Abstract class define a protocol. They can:   
+- Control method visibility
+- Enforce call order
+- Prevent misuse
+- Encode invariants
+
+```java
+public abstract class AbstractQuoteFetcher {
+    /**
+     * public accessible api
+     * compatible with DIP
+     */
+    public final QuoteValue fetch(Lead lead) {
+        doBefore(lead);
+        return doFetch(lead);
+    }
+
+    protected void doBefore(Lead lead) {
+        // shared logic (logging, validation, auth, metrics, etc.)
+    }
+
+    protected abstract QuoteValue doFetch(Lead lead);
+}
+```
+
+> Interfaces are for variation.     
+> Abstract classes are for invariants.    
+> Invariants are The parts of the system that must never change if the system is correct.
+
