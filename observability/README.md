@@ -10,8 +10,6 @@ Why Observability Matters?
 - the rise of `platform engineering(query metrics)` as a discipline    
 - the widespread adoption of microservices, and the growing reliance on distributed architectures.    
 
-Observability absorbs and extends classic monitoring systems and helps teams identify the root cause of issues.    
-
 Benefits of observability?    
 - Improved reliability 
 - Efficient troubleshooting
@@ -59,7 +57,16 @@ Typically, zero-code instrumentation adds instrumentation for the libraries you�
 > Zero-code instrumentation adds the OpenTelemetry API and SDK capabilities to your application typically as an agent or agent-like installation.      
 > The specific mechanisms involved may differ by language, ranging from bytecode manipulation, monkey patching, or eBPF to inject calls to the OpenTelemetry API and SDK into your application.
 
-Logs aren’t enough for tracking code execution, as they usually lack contextual information, such as where they were called from.    
+### Distributed tracing
+Distributed tracing lets you observe requests as they propagate through complex, distributed systems.
+Distributed tracing components:   
+- log
+- span
+- trace
+
+Logs aren’t enough for tracking code execution, as they usually lack contextual information, such as where they were called from.   
+They become far more useful when they are included as part of a span, or when they are correlated with a trace and a span.    
+
 **Span**:    
 Represents a unit of work or operation. Spans track specific operations that a request makes,     
 painting a picture of what happened during the time in which that operation was executed.    
