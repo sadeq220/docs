@@ -59,7 +59,7 @@ Typically, zero-code instrumentation adds instrumentation for the libraries you�
 
 ### Distributed tracing
 Distributed tracing lets you observe requests as they propagate through complex, distributed systems.
-Distributed tracing components:   
+Distributed tracing components(signal):   
 - log
 - span
 - trace
@@ -79,6 +79,13 @@ Without tracing, finding the root cause of performance problems in a distributed
 Many Observability backends visualize traces as waterfall diagrams that look like this:     
 ![waterfall trace](./waterfall-trace.svg)
 
+**context propagation**:    
+With context propagation, signals (traces, metrics, and logs) can be correlated with each other.     
+Propagation is the mechanism that moves context between services and processes.    
+Propagation is usually handled by *instrumentation libraries* and is transparent to the user.    
+**Example**:    
+The context (here: Trace ID and Span ID as “Parent ID”) is propagated using     
+the `traceparent` header as it is defined in the W3C TraceContext specification.
 
 
 
