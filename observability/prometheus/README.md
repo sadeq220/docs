@@ -38,3 +38,25 @@ In the TSDB, each unique combination is assigned a unique Series ID.
 
 **Sample**:   
 timestamp + value
+
+### 1. Counter: A Single Series
+A Counter is a scalar value. It generates exactly one time series per unique combination of labels.
+- Format: `metric_name{labels} value`
+- Goal: To track a single, ever-increasing total.
+- Analogy: A simple click-counter hand tool. Every time you click, the single number goes up.
+
+### 2. Summary: A Composite Metric (Multiple Series)
+A Summary is a complex object. It is designed to track two things at once:     
+How many events happened AND the total magnitude of those events. Because of this, even in its simplest form,     
+a Summary generates at least two linked time series:
+
+1.  `metric_name_count`: Tracks how many times the event occurred (behaves like a Counter).
+2.  `metric_name_sum`: Tracks the total sum of all observed values (e.g., total seconds spent).
+3.  `metric_name{quantile="0.95"}` (Optional): If you enable quantiles (percentiles), it generates even more series (one for each quantile you define).
+
+### Cumulative Counter
+metric types: summary, counter
+Prometheus uses "Cumulative Counters" because they are resilient to network issues.   
+- If Prometheus fails to scrape your app at 12:00:15 but succeeds at 12:00:30, it hasn't "lost" the data.
+- The `_sum` at 12:00:30 will still include everything that happened during the missed 15 seconds.
+- The `rate()` function will simply see a bigger jump between the two points and calculate the average correctly.
