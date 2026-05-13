@@ -23,6 +23,11 @@ DNF package repositories reside in "/etc/yum.repos.d/" directory.
 dnf config-manager --add-repo <URL> 
 dnf repolist 
 ```
+DNF uses systemd-timer named `dnf-makecache.timer` to update its cache, To disable it:
+```shell
+systemctl list-unit-files --type=timer --all
+systemctl disable --now dnf-makecache.timer
+```
 What dnf command refers to in different Fedora versions:
 
 | Fedora version   | dnf command |
@@ -83,6 +88,15 @@ rpm -q -f $(which command)
 To explore deliberately installed packages (not installed as a dependency)
 ```shell
 dnf repoquery --userinstalled 
+```
+To query a specific repo
+```shell
+# All scenario work around
+dnf --disablerepo='*' --enablerepo=<repository-id> <command>
+# To search in specific repo works in all DNF versions
+dnf repoquery --repo=<repoid> "pattern"
+# DNF-5 add --repo option to list,search subcommands
+dnf5 list --available --repo=<repoid>
 ```
 To display the list of files in a package(without installation):
 ```shell
