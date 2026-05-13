@@ -183,6 +183,51 @@ To get list of installed applications:
 ```shell
 flatpak list
 ```
+### Display server X, Wayland
+A display server is the software component that manages graphical output and input devices (keyboard, mouse) on your Linux system.    
+On Linux, the two main display servers are:
+- X11 (Xorg) - The legacy standard (1987)
+- Wayland - The modern replacement (2008)
+
+The display name (e.g., :0) is an identifier that tells applications which display server to connect to.    
+One display number = ONE display server process    
+```shell
+# Check what display you're using
+echo $DISPLAY          # Output: :0
+echo $XAUTHORITY       # show authentication cookie, should be same as display-server -auth option
+# Find the actual process
+ps aux | grep Xwayland
+# Output: /usr/bin/Xwayland :0 -auth /path/to/auth
+
+# See active display sockets
+ls /tmp/.X11-unix/
+# X0 = active display :0
+# X1 = stale/leftover socket or another display
+```
+You can have multiple displays running simultaneously (e.g., :0 for desktop, :1 for a sandboxed app)    
+##### X11 & XWayland Vulnerabilities: The Keylogging Problem
+X11 was designed for a different era (1980s-90s) when all applications were trusted.   
+It has no built-in isolation between applications.
+- Keylogging: Any X11 client can capture keystrokes from ANY other X11 client
+- Screen Capture: Can take screenshots of any window without permission
+- Input Injection: Can simulate keyboard/mouse actions in other windows
+- Window Control: Can move, resize, or close other application windows
+
+XWayland is an X11 server - it inherits ALL X11 vulnerabilities:
+Since X11 can't isolate apps natively, we need external sandboxes that create separate display servers.    
+```shell
+# Install firejail
+sudo dnf install firejail
+
+# Run Firefox in a sandbox with isolated X11 server
+firejail --x11 firefox
+
+# How it works:
+# 1. Firejail creates a new X server (e.g., on :1)
+# 2. Firefox connects to :1 (isolated from your :0 desktop)
+# 3. Firefox cannot see or spy on your other apps
+```
+
 ### grubby
 To switch between kernels, or change kernel command-line args this tool comes handy.    
 grubby changes `GRUB 2` bootloader config files.    
