@@ -112,7 +112,7 @@ Prometheus uses "Cumulative Counters" because they are resilient to network issu
 
 
 ### References
--[Prometheus Metric Types](https://prometheus.io/docs/concepts/metric_types/)
--[Prometheus Histogram and Summaries](https://prometheus.io/docs/practices/histograms/)
--[open metric](https://openmetrics.io/)
--[WIKI Histogram](https://en.wikipedia.org/wiki/Histogram)
+- [Prometheus Metric Types](https://prometheus.io/docs/concepts/metric_types/)
+- [Prometheus Histogram and Summaries](https://prometheus.io/docs/practices/histograms/)
+- [open metric](https://openmetrics.io/)
+- [WIKI Histogram](https://en.wikipedia.org/wiki/Histogram)
