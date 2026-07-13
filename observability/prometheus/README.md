@@ -14,13 +14,30 @@ you can't "click" on that spike to see the specific logs or traces associated wi
 You usually need Grafana to bridge that gap.
 
 ### OpenMetrics format
+*OpenMetric* It specifies the de-facto standard for transmitting cloud-native metrics at scale,     
+with support for both text representation and Protocol Buffers.    
 ```
 float64 value;
 EpochMillis timestamp;
 metric_name{label_name="label_value", ...} value timestamp
 prometheus_build_info{version="3.8.0", goversion="go1.25.4"} 1 1711050000
 ```
-**Label (Dimension)**:    
+
+Here is the sample text-based metrics, exposed by Spring Actuator at `/actuator/prometheus`:   
+```
+# HELP http_server_requests_active_seconds  
+# TYPE http_server_requests_active_seconds summary 
+http_server_requests_active_seconds_count{application="gateway",exception="none",method="GET",outcom
+e="SUCCESS",status="200",uri="UNKNOWN"} 1
+http_server_requests_active_seconds_sum{application="gateway",exception="none",method="GET",outcome=
+"SUCCESS",status="200",uri="UNKNOWN"} 0.012867914
+# HELP http_server_requests_active_seconds_max  
+# TYPE http_server_requests_active_seconds_max gauge
+http_server_requests_active_seconds_max{application="gateway",exception="none",method="GET",outcome=
+"SUCCESS",status="200",uri="UNKNOWN"} 0.012878955
+```
+
+**Label (Tag, Dimension)**:    
 a Label is a key-value pair attached to a metric.    
 Think of it as metadata that turns a single flat number into a multidimensional data point.   
 ##### Why call it a "Dimension"?
@@ -39,20 +56,52 @@ In the TSDB, each unique combination is assigned a unique Series ID.
 **Sample**:   
 timestamp + value
 
-### 1. Counter: A Single Series
+### Metric Types
+The Prometheus server does not yet make use of the type information and    
+flattens all types except native histograms into untyped time series of floating point values.   
+- Counter: Monotonically Increasing counter
+- Gauge: single numerical value that can arbitrarily go up and down.
+- Histogram: bucketed counter
+- Summary: like Histogram While it also provides a total count of observations and a sum of all observed values
+
+### Counter: A Single Series
 A Counter is a scalar value. It generates exactly one time series per unique combination of labels.
 - Format: `metric_name{labels} value`
 - Goal: To track a single, ever-increasing total.
 - Analogy: A simple click-counter hand tool. Every time you click, the single number goes up.
 
-### 2. Summary: A Composite Metric (Multiple Series)
+### Histogram: bucketed counter
+In Mathematics To construct a histogram, the first step is to "bucket" the range of values—    
+divide the entire range of values into a series of intervals—    
+and then count how many values fall into each interval.    
+![Histogram sample](./Black_cherry_tree_histogram.svg)
+
+Histograms exists in two fundamentally different versions: The more recent `native histograms` and the older `classic histograms`.    
+**If you can, use native histograms and prefer them over both classic histograms and summaries.**    
+A native histogram is exposed and ingested as composite samples, where each sample represents the count and sum of observations together with a dynamic set of buckets.   
+
+**First of all, check the instrumentation library support for histograms and summaries.**
+Summaries are usually supported by all libraries, Classic histogram support is also widespread, but native histogram support is still rare.    
+Currently, the latter requires exposition via the protobuf format, limiting the support to protobuf-enabled libraries, like the Java and the Go library.   
+support in a text-based format is underway as part of OpenMetrics v2.     
+Things should be moving very soon, so definitely check what your library has to offer.   
+
+> Histograms and summaries both record observations, typically request durations or response sizes.    
+> In all variants (even quantile-less summaries), they track the number of observations and the sum of the observed values,    
+> allowing you to calculate the average of the observed values.
+
+> In the case of a summary or a classic histogram,    
+> you have separate time series for the sum and count of observations,    
+> marked by the magic suffixes _sum and _count, respectively.
+
+### Summary: A Composite Metric (Multiple Series)
 A Summary is a complex object. It is designed to track two things at once:     
 How many events happened AND the total magnitude of those events. Because of this, even in its simplest form,     
-a Summary generates at least two linked time series:
+a Summary generates at least two linked time series with base-metric-name of *<basename>*:
 
-1.  `metric_name_count`: Tracks how many times the event occurred (behaves like a Counter).
-2.  `metric_name_sum`: Tracks the total sum of all observed values (e.g., total seconds spent).
-3.  `metric_name{quantile="0.95"}` (Optional): If you enable quantiles (percentiles), it generates even more series (one for each quantile you define).
+1.  `<basename>_count`: Tracks how many times the event occurred (behaves like a Counter).
+2.  `<basename>_sum`: Tracks the total sum of all observed values (e.g., total seconds spent).
+3.  `<basename>{quantile="0.95"}` (Optional): If you enable quantiles (percentiles), it generates even more series (one for each quantile you define).
 
 ### Cumulative Counter
 metric types: summary, counter
@@ -60,3 +109,10 @@ Prometheus uses "Cumulative Counters" because they are resilient to network issu
 - If Prometheus fails to scrape your app at 12:00:15 but succeeds at 12:00:30, it hasn't "lost" the data.
 - The `_sum` at 12:00:30 will still include everything that happened during the missed 15 seconds.
 - The `rate()` function will simply see a bigger jump between the two points and calculate the average correctly.
+
+
+### References
+-[Prometheus Metric Types](https://prometheus.io/docs/concepts/metric_types/)
+-[Prometheus Histogram and Summaries](https://prometheus.io/docs/practices/histograms/)
+-[open metric](https://openmetrics.io/)
+-[WIKI Histogram](https://en.wikipedia.org/wiki/Histogram)
