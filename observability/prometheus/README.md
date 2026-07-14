@@ -94,6 +94,21 @@ Things should be moving very soon, so definitely check what your library has to 
 > you have separate time series for the sum and count of observations,    
 > marked by the magic suffixes _sum and _count, respectively.
 
+For example, for observing request duration with three buckets  duration≤ 0.1s, ≤ 0.5s, ≤ 1s
+You would have following time series with Classic Histograms
+```
+# Three cumulative bucket time series
+http_requests_duration_seconds_bucket{le="0.1"} 42      # 42 requests ≤ 0.1s
+http_requests_duration_seconds_bucket{le="0.5"} 95      # 95 requests ≤ 0.5s (includes the 42)
+http_requests_duration_seconds_bucket{le="1.0"} 100     # 100 requests ≤ 1.0s
+
+# The _count series (counts all observation)
+http_requests_duration_seconds_count 100                # Total requests = 100
+
+# The _sum series (sum of all request durations in seconds)
+http_requests_duration_seconds_sum 37.5                 # Total duration of all requests
+```
+
 ### Summary: A Composite Metric (Multiple Series)
 A Summary is a complex object. It is designed to track two things at once:     
 How many events happened AND the total magnitude of those events. Because of this, even in its simplest form,     
@@ -102,6 +117,8 @@ a Summary generates at least two linked time series with base-metric-name of *<b
 1.  `<basename>_count`: Tracks how many times the event occurred (behaves like a Counter).
 2.  `<basename>_sum`: Tracks the total sum of all observed values (e.g., total seconds spent).
 3.  `<basename>{quantile="0.95"}` (Optional): If you enable quantiles (percentiles), it generates even more series (one for each quantile you define).
+
+!WARNING: quantile time series have performance cost, because they are calculated at Instrumented App
 
 ### Cumulative Counter
 metric types: summary, counter
