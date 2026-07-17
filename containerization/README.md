@@ -103,6 +103,26 @@ You can also use `restic` to back up docker volumes.
 > for example to lock mariadb execute `FLUSH TABLES WITH READ LOCK`
 > and to reopen the db execute `UNLOCK TABLES`
 
+### Docker Bridge as L2 Switch
+> Bridge is a device that connects two or more network segments and operates at the data link layer (Layer 2)    
+> of the OSI (Open Systems Interconnection) model.     
+> The purpose of a bridge is to filter and forward frames between different segments based on the destination MAC (Media Access Control) address.
+
+Docker default Network driver is `Bridge` and it is just like `L2 Switch`, it only learns `MAC-to-switchport`.    
+**how port publishing works?**    
+by `IP translation`(NAT: Network Address Translation)
+for example localhost:9000 should translate to 172.18.0.2:9000    
+well, it is managed in the host machine NAT table and a bunch of `docker-proxy` processes.  
+
+![docker bridge diagram](./assets/docker_bridge_l2_switch.svg)
+```shell
+# to list host machine NAT table rules using new nftables
+nft list table ip nat
+# or use its old equivalence
+iptables -t nat -L -n
+# to list docker-proxy processes in the host machine
+ps -f  -C docker-proxy
+```
 ### Build with Docker   
 To build images automatically use the `Dockerfile` text file.
 You write the `Dockerfile` in a domain-specific language, called the Dockerfile syntax.   
@@ -178,6 +198,7 @@ Before the docker CLI sends the context to the docker daemon, it looks for a fil
 - [docker storage driver](https://docs.docker.com/engine/storage/drivers/)
 - [docker compose file sample](https://github.com/docker/awesome-compose/blob/master/nextcloud-redis-mariadb/compose.yaml)
 - [docker volume backup](https://www.augmentedmind.de/2023/08/20/backup-docker-volumes/)
+- [Linux Ethernet bridging](https://docs.kernel.org/networking/bridge.html)
 - [redhat OCI doc](https://developers.redhat.com/blog/2018/02/22/container-terminology-practical-introduction#container)
 - [kubernetes up and running book](https://www.amazon.co.uk/Kubernetes-Running-Dive-Future-Infrastructure/dp/1492046531)
 
