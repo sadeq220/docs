@@ -1,6 +1,7 @@
 ## Fedora specific attributes    
 Fedora's major differences with Debian include:   
 - dnf package manager
+- fedora-third-party command
 - wheel group(instead of sudo group)
 - alternatives system(reimplementation of the Debian alternatives system)
 - Flatpak framework
@@ -171,6 +172,24 @@ dnf install bash-completion
 ```
 Installer places a script called `/etc/profile.d/bash_completion.sh`.     
 
+### fedora-third-party command
+Third-party software refers to packages and applications not included in the official Fedora repositories.    
+Third-party software can be installed through: 
+- Third-party repositories (e.g., RPM Fusion, Copr, or vendor-specific repositories) 
+- Container images (Flatpak, or Snap) 
+- Manual installation archives containing all dependencies (AppImage) 
+- Language package managers such as pip (Python), npm (Node.js), or Cargo (Rust) 
+- Compilation from source code (Third Party Software) 
+- Direct binary package download from vendor websites
+
+For example to install older Java versions on Fedora >44
+```bash
+ sudo dnf install adoptium-temurin-java-repository
+ sudo fedora-third-party enable # enable temurin repository in dnf
+ sudo fedora-third-part list # shows temurin repository
+ # now the older package are installable, search them via "temurin" keyword
+ dnf search temurin
+```
 ### Flatpak framework
 >Flatpak is a framework for distributing desktop applications across various Linux distributions.    
 
