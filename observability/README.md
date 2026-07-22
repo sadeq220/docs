@@ -71,6 +71,11 @@ They become far more useful when they are included as part of a span, or when th
 Represents a unit of work or operation. Spans track specific operations that a request makes,     
 painting a picture of what happened during the time in which that operation was executed.    
 A span contains name, time-related data, structured log messages, and other metadata (that is, Attributes) to provide information about the operation it tracks.    
+What data, A span includes?    
+- *start_time* and *end_time* denoting the beginning and end of the entire operation.    
+- *trace_id* and *span_id* and *parent_id* denoting the context.
+- *attributes* object carrying context info e.g. *user.id* key-value 
+
 **trace(correlation)**:
 A distributed trace, more commonly known as a trace,    
 records the paths taken by requests (made by an application or end-user) as they propagate through multi-service architectures, like microservice and serverless applications.    
@@ -87,7 +92,11 @@ Propagation is usually handled by *instrumentation libraries* and is transparent
 The context (here: Trace ID and Span ID as “Parent ID”) is propagated using     
 the `traceparent` header as it is defined in the W3C TraceContext specification.
 
-
+```
+traceparent: <version>-<trace-id>-<parent-id>-<trace-flags>
+#e.g.
+traceparent: 00-a0892f3577b34da6a3ce929d0e0e4736-f03067aa0ba902b7-01
+```
 
 ### References
 - [redhat observability](https://www.redhat.com/en/topics/devops/what-is-observability)
